@@ -1,0 +1,48 @@
+# Spinzo - Premium Laundry & Dry Cleaning Service in Bangalore
+
+Spinzo is a fast, premium, tech-enabled laundry and dry cleaning delivery service operating exclusively in South Bangalore, India.
+
+## Core Value Proposition
+- Instant booking via iOS App, Android App, and Web App.
+- 30-minute doorstep pickup guaranteed.
+- Fast turnaround with delivery within 6 hours.
+- Premium fabric care with multi-stage processing, stain treatment, and premium packaging.
+
+## Services Offered
+1. **Wash & Fold**: Daily wear, t-shirts, jeans, undergarments. Weighed by Kg.
+2. **Wash & Iron**: Professional washing combined with crisp steam ironing.
+3. **Steam Ironing**: Smooth, wrinkle-free finish for garments using advanced steam press.
+4. **Blanket & Quilt Wash**: Deep cleaning for heavy bed linens and warm wear.
+5. **Dry Cleaning**: Specialized care for suits, ethnic wear, silk, and delicate fabrics.
+
+## Service Areas (Bangalore)
+Spinzo primarily serves the following local areas in South Bangalore:
+- HSR Layout
+- BTM Layout
+- Koramangala
+- SG Palya
+- Wilson Garden
+- Bomanhalli
+- JP Nagar
+- Jayanagar
+- Indiranagar
+- Electronic City
+- Bellandur
+- Marathahalli
+
+## Official Links
+- **Website**: https://spinzonow.com
+- **Web App**: https://spinzo.in
+- **iOS App**: https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814
+- **Android App**: https://play.google.com/store/apps/details?id=com.nischayk3.Spinit
+- **Support Email**: business@spinzonow.com
+
+## Key FAQs
+**Q: How does Spinzo work?**
+A: Customers schedule a pickup via the app. Our delivery partner collects the clothes within 30 minutes. The clothes are professionally washed, dried, ironed, folded, and packaged. Customers can schedule their preferred delivery time once the clothes are ready (typically within 6 hours).
+
+**Q: Do you offer free pickup and delivery?**
+A: Yes, door-to-door pickup and delivery are included for all service areas in Bangalore.
+
+**Q: Can I use Spinzo without downloading the app?**
+A: Yes, we offer a fully functional web application accessible at spinzo.in for users who prefer to order from a desktop or mobile browser.
