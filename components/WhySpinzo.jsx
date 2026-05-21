@@ -1,99 +1,74 @@
 "use client";
-import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Package, Shirt, Star } from "lucide-react";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, ease: "easeOut" },
-};
+import { CountUp } from "./CountUp";
 
 const stats = [
   { icon: Package, value: 2000, suffix: "+", label: "Orders Completed" },
-  { icon: Shirt, value: 10000, suffix: "+", label: "Clothes Washed", formatted: "10,000" },
-  { icon: Star, value: 4.8, suffix: "", label: "Customer Rating", isDecimal: true, displaySuffix: "\u2605" },
+  { icon: Shirt, value: 10000, suffix: "+", label: "Clothes Freshly Cleaned", formatted: "10,000" },
+  { icon: Star, value: 4.8, suffix: "★", label: "Average Customer Rating", isDecimal: true },
 ];
 
-const Counter = ({ target, isDecimal, suffix, displaySuffix, formatted }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    const duration = 1500;
-    const steps = 40;
-    const increment = target / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        setCount(target);
-        clearInterval(timer);
-      } else {
-        setCount(isDecimal ? Math.round(current * 10) / 10 : Math.floor(current));
-      }
-    }, duration / steps);
-    return () => clearInterval(timer);
-  }, [isInView, target, isDecimal]);
-
-  const displayValue = isDecimal
-    ? count.toFixed(1)
-    : formatted && count >= target
-      ? formatted
-      : count.toLocaleString();
-
-  return (
-    <span ref={ref} className="text-4xl md:text-5xl font-extrabold text-slate-900 tabular-nums">
-      {displayValue}
-      {suffix}
-      {displaySuffix && <span className="text-[#994bff] ml-1">{displaySuffix}</span>}
-    </span>
-  );
+const cardVariants = {
+  offscreen: {
+    y: 50,
+    opacity: 0
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8
+    }
+  }
 };
 
 export const WhySpinzo = () => {
   return (
-    <section
-      id="why-spinzo"
-      data-testid="why-spinzo-section"
-      className="py-12 lg:py-24 relative"
-    >
+    <section id="why-spinzo" className="py-20 lg:py-28 bg-[#8B5CF6]/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <motion.div {...fadeUp} className="text-center mb-10 md:mb-16 max-w-2xl mx-auto">
-          <span className="text-sm font-medium uppercase tracking-widest text-[#994bff] mb-3 block">
-            Why Spinzo
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 md:mb-16 max-w-3xl mx-auto"
+        >
+          <span className="text-sm font-bold uppercase tracking-widest text-[#8B5CF6] mb-3 block font-sans">
+            Pure Trust, Pure Clean
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">
-            Why Spinzo
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 mb-4 font-display">
+            Why Bangalore Trusts Spinzo
           </h2>
-          <p className="text-base md:text-lg text-slate-500 leading-relaxed">
-            Trusted by customers across Bangalore
+          <p className="text-base md:text-lg text-zinc-700/80 leading-relaxed">
+            Our commitment to speed, quality, and customer satisfaction speaks for itself. Here are the numbers that make us proud.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              data-testid={`stat-card-${i}`}
-              className="text-center rounded-3xl bg-white p-10 border border-slate-100 hover:border-purple-100 hover:shadow-xl hover:shadow-purple-500/5 transition-all duration-300"
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.6 }}
+              variants={cardVariants}
+              transition={{ delay: i * 0.1 }}
+              className="text-center rounded-3xl bg-white/60 backdrop-blur-sm p-8 lg:p-10 border border-purple-100/50 shadow-lg shadow-purple-500/5 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/10 hover:border-white hover:-translate-y-2"
             >
-              <div className="w-14 h-14 rounded-2xl bg-brand-subtle flex items-center justify-center mx-auto mb-6">
-                <stat.icon size={28} className="text-[#994bff]" strokeWidth={1.5} />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center mx-auto mb-6 border border-white/50 shadow-inner-soft">
+                <stat.icon size={32} className="text-[#8B5CF6]" strokeWidth={1.5} />
               </div>
-              <Counter
-                target={stat.value}
-                isDecimal={stat.isDecimal}
-                suffix={stat.suffix}
-                displaySuffix={stat.displaySuffix}
-                formatted={stat.formatted}
-              />
-              <p className="text-slate-500 mt-3 font-medium">{stat.label}</p>
+              <p className="text-zinc-700 mt-3 font-medium text-base mb-2">{stat.label}</p>
+              <div className="text-5xl md:text-6xl font-bold text-zinc-900 tabular-nums">
+                <CountUp
+                  target={stat.value}
+                  isDecimal={stat.isDecimal}
+                />
+                <span className="text-[#8B5CF6] ml-1">{stat.suffix}</span>
+              </div>
             </motion.div>
           ))}
         </div>

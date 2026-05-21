@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
+import LenisProvider from "@/components/LenisProvider";
 import "./globals.css";
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -33,14 +34,15 @@ export const metadata = {
   },
 };
 
+
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
       className={`${jakartaSans.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
-        {children}
+      <body className="min-h-full flex flex-col font-sans bg-[var(--color-background)] text-[var(--color-text)]">
+        <LenisProvider>{children}</LenisProvider>
       </body>
     </html>
   );

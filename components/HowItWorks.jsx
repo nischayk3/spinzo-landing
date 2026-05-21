@@ -1,98 +1,132 @@
 "use client";
 import { motion } from "framer-motion";
-import step1 from "../assets/Step 1.png";
-import step2 from "../assets/Step 2.png";
-import step3 from "../assets/Step 3.png";
-
-const fadeUp = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, ease: "easeOut" },
-};
+import { Smartphone, Calendar, PackageCheck } from "lucide-react";
+import Image from 'next/image';
+import step1 from "../assets/Step 1.webp";
+import step2 from "../assets/Step 2.webp";
+import step3 from "../assets/Step 3.webp";
 
 const steps = [
   {
-    step: "01",
-    title: "Choose Your Service",
-    description:
-      "Browse services like Wash & Fold, Wash & Iron, Steam Ironing or Blanket Wash directly from the Spinzo home screen.",
+    icon: Smartphone,
+    title: "1. Choose Your Service",
+    description: "Tap into the app and select from Wash & Fold, Wash & Iron, or Steam Ironing.",
     image: step1,
-    objectPosition: "center 38%",
   },
   {
-    step: "02",
-    title: "Book Pickup Instantly",
-    description:
-      "Choose instant pickup or schedule it for later at your convenience directly from the app.",
+    icon: Calendar,
+    title: "2. Schedule Pickup",
+    description: "Pin your location, and a Spinzo pilot will be there in as little as 30 minutes.",
     image: step2,
-    objectPosition: "center 35%",
   },
   {
-    step: "03",
-    title: "Schedule Delivery When Ready",
-    description:
-      "Once your laundry is processed, you can schedule the delivery time directly from the app whenever it is convenient for you.",
+    icon: PackageCheck,
+    title: "3. Fresh Clothes Delivered",
+    description: "Track your order in real-time and get your fresh, clean clothes back in hours.",
     image: step3,
-    objectPosition: "center 32%",
   },
 ];
 
+const lineVariants = {
+  offscreen: {
+    height: 0
+  },
+  onscreen: {
+    height: "100%",
+    transition: {
+      duration: 2,
+      ease: "easeInOut"
+    }
+  }
+};
+
+const cardVariants = {
+  offscreen: {
+    x: (i) => i % 2 === 0 ? -50 : 50,
+    opacity: 0
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 0.8
+    }
+  }
+};
+
 export const HowItWorks = () => {
   return (
-    <section
-      id="how-it-works"
-      data-testid="how-it-works-section"
-      className="py-12 lg:py-24"
-    >
+    <section id="how-it-works" className="py-20 lg:py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <motion.div {...fadeUp} className="text-center mb-10 md:mb-16 max-w-2xl mx-auto">
-          <span className="text-sm font-medium uppercase tracking-widest text-[#994bff] mb-3 block">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 md:mb-20 max-w-3xl mx-auto"
+        >
+          <span className="text-sm font-bold uppercase tracking-widest text-[#8B5CF6] mb-3 block font-sans">
             How It Works
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
-            Book your laundry in 3 simple steps
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 mb-4 font-display">
+            Laundry Day, Reimagined
           </h2>
+          <p className="text-base md:text-lg text-zinc-700/80 leading-relaxed">
+            Experience a seamless laundry service from start to finish. In just three simple steps, your clothes are expertly cared for.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {steps.map((item, i) => (
-            <motion.div
-              key={item.step}
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              data-testid={`step-card-${i}`}
-              className="group rounded-3xl bg-white border border-slate-100 overflow-hidden hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-300"
-            >
-              {/* Image with overlaid step number */}
-              <div className="px-4 pt-4 relative">
-                {/* Step number badge */}
-                <div className="absolute top-6 left-6 z-10">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#994bff] text-white text-sm font-bold shadow-sm">
-                    {item.step}
-                  </span>
-                </div>
-                
-                <div className="relative w-full flex justify-center h-[280px]">
-                  <img
-                    src={typeof item.image === 'string' ? item.image : item.image.src}
-                    alt={item.title}
-                    className="max-h-full w-auto object-contain drop-shadow-md group-hover:scale-[1.03] transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
+        <div className="relative">
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2 top-0 w-1 bg-purple-100 rounded-full"
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={lineVariants}
+          />
 
-              {/* Text content */}
-              <div className="px-6 pt-6 pb-8 text-center">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-slate-500 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            </motion.div>
+          {steps.map((step, i) => (
+            <div key={i} className="flex justify-center mb-12 last-of-type:mb-0">
+              <motion.div
+                className="w-full max-w-2xl"
+                custom={i}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={cardVariants}
+              >
+                <div
+                  className={`flex items-center gap-8 flex-col ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                  <div className="w-full md:w-1/2 p-6 bg-white/70 backdrop-blur-sm border border-purple-100/60 rounded-3xl shadow-lg shadow-purple-500/5">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center border border-white/50 shadow-inner-soft">
+                        <step.icon className="w-6 h-6 text-[#8B5CF6]" />
+                      </div>
+                      <h3 className="text-xl font-bold text-zinc-900 font-display">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-zinc-700 text-sm leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                  <div className="w-full md:w-1/2 relative h-64 md:h-auto md:aspect-square flex items-center justify-center">
+                     <div className="absolute z-0 inset-0 bg-purple-50/50 rounded-3xl transform-gpu rotate-6 scale-105" />
+                     <div className="w-48 md:w-56 h-auto relative z-10">
+                        <Image
+                            src={step.image}
+                            alt={step.title}
+                            width={220}
+                            height={440}
+                            className="object-contain drop-shadow-2xl"
+                        />
+                     </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           ))}
         </div>
       </div>

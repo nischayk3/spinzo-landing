@@ -1,7 +1,9 @@
 "use client";
-import step1 from "../assets/Step 1.png";
-import step2 from "../assets/Step 2.png";
-import step3 from "../assets/Step 3.png";
+// Optimized with next/image to fix hydration and LCP performance v2
+import Image from "next/image";
+import step1 from "../assets/Step 1.webp";
+import step2 from "../assets/Step 2.webp";
+import step3 from "../assets/Step 3.webp";
 
 export const PhoneMockup = () => {
   return (
@@ -13,9 +15,15 @@ export const PhoneMockup = () => {
         data-testid="phone-left"
       >
         <div className="w-[180px]">
-          <img
-            src={step2.src}
+          <Image
+            src={step2}
             alt="Schedule Pickup"
+            placeholder="blur"
+            loading="lazy"
+            width={1024}
+            height={1536}
+            decoding="async"
+            data-nimg="1"
             className="w-full h-auto drop-shadow-xl"
           />
         </div>
@@ -24,9 +32,16 @@ export const PhoneMockup = () => {
       {/* Center phone - straight, front */}
       <div className="absolute left-1/2 top-0 z-30" data-testid="phone-center" style={{ transform: "translateX(-50%) scale(1.1)" }}>
         <div className="w-[210px]">
-          <img
-            src={step1.src}
+          <Image
+            src={step1}
             alt="Spinzo Home"
+            priority
+            placeholder="blur"
+            loading="eager"
+            width={1024}
+            height={1536}
+            decoding="async"
+            data-nimg="1"
             className="w-full h-auto drop-shadow-2xl"
           />
         </div>
@@ -39,9 +54,15 @@ export const PhoneMockup = () => {
         data-testid="phone-right"
       >
         <div className="w-[180px]">
-          <img
-            src={step3.src}
+          <Image
+            src={step3}
             alt="Order Tracking"
+            placeholder="blur"
+            loading="lazy"
+            width={1024}
+            height={1536}
+            decoding="async"
+            data-nimg="1"
             className="w-full h-auto drop-shadow-xl"
           />
         </div>

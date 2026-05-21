@@ -3,7 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { WhySpinzo } from "@/components/WhySpinzo";
 import { Services } from "@/components/Services";
 import { HowItWorks } from "@/components/HowItWorks";
-import { QuickCommerce } from "@/components/QuickCommerce";
+import { OurProcess } from "@/components/OurProcess";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -136,7 +136,7 @@ export default async function LocationPage({ params }) {
       <WhySpinzo />
       <Services />
       <HowItWorks />
-      <QuickCommerce />
+      <OurProcess />
       <Testimonials />
       <FAQ customFaqs={localFaqs} />
       <FinalCTA />

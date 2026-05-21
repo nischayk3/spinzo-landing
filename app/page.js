@@ -3,21 +3,21 @@ import { HeroSection } from "@/components/HeroSection";
 import { WhySpinzo } from "@/components/WhySpinzo";
 import { Services } from "@/components/Services";
 import { HowItWorks } from "@/components/HowItWorks";
-import { QuickCommerce } from "@/components/QuickCommerce";
+import { OurProcess } from "@/components/OurProcess";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
-  // Top-level LocalBusiness JSON-LD schema
+  // Re-render trigger - force recompilation for image update v2
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'LaundryService'],
     name: 'Spinzo Laundry Bangalore',
-    image: 'https://spinzonow.com/SpinZo.png', 
+    image: 'https://spinzonow.com/SpinZo.png',
     url: 'https://spinzonow.com',
-    telephone: '+919876543210', 
+    telephone: '+919876543210',
     priceRange: '₹₹',
     areaServed: {
       '@type': 'City',
@@ -27,20 +27,22 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[var(--color-background)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <HeroSection />
-      <WhySpinzo />
-      <Services />
-      <HowItWorks />
-      <QuickCommerce />
-      <Testimonials />
-      <FAQ />
-      <FinalCTA />
+      <main>
+        <HeroSection />
+        <WhySpinzo />
+        <Services />
+        <HowItWorks />
+        <OurProcess />
+        <Testimonials />
+        <FAQ />
+        <FinalCTA />
+      </main>
       <Footer />
     </div>
   );
