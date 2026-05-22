@@ -9,7 +9,8 @@ const faqs = [
   { question: "How are my clothes handled?", answer: "Each garment goes through a meticulous process of tagging, stain treatment, professional washing, drying, ironing, and quality checks, ensuring premium care." },
   { question: "Which areas does Spinzo serve?", answer: "We currently serve HSR Layout, BTM Layout, Koramangala, and surrounding areas. We are rapidly expanding across Bangalore." },
   { question: "What if my clothes get damaged?", answer: "While extremely rare, we have a comprehensive policy for handling any issues. Your satisfaction is our absolute priority." },
-  { question: "How is pricing determined for Wash & Fold?", answer: "Your laundry is weighed using a digital scale at pickup. The final price is transparently calculated based on the total weight." },
+  { question: "How does pickup work?", answer: "Our delivery partner arrives with a pickup laundry bag and a portable weighing scale for a smooth doorstep pickup experience. You don't need to arrange any separate bag or packaging." },
+  { question: "Can I include innerwear in Wash & Fold or Wash & Iron?", answer: "Yes, absolutely. Innerwear can be included in both Wash & Fold and Wash & Iron services. All garments are handled hygienically with proper washing and separate care standards." },
   { question: "What is the weekend turnaround time for steam ironing?", answer: "For orders placed on Saturday and Sunday, steam ironing and processing may take up to 48 hours due to higher demand. We ensure every garment receives premium care." },
   { question: "Do you deliver on Saturdays and Sundays?", answer: "Yes, we collect and deliver on weekends! However, please note that steam ironing services booked on Saturday or Sunday may require up to 48 hours for processing and delivery." },
 ];

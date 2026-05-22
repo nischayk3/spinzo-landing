@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Droplet, Shirt, Wind } from "lucide-react";
+import { Droplet, Shirt, Wind, Bed } from "lucide-react";
 import Image from 'next/image';
 
 // Re-using images from the previous implementation, assuming they are in public folder
@@ -11,7 +11,6 @@ const serviceData = {
     title: "Wash & Fold",
     displayTitle: ["Wash &", "Fold"],
     description: "Perfect for your everyday laundry needs. We wash, dry, and fold with care.",
-    price: "₹85 / kg",
     image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&q=80&w=800",
   },
   "wash-iron": {
@@ -19,16 +18,21 @@ const serviceData = {
     title: "Wash & Iron",
     displayTitle: ["Wash &", "Iron"],
     description: "Get your clothes washed, ironed, and returned to you crisp and ready to wear.",
-    price: "₹120 / kg",
     image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=800",
   },
   "steam-iron": {
     icon: Wind,
-    title: "Steam Ironing",
-    displayTitle: ["Steam", "Ironing"],
+    title: "Steam Iron",
+    displayTitle: ["Steam", "Iron"],
     description: "Professional steam ironing to remove creases from your garments, keeping them crisp, fresh, and ready to wear.",
-    price: "₹15 / kg",
     image: "https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&q=80&w=800",
+  },
+  "blanket-wash": {
+    icon: Bed,
+    title: "Blanket Wash",
+    displayTitle: ["Blanket", "Wash"],
+    description: "Specialized cleaning for blankets, comforters, and quilts with gentle yet thorough care.",
+    image: "/blanket-wash.png",
   },
 };
 
@@ -59,30 +63,31 @@ export const Services = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="flex justify-center mb-10">
-            <div className="flex items-center gap-2 bg-white/70 backdrop-blur-sm p-2 rounded-full shadow-inner-soft-md border border-white/50">
+        <div className="max-w-4xl mx-auto px-2 sm:px-0">
+          <div className="flex justify-center mb-10 w-full">
+            <div className="grid grid-cols-4 gap-1 p-1 bg-white/80 backdrop-blur-md rounded-xl border border-zinc-200/50 shadow-sm w-full md:flex md:items-center md:gap-1.5 md:p-1.5 md:rounded-full md:w-auto md:max-w-max">
               {Object.keys(serviceData).map((key) => {
                 const IconComponent = serviceData[key].icon;
                 return (
                   <button
                     key={key}
                     onClick={() => setActiveTab(key)}
-                    className={`relative px-4 py-2.5 text-sm font-semibold rounded-full transition-colors duration-300 ${activeTab === key ? "text-white" : "text-zinc-700 hover:bg-white/50"}`}
+                    className={`relative flex items-center justify-center gap-1.5 py-2.5 px-1 text-[10px] min-[360px]:text-[11px] min-[390px]:text-xs sm:text-sm font-semibold rounded-lg md:rounded-full transition-all duration-300 select-none whitespace-nowrap ${
+                      activeTab === key
+                        ? "text-white"
+                        : "text-zinc-600 hover:text-zinc-900 hover:bg-white/50"
+                    }`}
                   >
                     {activeTab === key && (
                       <motion.div
                         layoutId="active-service-pill"
-                        className="absolute inset-0 bg-[#8B5CF6] rounded-full shadow-md shadow-purple-500/20"
+                        className="absolute inset-0 bg-[#8B5CF6] rounded-lg md:rounded-full shadow-lg shadow-purple-500/20"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
-                    <span className="relative z-10 flex items-center gap-2 text-left">
-                      <IconComponent size={16} className="shrink-0" />
-                      <span className="flex flex-col text-left leading-tight">
-                        <span>{serviceData[key].displayTitle[0]}</span>
-                        <span>{serviceData[key].displayTitle[1]}</span>
-                      </span>
+                    <span className="relative z-10 flex items-center gap-1">
+                      <IconComponent className="hidden sm:inline-block w-4 h-4 shrink-0" />
+                      <span>{serviceData[key].title}</span>
                     </span>
                   </button>
                 );
@@ -107,10 +112,6 @@ export const Services = () => {
                   <p className="text-zinc-700 mb-6 leading-relaxed">
                     {activeService.description}
                   </p>
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-4xl font-bold text-[#8B5CF6]">{activeService.price.split(' ')[0]}</span>
-                    <span className="text-lg text-zinc-700/70">{activeService.price.substring(activeService.price.indexOf(' '))}</span>
-                  </div>
                 </div>
                 <div className="order-1 md:order-2 h-56 md:h-[280px] w-full relative rounded-2xl overflow-hidden shadow-lg shadow-purple-500/10">
                   <Image
