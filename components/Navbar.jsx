@@ -8,7 +8,8 @@ import logo from "../assets/SpinZo.png";
 const navLinks = [
   { label: "Why Us", href: "#why-spinzo" },
   { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Areas", href: "#areas-we-serve" },
   { label: "FAQ", href: "#faq" },
   { label: "Blog", href: "/blog" },
 ];

@@ -33,6 +33,23 @@ export default async function BlogPostPage({ params }) {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Article Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.date,
+            author: {
+              '@type': 'Organization',
+              name: 'Spinzo',
+            },
+          })
+        }}
+      />
       <Navbar />
       <main className="flex-1 pt-28 pb-20">
         <article className="max-w-3xl mx-auto px-6 md:px-8">

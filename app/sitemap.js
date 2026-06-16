@@ -1,6 +1,7 @@
 export const dynamic = "force-static";
 
 import { SERVICE_LOCATIONS } from "@/lib/locations";
+import blogPosts from "@/lib/blog-posts";
 
 export default function sitemap() {
   const baseUrl = 'https://spinzonow.com';
@@ -12,6 +13,13 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -19,12 +27,19 @@ export default function sitemap() {
       changeFrequency: 'daily',
       priority: 1,
     },
-    ...locationUrls,
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 0.6,
+      priority: 0.7,
     },
+    ...blogUrls,
+    {
+      url: `${baseUrl}/service-areas`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    ...locationUrls,
   ];
 }

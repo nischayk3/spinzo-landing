@@ -130,8 +130,8 @@ export async function generateMetadata({ params }) {
   const locationName = loc.name;
 
   return {
-    title: `Premium Laundry Service in ${locationName}, Bangalore | Wash & Fold at ₹85/kg`,
-    description: `Spinzo offers the fastest laundry pickup and delivery in ${locationName}, Bangalore. Wash & Fold from ₹85/kg. 30-min doorstep pickup, delivery within hours. Serving ${loc.nearby.slice(0, 3).join(', ')} and more.`,
+    title: `${locationName} Laundry Service Near Me | Wash & Fold ₹85/kg | Spinzo`,
+    description: `Looking for laundry service near ${locationName}, Bangalore? Spinzo offers 30-min pickup and delivery in hours. Wash & Fold ₹85/kg, Wash & Iron, Steam Ironing. Serving ${loc.nearby.slice(0, 3).join(', ')}. Free pickup.`,
     alternates: {
       canonical: `https://spinzonow.com/locations/${location}`
     },
@@ -271,6 +271,46 @@ export default async function LocationPage({ params }) {
 
         {/* Services Section */}
         <Services />
+
+        {/* Location-specific pricing */}
+        <section className="py-16 bg-gradient-to-b from-white to-purple-50/30">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            <h2 className="text-3xl font-bold text-zinc-900 mb-2 text-center font-display">
+              Laundry Service Prices in {name}
+            </h2>
+            <p className="text-zinc-600 text-center mb-10 max-w-2xl mx-auto">
+              Transparent weight-based pricing. No hidden charges. Free pickup and delivery in {name}.
+            </p>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { service: 'Wash & Fold', price: '₹85/kg', badge: 'Most Popular' },
+                { service: 'Wash & Iron', price: '₹140/kg', badge: null },
+                { service: 'Steam Ironing', price: '₹18/pc', badge: 'Min 5 pcs' },
+                { service: 'Blanket Wash', price: '₹299+', badge: 'Single/Double' },
+              ].map((item) => (
+                <div key={item.service} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm text-center">
+                  <div className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1">{item.badge || ' '}</div>
+                  <h3 className="font-bold text-zinc-900">{item.service}</h3>
+                  <p className="text-2xl font-extrabold text-zinc-900 mt-2">{item.price}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Near Me SEO Block */}
+        <section className="py-12 bg-white">
+          <div className="max-w-3xl mx-auto px-6 md:px-8 text-center">
+            <p className="text-zinc-600 text-sm leading-relaxed">
+              <strong>Looking for &ldquo;laundry service near me&rdquo; in {name}?</strong> You&apos;ve found it.
+              Spinzo is the fastest laundry pickup and delivery service in {name}, Bangalore.
+              We pick up your clothes within 30 minutes and deliver them fresh within hours.
+              Whether you need Wash & Fold, Wash & Iron, Steam Ironing, or Blanket Wash —
+              we handle everything with premium care. <strong>Free doorstep pickup and delivery</strong> across {name}.
+            </p>
+          </div>
+        </section>
+
         <HowItWorks />
         <OurProcess />
         <Testimonials />

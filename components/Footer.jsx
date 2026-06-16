@@ -33,6 +33,11 @@ export const Footer = () => {
                 <li><a href="/locations/btm-layout" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">BTM Layout</a></li>
                 <li><a href="/locations/jayanagar" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Jayanagar</a></li>
                 <li><a href="/locations/jp-nagar" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">JP Nagar</a></li>
+                <li><a href="/locations/wilson-garden" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Wilson Garden</a></li>
+                <li><a href="/locations/shanti-nagar" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Shanti Nagar</a></li>
+                <li><a href="/locations/adugodi" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Adugodi</a></li>
+                <li><a href="/locations/bommanahalli" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Bommanahalli</a></li>
+                <li><a href="/service-areas" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors font-semibold">View All →</a></li>
               </ul>
             </div>
             <div>
