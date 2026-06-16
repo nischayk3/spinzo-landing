@@ -19,10 +19,11 @@ export const Footer = () => {
             <div>
               <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Services</h4>
               <ul className="space-y-3">
-                <li><a href="/" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Wash & Fold</a></li>
-                <li><a href="/" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Wash & Iron</a></li>
-                <li><a href="/" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Steam Ironing</a></li>
-                <li><a href="/" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Blanket Wash</a></li>
+                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Wash & Fold</a></li>
+                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Wash & Iron</a></li>
+                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Steam Ironing</a></li>
+                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Blanket Wash</a></li>
+                <li><a href="/#pricing" className="text-sm text-zinc-600 hover:text-[#8B5CF6] transition-colors">Pricing</a></li>
               </ul>
             </div>
             <div>

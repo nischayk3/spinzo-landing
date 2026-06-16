@@ -6,6 +6,11 @@ import blogPosts from "@/lib/blog-posts";
 export const metadata = {
   title: 'Laundry Tips & Guides | Spinzo Blog | Bangalore Laundry Service',
   description: 'Expert laundry tips, fabric care guides, and insights about laundry services in South Bangalore. Learn about wash and fold, dry cleaning, steam ironing, and more.',
+  openGraph: {
+    title: 'Laundry Tips & Guides | Spinzo Blog',
+    description: 'Expert laundry tips, fabric care guides, and insights about laundry services in South Bangalore.',
+    url: 'https://spinzonow.com/blog',
+  },
 };
 
 const categoryColors = {
@@ -19,6 +24,26 @@ const categoryColors = {
 export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spinzonow.com' },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://spinzonow.com/blog' }
+          ]
+        })
+      }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: 'Laundry Tips & Guides | Spinzo Blog',
+          description: 'Expert laundry tips, fabric care guides, and insights about laundry services in South Bangalore.',
+          url: 'https://spinzonow.com/blog',
+          isPartOf: { '@type': 'WebSite', name: 'Spinzo', url: 'https://spinzonow.com' }
+        })
+      }} />
       <Navbar />
       <main className="flex-1 pt-28 pb-20">
         <div className="max-w-6xl mx-auto px-6 md:px-8">

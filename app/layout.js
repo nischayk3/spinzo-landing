@@ -21,6 +21,9 @@ export const metadata = {
   },
   description: "Bangalore's fastest premium laundry service — doorstep pickup in 30 minutes, delivery within hours. Wash & Fold at ₹85/kg, Steam Ironing, Dry Cleaning & more. Serving Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar & across South Bangalore.",
   keywords: ['laundry service Bangalore', 'laundry near me', 'wash and fold Bangalore', 'dry cleaning Bangalore', 'laundry pickup', 'premium laundry Bangalore', '30 minute laundry pickup'],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Spinzo - Premium Laundry & Dry Cleaning Service in Bangalore',
     description: 'Get laundry picked up in 30 minutes and delivered fresh within hours. Serving all of South Bangalore.',
@@ -28,11 +31,20 @@ export const metadata = {
     siteName: 'Spinzo',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/SpinZo.png',
+        width: 512,
+        height: 512,
+        alt: 'Spinzo - Premium Laundry Bangalore',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Spinzo - Premium Laundry & Dry Cleaning Service in Bangalore',
     description: 'Bangalore\'s fastest premium laundry. 30-min pickup, delivery in hours.',
+    images: ['/SpinZo.png'],
   },
   robots: {
     index: true,

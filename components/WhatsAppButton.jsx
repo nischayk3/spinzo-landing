@@ -1,7 +1,7 @@
 "use client";
 import { MessageCircle } from "lucide-react";
 
-const PHONE_NUMBER = "919876543210";
+const PHONE_NUMBER = "918197895860";
 const WHATSAPP_URL = `https://wa.me/${PHONE_NUMBER}?text=Hi%20Spinzo!%20I%27d%20like%20to%20know%20more%20about%20your%20laundry%20service.`;
 
 export const WhatsAppButton = () => {

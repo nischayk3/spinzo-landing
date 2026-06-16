@@ -162,11 +162,11 @@ export default async function LocationPage({ params }) {
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'LaundryService'],
+    '@type': ['DryCleaningOrLaundry', 'LocalBusiness'],
     name: `Spinzo Laundry ${name}`,
     image: 'https://spinzonow.com/SpinZo.png',
     url: `https://spinzonow.com/locations/${loc.slug}`,
-    telephone: '+919876543210',
+    telephone: '+918197895860',
     priceRange: '₹₹',
     areaServed: {
       '@type': 'City',

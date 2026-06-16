@@ -7,6 +7,11 @@ import { SERVICE_LOCATIONS } from "@/lib/locations";
 export const metadata = {
   title: 'Laundry Service Areas in South Bangalore | Spinzo',
   description: 'Spinzo serves 14 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered — Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar, and more.',
+  openGraph: {
+    title: 'Laundry Service Areas in South Bangalore | Spinzo',
+    description: 'Spinzo serves 14 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered.',
+    url: 'https://spinzonow.com/service-areas',
+  },
 };
 
 export default function ServiceAreasPage() {
@@ -15,8 +20,18 @@ export default function ServiceAreasPage() {
     combinedNearby: loc.nearby.slice(0, 4).join(', '),
   }));
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spinzonow.com' },
+      { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://spinzonow.com/service-areas' }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <Navbar />
       <main className="flex-1 pt-28 pb-20">
         <div className="max-w-4xl mx-auto px-6 md:px-8">

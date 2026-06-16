@@ -17,9 +17,13 @@ export async function generateMetadata({ params }) {
   return {
     title: `${post.title} | Spinzo Blog`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://spinzonow.com/blog/${slug}`,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: `https://spinzonow.com/blog/${slug}`,
     },
   };
 }
@@ -58,8 +62,26 @@ export default async function BlogPostPage({ params }) {
             '@type': 'Article',
             headline: post.title,
             description: post.excerpt,
+            image: 'https://spinzonow.com/SpinZo.png',
             datePublished: post.date,
-            author: { '@type': 'Organization', name: 'Spinzo' },
+            dateModified: post.date,
+            author: { '@type': 'Organization', name: 'Spinzo', url: 'https://spinzonow.com' },
+            publisher: { '@type': 'Organization', name: 'Spinzo', logo: { '@type': 'ImageObject', url: 'https://spinzonow.com/SpinZo.png' } },
+            mainEntityOfPage: { '@type': 'WebPage', '@id': `https://spinzonow.com/blog/${slug}` }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spinzonow.com' },
+              { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://spinzonow.com/blog' },
+              { '@type': 'ListItem', position: 3, name: post.title, item: `https://spinzonow.com/blog/${slug}` }
+            ]
           })
         }}
       />

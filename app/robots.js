@@ -12,9 +12,29 @@ export default function robots() {
         allow: '/',
       },
       {
+        userAgent: 'Google-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'Claude-Web',
+        allow: '/',
+      },
+      {
+        userAgent: 'ChatGPT-User',
+        allow: '/',
+      },
+      {
         userAgent: 'PerplexityBot',
         allow: '/',
-      }
+      },
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'cohere-ai',
+        allow: '/',
+      },
     ],
     sitemap: 'https://spinzonow.com/sitemap.xml',
   }
