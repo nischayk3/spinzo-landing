@@ -22,7 +22,7 @@ export default function Home() {
     name: 'Spinzo Laundry',
     image: 'https://spinzonow.com/SpinZo.png',
     url: 'https://spinzonow.com',
-    telephone: '+918197895860',
+    telephone: '+917676878832',
     priceRange: '₹₹',
     areaServed: SERVICE_LOCATIONS.map(l => ({
       '@type': 'City',
