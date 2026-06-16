@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { BlogContent } from "@/components/BlogContent";
 import blogPosts from "@/lib/blog-posts";
 
 export async function generateStaticParams() {
@@ -23,12 +24,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-function getRelatedPosts(currentSlug, category, limit = 3) {
-  return blogPosts
-    .filter(p => p.slug !== currentSlug && (p.category === category || Math.random() > 0.5))
-    .slice(0, limit);
-}
-
 const categoryColors = {
   'Guides': 'bg-blue-50 text-blue-700 border-blue-100',
   'Tips': 'bg-emerald-50 text-emerald-700 border-emerald-100',
@@ -45,7 +40,13 @@ export default async function BlogPostPage({ params }) {
     notFound();
   }
 
-  const relatedPosts = getRelatedPosts(slug, post.category);
+  const relatedPosts = blogPosts
+    .filter(p => p.slug !== slug && p.category === post.category)
+    .slice(0, 3);
+  const randomRelated = blogPosts
+    .filter(p => p.slug !== slug && p.category !== post.category)
+    .slice(0, Math.max(0, 3 - relatedPosts.length));
+  const displayRelated = [...relatedPosts, ...randomRelated].slice(0, 3);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -64,12 +65,12 @@ export default async function BlogPostPage({ params }) {
       />
       <Navbar />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="pt-28 pb-12 bg-gradient-to-b from-purple-50/50 via-white to-white border-b border-zinc-100">
+        {/* Article Header */}
+        <section className="pt-32 pb-12 md:pb-16 bg-gradient-to-b from-purple-50/50 via-white to-white border-b border-zinc-100">
           <div className="max-w-3xl mx-auto px-6 md:px-8">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-500 hover:text-[#8B5CF6] transition-colors mb-6"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-400 hover:text-[#8B5CF6] transition-colors mb-6"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -78,50 +79,40 @@ export default async function BlogPostPage({ params }) {
             </Link>
 
             <div className="flex items-center gap-3 mb-4">
-              <span className={`text-xs font-bold px-3 py-1.5 rounded-full border ${categoryColors[post.category] || 'bg-gray-50 text-gray-700 border-gray-200'}`}>
+              <span className={`text-[11px] font-bold px-3 py-1.5 rounded-full border ${categoryColors[post.category] || 'bg-gray-50 text-gray-700 border-gray-200'}`}>
                 {post.category}
               </span>
               <span className="text-sm text-zinc-400">{post.date}</span>
-              <span className="text-sm text-zinc-400">·</span>
+              <span className="w-1 h-1 rounded-full bg-zinc-300" />
               <span className="text-sm text-zinc-400">{post.readTime}</span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-zinc-900 mb-4 font-display leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-zinc-900 mb-5 font-display leading-tight">
               {post.title}
             </h1>
 
-            <p className="text-lg text-zinc-600 leading-relaxed max-w-2xl">
+            <p className="text-lg text-zinc-500 leading-relaxed max-w-2xl">
               {post.excerpt}
             </p>
           </div>
         </section>
 
         {/* Article Content */}
-        <article className="py-12 md:py-16">
+        <article className="py-14 md:py-20">
           <div className="max-w-3xl mx-auto px-6 md:px-8">
-            <div
-              className="blog-content prose prose-lg max-w-none
-                prose-headings:text-zinc-900 prose-headings:font-bold prose-headings:font-display
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-zinc-700 prose-p:leading-relaxed prose-p:mb-4
-                prose-a:text-[#8B5CF6] prose-a:no-underline hover:prose-a:underline
-                prose-ul:text-zinc-700 prose-li:text-zinc-700 prose-li:leading-relaxed
-                prose-strong:text-zinc-900"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            <BlogContent blocks={post.blocks} />
           </div>
         </article>
 
         {/* Related Posts */}
-        {relatedPosts.length > 0 && (
+        {displayRelated.length > 0 && displayRelated[0] && (
           <section className="py-16 bg-zinc-50/80 border-t border-zinc-100">
             <div className="max-w-6xl mx-auto px-6 md:px-8">
               <h2 className="text-2xl font-bold text-zinc-900 mb-8 font-display">
                 Related Articles
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {relatedPosts.map((rp) => (
+                {displayRelated.filter(Boolean).map((rp) => (
                   <Link
                     key={rp.slug}
                     href={`/blog/${rp.slug}`}
@@ -146,13 +137,13 @@ export default async function BlogPostPage({ params }) {
           </section>
         )}
 
-        {/* Newsletter / CTA */}
+        {/* CTA */}
         <section className="py-16 bg-white">
           <div className="max-w-3xl mx-auto px-6 md:px-8 text-center">
             <h2 className="text-2xl font-bold text-zinc-900 mb-3 font-display">
               Ready to Try Spinzo?
             </h2>
-            <p className="text-zinc-600 mb-8 max-w-xl mx-auto">
+            <p className="text-zinc-500 mb-8 max-w-xl mx-auto">
               Download the Spinzo app for free and get your first pickup in 30 minutes.
               Fresh clothes delivered within hours.
             </p>
