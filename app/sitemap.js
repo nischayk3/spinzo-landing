@@ -1,16 +1,12 @@
 export const dynamic = "force-static";
 
+import { SERVICE_LOCATIONS } from "@/lib/locations";
+
 export default function sitemap() {
   const baseUrl = 'https://spinzonow.com';
-  
-  const locations = [
-    'btm-layout', 'hsr-layout', 'koramangala', 'jp-nagar', 
-    'jayanagar', 'indiranagar', 'whitefield', 'marathahalli', 
-    'electronic-city', 'bellandur'
-  ];
 
-  const locationUrls = locations.map((loc) => ({
-    url: `${baseUrl}/locations/${loc}`,
+  const locationUrls = SERVICE_LOCATIONS.map((loc) => ({
+    url: `${baseUrl}/locations/${loc.slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
@@ -23,6 +19,12 @@ export default function sitemap() {
       changeFrequency: 'daily',
       priority: 1,
     },
-    ...locationUrls
+    ...locationUrls,
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
   ];
 }
