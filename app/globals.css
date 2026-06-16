@@ -69,10 +69,71 @@ svg {
 }
 
 @utility no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
+  }
+}
+
+/* Blog content tables */
+.blog-content .service-table {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  background: #fff;
+}
+
+.blog-content .service-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  align-items: center;
+}
+
+.blog-content .service-row:last-child {
+  border-bottom: none;
+}
+
+.blog-content .service-row.header {
+  background: #f8fafc;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+}
+
+.blog-content .service-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.blog-content .service-price {
+  font-weight: 700;
+  color: #7c3aed;
+  text-align: right;
+}
+
+.blog-content .service-time {
+  color: #64748b;
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .blog-content .service-row {
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  .blog-content .service-time {
+    display: none;
   }
 }
 

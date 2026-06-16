@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import logo from "../assets/SpinZo.png";
 
 const navLinks = [
@@ -11,8 +12,9 @@ const navLinks = [
   { label: "Pricing", href: "#pricing" },
   { label: "Areas", href: "#areas-we-serve" },
   { label: "FAQ", href: "#faq" },
-  { label: "Blog", href: "/blog" },
 ];
+
+const blogLink = { label: "Blog", href: "/blog" };
 
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -88,6 +90,13 @@ export const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+              <Link
+                href={blogLink.href}
+                className="relative px-4 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#8B5CF6]/10 cursor-pointer"
+                onClick={() => setMobileOpen(false)}
+              >
+                {blogLink.label}
+              </Link>
             </div>
           </div>
 
@@ -161,6 +170,13 @@ export const Navbar = () => {
                     {link.label}
                   </a>
                 ))}
+                <Link
+                  href={blogLink.href}
+                  className="text-base font-medium text-zinc-900 py-3 px-3 rounded-xl transition-colors duration-200 hover:bg-[#8B5CF6]/10 cursor-pointer block"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {blogLink.label}
+                </Link>
                 <motion.a
                   href="https://spinzo.in/"
                   target="_blank"
