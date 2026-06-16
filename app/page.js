@@ -76,14 +76,13 @@ export default function Home() {
       <main>
         <HeroSection />
         <WhySpinzo />
+        <ServiceHighlights />
         <Services />
         <PricingSection />
         <AreasWeServe />
         <HowItWorks />
         <OurProcess />
         <Testimonials />
-
-        <ServiceHighlights />
         <FAQ />
         <FinalCTA />
       </main>

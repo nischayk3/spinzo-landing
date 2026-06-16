@@ -41,7 +41,7 @@ export const AreasWeServe = () => {
             >
               <Link
                 href={`/locations/${loc.slug}`}
-                className="block p-4 md:p-5 bg-purple-50/50 hover:bg-purple-100 rounded-2xl border border-purple-100/50 hover:border-purple-300 transition-all duration-300 group"
+                className="block p-4 md:p-5 bg-purple-50/50 hover:bg-purple-100 rounded-2xl border border-purple-100/50 hover:border-purple-300 transition-all duration-300 group cursor-pointer"
               >
                 <h3 className="font-bold text-zinc-900 group-hover:text-[#8B5CF6] transition-colors text-sm md:text-base">
                   {loc.name}
