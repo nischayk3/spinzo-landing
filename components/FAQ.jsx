@@ -18,7 +18,7 @@ const AccordionItem = ({ faq, isOpen, onClick }) => {
   return (
     <motion.div className="border-b border-purple-100/60 last-of-type:border-b-0">
       <button
-        className="w-full flex justify-between items-center text-left py-5 px-1 font-semibold text-zinc-900 transition-colors duration-300 hover:text-[#8B5CF6]"
+        className="w-full flex justify-between items-center text-left py-5 px-1 font-semibold text-zinc-900 transition-colors duration-300 hover:text-[#994BFF]"
         onClick={onClick}
       >
         <span className="text-base md:text-lg">{faq.question}</span>
@@ -26,7 +26,7 @@ const AccordionItem = ({ faq, isOpen, onClick }) => {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'text-[#8B5CF6]' : 'text-zinc-400'}`} />
+          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'text-[#994BFF]' : 'text-zinc-400'}`} />
         </motion.div>
       </button>
       <AnimatePresence initial={false}>
@@ -66,7 +66,7 @@ export const FAQ = ({ customFaqs }) => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-[#8B5CF6] mb-3 block font-sans">FAQ</span>
+          <span className="text-sm font-bold uppercase tracking-widest text-[#994BFF] mb-3 block font-sans">FAQ</span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 font-display">
             Your Questions, Answered
           </h2>

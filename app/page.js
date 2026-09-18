@@ -2,11 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { WhySpinzo } from "@/components/WhySpinzo";
 import { Services } from "@/components/Services";
-import { PricingSection } from "@/components/PricingSection";
-import { AreasWeServe } from "@/components/AreasWeServe";
-import { ServiceHighlights } from "@/components/ServiceHighlights";
 import { HowItWorks } from "@/components/HowItWorks";
-import { OurProcess } from "@/components/OurProcess";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -126,12 +122,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <WhySpinzo />
-        <ServiceHighlights />
         <Services />
-        <PricingSection />
-        <AreasWeServe />
         <HowItWorks />
-        <OurProcess />
         <Testimonials />
         <FAQ />
         <FinalCTA />

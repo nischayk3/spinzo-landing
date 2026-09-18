@@ -67,7 +67,7 @@ export const HowItWorks = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20 max-w-3xl mx-auto"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-[#8B5CF6] mb-3 block font-sans">
+          <span className="text-sm font-bold uppercase tracking-widest text-[#994BFF] mb-3 block font-sans">
             How It Works
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 mb-4 font-display">
@@ -102,7 +102,7 @@ export const HowItWorks = () => {
                   <div className="w-full md:w-1/2 p-6 bg-white/70 backdrop-blur-sm border border-purple-100/60 rounded-3xl shadow-lg shadow-purple-500/5">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center border border-white/50 shadow-inner-soft">
-                        <step.icon className="w-6 h-6 text-[#8B5CF6]" />
+                        <step.icon className="w-6 h-6 text-[#994BFF]" />
                       </div>
                       <h3 className="text-xl font-bold text-zinc-900 font-display">
                         {step.title}

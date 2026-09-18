@@ -2,11 +2,11 @@
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', sans-serif;
-  --color-primary: #0891B2;
-  --color-secondary: #22D3EE;
-  --color-cta: #22C55E;
-  --color-background: #ECFEFF;
-  --color-text: #164E63;
+  --color-primary: #994BFF;
+  --color-secondary: #B78AFF;
+  --color-cta: #994BFF;
+  --color-background: #FFFFFF;
+  --color-text: #1F0B3F;
 
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
@@ -28,20 +28,20 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 266 84% 16%;
 
-    --primary: 200 66% 36%; /* Tailwind equivalent of #0891B2 */
+    --primary: 266 100% 65%; /* #994BFF */
     --primary-foreground: 0 0% 100%;
-    --secondary: 190 79% 53%; /* Tailwind equivalent of #22D3EE */
-    --secondary-foreground: 222 47% 11%;
-    --accent: 151 71% 45%; /* Tailwind equivalent of #22C55E */
-    --accent-foreground: 222 47% 11%;
+    --secondary: 266 80% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 266 100% 65%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 200 66% 36%;
-    --input: 200 66% 36%;
-    --ring: 200 66% 36%;
+    --border: 266 30% 88%;
+    --input: 266 30% 88%;
+    --ring: 266 100% 65%;
     --radius: 0.75rem;
   }
 }
@@ -59,8 +59,8 @@
 }
 
 ::selection {
-  background-color: rgba(8, 145, 178, 0.2); /* Using primary color for selection */
-  color: #164E63;
+  background-color: rgba(153, 75, 255, 0.2); /* Using primary color for selection */
+  color: #1F0B3F;
 }
 
 /* Fix for lucide icons inheriting incorrect default color if any */

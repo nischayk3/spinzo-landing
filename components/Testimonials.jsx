@@ -50,19 +50,19 @@ const testimonials = [
   ];
 
   const TestimonialCard = ({ testimonial, colorClass }) => (
-    <div className="flex-shrink-0 w-[310px] sm:w-[340px] md:w-[400px] bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-soft-lg-cyan border border-white/80 select-none">
+    <div className="flex-shrink-0 w-[310px] sm:w-[340px] md:w-[400px] bg-white/70 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-lg border border-purple-100/50 select-none">
       <div className="flex items-center gap-4 mb-5">
         <div className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg md:text-xl text-white ${colorClass}`}>
           {testimonial.initial}
         </div>
         <div>
-          <h4 className="font-bold text-cyan-950 text-base md:text-lg">{testimonial.name}</h4>
-          <p className="text-xs md:text-sm text-cyan-800/70">{testimonial.location}</p>
+          <h4 className="font-bold text-[#1F0B3F] text-base md:text-lg">{testimonial.name}</h4>
+          <p className="text-xs md:text-sm text-purple-800/70">{testimonial.location}</p>
         </div>
       </div>
-      <p className="text-sm md:text-base text-cyan-800/90 leading-relaxed mb-6">"{testimonial.text}"</p>
-      <div className="flex justify-between items-center border-t border-cyan-100/80 pt-4">
-        <span className="text-xs font-semibold text-green-600 bg-green-100/70 px-3 py-1 rounded-full">
+      <p className="text-sm md:text-base text-purple-800/90 leading-relaxed mb-6">"{testimonial.text}"</p>
+      <div className="flex justify-between items-center border-t border-purple-100/80 pt-4">
+        <span className="text-xs font-semibold text-[#994BFF] bg-purple-100/70 px-3 py-1 rounded-full">
           {testimonial.service}
         </span>
         <div className="flex gap-0.5 text-yellow-400">
@@ -79,10 +79,10 @@ export const Testimonials = () => {
       slidesToScroll: 1,
     });
 
-    const bgColors = ["bg-cyan-500", "bg-green-500", "bg-cyan-400", "bg-green-400", "bg-cyan-600", "bg-green-600"];
+    const bgColors = ["bg-purple-500", "bg-purple-400", "bg-purple-600", "bg-purple-500", "bg-purple-400", "bg-purple-600"];
 
   return (
-    <section id="testimonials" className="py-20 lg:py-28 bg-cyan-50/30 overflow-hidden">
+    <section id="testimonials" className="py-20 lg:py-28 bg-white overflow-hidden">
          <div className="max-w-7xl mx-auto px-6 md:px-8">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -91,13 +91,13 @@ export const Testimonials = () => {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-12 md:mb-16 max-w-3xl mx-auto"
             >
-                <span className="text-sm font-bold uppercase tracking-widest text-cyan-600 mb-3 block font-sans">
+                <span className="text-sm font-bold uppercase tracking-widest text-[#994BFF] mb-3 block font-sans">
                     Testimonials
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-cyan-950 mb-4 font-display">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-[#1F0B3F] mb-4 font-display">
                     What Our Customers Are Saying
                 </h2>
-                <p className="text-base md:text-lg text-cyan-800/80 leading-relaxed">
+                <p className="text-base md:text-lg text-purple-800/80 leading-relaxed">
                     Real stories from real customers. Discover why Bangalore trusts Spinzo for premium laundry care.
                 </p>
             </motion.div>
@@ -112,21 +112,21 @@ export const Testimonials = () => {
             </div>
         </div>
 
-        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-cyan-50/30 to-transparent pointer-events-none z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-cyan-50/30 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
+        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
       </div>
 
       <div className="flex justify-center gap-4 mt-8">
         <button
           onClick={() => emblaApi && emblaApi.scrollPrev()}
-          className="w-12 h-12 rounded-full border border-cyan-100 flex items-center justify-center text-cyan-800 bg-white hover:bg-cyan-50 hover:text-cyan-950 transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+          className="w-12 h-12 rounded-full border border-purple-200 flex items-center justify-center text-purple-800 bg-white hover:bg-purple-50 hover:text-[#1F0B3F] transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
           aria-label="Previous testimonial"
         >
           <ArrowLeft size={20} />
         </button>
         <button
           onClick={() => emblaApi && emblaApi.scrollNext()}
-          className="w-12 h-12 rounded-full border border-cyan-100 flex items-center justify-center text-cyan-800 bg-white hover:bg-cyan-50 hover:text-cyan-950 transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
+          className="w-12 h-12 rounded-full border border-purple-200 flex items-center justify-center text-purple-800 bg-white hover:bg-purple-50 hover:text-[#1F0B3F] transition-all duration-300 shadow-md hover:scale-105 active:scale-95 cursor-pointer"
           aria-label="Next testimonial"
         >
           <ArrowRight size={20} />

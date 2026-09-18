@@ -52,7 +52,7 @@ export const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16 max-w-3xl mx-auto"
         >
-          <span className="text-sm font-bold uppercase tracking-widest text-[#8B5CF6] mb-3 block font-sans">
+          <span className="text-sm font-bold uppercase tracking-widest text-[#994BFF] mb-3 block font-sans">
             Our Services
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-zinc-900 mb-4 font-display">
@@ -81,7 +81,7 @@ export const Services = () => {
                     {activeTab === key && (
                       <motion.div
                         layoutId="active-service-pill"
-                        className="absolute inset-0 bg-[#8B5CF6] rounded-lg md:rounded-full shadow-lg shadow-purple-500/20"
+                        className="absolute inset-0 bg-[#994BFF] rounded-lg md:rounded-full shadow-lg shadow-purple-500/20"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
