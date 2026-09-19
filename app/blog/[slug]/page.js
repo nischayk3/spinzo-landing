@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { BlogContent } from "@/components/BlogContent";
+import { BlogBottomCTA } from "@/components/BlogBottomCTA";
 import blogPosts from "@/lib/blog-posts";
 
 export async function generateStaticParams() {
@@ -169,22 +170,7 @@ export default async function BlogPostPage({ params }) {
               Download the Spinzo app for free and get your first pickup in 30 minutes.
               Fresh clothes delivered within hours.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.nischayk3.Spinit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-800 transition-all text-sm"
-              >
-                Download App
-              </a>
-              <Link
-                href="/"
-                className="px-6 py-3 bg-white text-zinc-900 rounded-full font-semibold border border-zinc-200 hover:border-purple-300 transition-all text-sm"
-              >
-                Learn More
-              </Link>
-            </div>
+            <BlogBottomCTA />
           </div>
         </section>
       </main>

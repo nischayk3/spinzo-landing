@@ -19,6 +19,7 @@ export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
   const webAppUrl = useTrackedUrl("https://spinzo.in/");
+  const appDownloadUrl = useTrackedUrl("https://spinzonow.onelink.me/SVxb/89uz4xf3");
 
   const borderOpacity = useTransform(scrollY, [0, 70], [0, 1]);
 
@@ -178,14 +179,24 @@ export const Navbar = () => {
                   {blogLink.label}
                 </Link>
                 <motion.a
-                  href={webAppUrl}
+                  href={appDownloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full mt-4 px-5 py-3 text-base font-semibold text-white bg-[#994BFF] rounded-xl shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] transition-all duration-300 cursor-pointer text-center block"
+                  className="w-full mt-4 px-5 py-3 text-base font-semibold text-zinc-900 bg-purple-50 hover:bg-purple-100 border border-purple-200/80 rounded-xl transition-all duration-300 cursor-pointer text-center block"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setMobileOpen(false)}
                 >
-                  Schedule Pickup
+                  📱 Download Spinzo App
+                </motion.a>
+                <motion.a
+                  href={webAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full mt-2 px-5 py-3 text-base font-semibold text-white bg-[#994BFF] rounded-xl shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] transition-all duration-300 cursor-pointer text-center block"
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Schedule Pickup (Web)
                 </motion.a>
               </div>
             </motion.div>

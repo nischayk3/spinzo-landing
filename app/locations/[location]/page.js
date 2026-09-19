@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
+import { LocationHeroCTA } from "@/components/LocationHeroCTA";
 import {
   SERVICE_LOCATIONS,
   getLocationBySlug,
@@ -270,17 +271,9 @@ export default async function LocationPage({ params }) {
               </div>
 
               {/* Keywords + CTA */}
-              <div className="flex flex-wrap items-center gap-4 mt-8">
-                <a
-                  href={`https://spinzo.in/?ref=${loc.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#994BFF] text-white rounded-full font-semibold text-sm hover:bg-[#8828FF] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-[#994BFF]/20"
-                >
-                  Book Pickup in {name}
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                </a>
-                <div className="flex flex-wrap gap-2">
+              <div className="mt-8">
+                <LocationHeroCTA slug={loc.slug} name={name} />
+                <div className="flex flex-wrap gap-2 mt-4">
                   {keywords.slice(0, 3).map((kw) => (
                     <span key={kw} className="text-xs text-zinc-400 bg-white px-2.5 py-1 rounded-md border border-zinc-100">
                       {kw}

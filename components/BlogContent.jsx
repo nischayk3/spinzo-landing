@@ -1,8 +1,5 @@
-/**
- * BlogContent — renders structured blog post data as designed React components.
- * Blog content is stored as structured JSON blocks, not raw HTML, so we control
- * the visual presentation fully.
- */
+import { BlogCtaButton } from "./BlogCtaButton";
+
 
 const h2 = "text-2xl font-bold text-zinc-900 mt-10 mb-4 font-display tracking-tight";
 const h3 = "text-lg font-bold text-zinc-800 mt-8 mb-3 font-display";
@@ -173,14 +170,9 @@ export function BlogContent({ blocks }) {
               <div key={i} className="my-10 rounded-2xl bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 text-center">
                 <p className="text-white font-bold text-lg font-display mb-2">{block.title}</p>
                 <p className="text-zinc-400 text-sm mb-5">{block.text}</p>
-                <a
-                  href={block.url}
-                  target={block.external ? '_blank' : undefined}
-                  rel={block.external ? 'noopener noreferrer' : undefined}
-                  className="inline-flex px-6 py-3 bg-[#8B5CF6] text-white rounded-full font-semibold text-sm hover:bg-purple-500 transition-colors shadow-lg shadow-purple-500/20"
-                >
+                <BlogCtaButton url={block.url} external={block.external}>
                   {block.button}
-                </a>
+                </BlogCtaButton>
               </div>
             );
 

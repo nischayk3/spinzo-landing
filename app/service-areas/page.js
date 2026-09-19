@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PricingSection } from "@/components/PricingSection";
+import { ServiceAreasCTA } from "@/components/ServiceAreasCTA";
 import { SERVICE_LOCATIONS } from "@/lib/locations";
 
 export const metadata = {
@@ -67,24 +68,7 @@ export default function ServiceAreasPage() {
               download the app and check — we may have just launched near you.
               You can also reach out and we&apos;ll prioritize your neighborhood.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.nischayk3.Spinit"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-800 transition-all text-sm"
-              >
-                Download App
-              </a>
-              <a
-                href="https://spinzo.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-white text-zinc-900 rounded-full font-semibold border border-zinc-200 hover:border-purple-300 transition-all text-sm"
-              >
-                Use Web App
-              </a>
-            </div>
+            <ServiceAreasCTA />
           </div>
 
           {/* Pricing */}

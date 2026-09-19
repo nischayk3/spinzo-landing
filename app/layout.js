@@ -50,6 +50,9 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  itunes: {
+    appId: '6758751814',
+  },
   other: {
     'google-site-verification': 'google1d9afabe7853ce9f',
   },
