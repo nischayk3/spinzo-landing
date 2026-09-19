@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Clock, Truck, Sparkles, Globe } from "lucide-react";
 import { PhoneMockup } from "./PhoneMockup";
+import { useTrackedUrl } from "../lib/useTrackedUrl";
 
 
 const fadeUp = {
@@ -17,6 +18,9 @@ const trustItems = [
 ];
 
 export const HeroSection = () => {
+  const webAppUrl = useTrackedUrl("https://spinzo.in/");
+  const appDownloadUrl = useTrackedUrl("https://spinzonow.onelink.me/SVxb/89uz4xf3");
+
   return (
     <section
       id="hero"
@@ -61,7 +65,7 @@ export const HeroSection = () => {
             >
               <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4">
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.nischayk3.Spinit&pcampaignid=web_share"
+                  href={appDownloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-black hover:bg-zinc-900 text-white rounded-xl px-4 py-2 border border-zinc-800 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-black/10"
@@ -79,7 +83,7 @@ export const HeroSection = () => {
                   </div>
                 </a>
                 <a
-                  href="https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814"
+                  href={appDownloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-black hover:bg-zinc-900 text-white rounded-xl px-4 py-2 border border-zinc-800 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-black/10"
@@ -93,7 +97,7 @@ export const HeroSection = () => {
                   </div>
                 </a>
                 <a
-                  href="https://spinzo.in/"
+                  href={webAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl px-4 py-[11px] text-sm font-semibold text-zinc-900 bg-white hover:bg-purple-50/50 border border-purple-200 shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"

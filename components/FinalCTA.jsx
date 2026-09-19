@@ -1,8 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
+import { useTrackedUrl } from "../lib/useTrackedUrl";
 
 export const FinalCTA = () => {
+  const webAppUrl = useTrackedUrl("https://spinzo.in/");
+  const appDownloadUrl = useTrackedUrl("https://spinzonow.onelink.me/SVxb/89uz4xf3");
+
   return (
     <section id="cta" className="py-20 lg:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -26,7 +30,7 @@ export const FinalCTA = () => {
 
             <div className="flex flex-wrap justify-center items-center gap-4">
               <motion.a
-                href="https://play.google.com/store/apps/details?id=com.nischayk3.Spinit&pcampaignid=web_share"
+                href={appDownloadUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -47,7 +51,7 @@ export const FinalCTA = () => {
               </motion.a>
 
               <motion.a
-                href="https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814"
+                href={appDownloadUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -64,7 +68,7 @@ export const FinalCTA = () => {
               </motion.a>
 
               <motion.a
-                href="https://spinzo.in/"
+                href={webAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

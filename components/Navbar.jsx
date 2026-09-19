@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../assets/SpinZo.png";
+import { useTrackedUrl } from "../lib/useTrackedUrl";
 
 const navLinks = [
   { label: "Why Us", href: "#why-spinzo" },
@@ -17,6 +18,7 @@ const blogLink = { label: "Blog", href: "/blog" };
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
+  const webAppUrl = useTrackedUrl("https://spinzo.in/");
 
   const borderOpacity = useTransform(scrollY, [0, 70], [0, 1]);
 
@@ -124,7 +126,7 @@ export const Navbar = () => {
           {/* Right: CTA Button */}
           <div className="hidden md:flex items-center z-10">
             <motion.a
-              href="https://spinzo.in/"
+              href={webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 text-sm font-semibold text-white bg-[#994BFF] rounded-full shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] hover:shadow-[0_6px_20px_0_rgb(153,75,255,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer block"
@@ -176,7 +178,7 @@ export const Navbar = () => {
                   {blogLink.label}
                 </Link>
                 <motion.a
-                  href="https://spinzo.in/"
+                  href={webAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full mt-4 px-5 py-3 text-base font-semibold text-white bg-[#994BFF] rounded-xl shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] transition-all duration-300 cursor-pointer text-center block"
