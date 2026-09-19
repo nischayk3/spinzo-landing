@@ -14,12 +14,12 @@ import {
 
 const locationSpecificContent = {
   'jayanagar': {
-    subtitle: 'Jayanagar is one of Bangalore\'s oldest and most well-planned neighborhoods, home to families, professionals, and students alike. Spinzo brings premium laundry pickup and delivery right to your doorstep — whether you\'re in 3rd Block, 4th Block, or the quieter streets of Dollars Colony.',
+    subtitle: 'Jayanagar is one of Bangalore\'s oldest and most well-planned neighborhoods. Spinzo brings premium laundry pickup and delivery right to your doorstep — whether you\'re in 3rd Block, 4th Block, or the quieter streets of Dollars Colony.',
     highlights: ['Family-friendly residential area with multi-generational households', 'Home to Jayanagar 4th Block shopping complex and commercial hubs', 'Close to BTM Layout, JP Nagar, and Wilson Garden'],
     nearbyDesc: 'serving Jayanagar 3rd & 4th Block, KR Garden, Dollars Colony, and surrounding areas',
   },
   'jp-nagar': {
-    subtitle: 'JP Nagar is a sprawling residential locality popular with working professionals and families. Spinzo covers all phases of JP Nagar, just like we serve neighbouring Jayanagar.',
+    subtitle: 'JP Nagar is a sprawling residential locality popular with working professionals and families. Spinzo covers all phases of JP Nagar with 30-minute pickup and delivery within hours.',
     highlights: ['Large residential area with multiple phases (1st to 5th)', 'High concentration of working professionals and dual-income families', 'Adjacent to Jayanagar and close to BTM Layout'],
     nearbyDesc: 'serving all phases of JP Nagar including 1st through 5th Phase',
   },
@@ -29,12 +29,12 @@ const locationSpecificContent = {
     nearbyDesc: 'serving BTM 1st & 2nd Stage, Kasuvenahalli, Srirampura, and nearby areas',
   },
   'koramangala': {
-    subtitle: 'Koramangala is the heart of Bangalore\'s startup and tech scene — and one of the busiest neighborhoods in the city. Spinzo is the perfect laundry partner for professionals who value their time.',
+    subtitle: 'Koramangala is the heart of Bangalore\'s startup and tech scene. Spinzo is the perfect laundry partner for professionals who value their time.',
     highlights: ['Bangalore\'s most vibrant startup and restaurant hub', 'High density of young professionals and working couples', '80 Ft Road, Sony World Junction, and multiple commercial centres'],
     nearbyDesc: 'serving all 8 blocks of Koramangala, Jakkasandra, KHB Colony, and 80 Ft Road area',
   },
   'hsr-layout': {
-    subtitle: 'HSR Layout is one of South Bangalore\'s most sought-after residential areas, known for its wide roads and active community. Spinzo covers every sector with our fast pickup service.',
+    subtitle: 'HSR Layout is one of South Bangalore\'s most sought-after residential areas. Spinzo covers every sector with our fast 30-minute pickup service.',
     highlights: ['Well-planned layout with Sectors 1-7', 'Popular among tech professionals and families', 'Excellent social and dining scene makes residents busy and time-pressed'],
     nearbyDesc: 'serving all sectors of HSR Layout from Sector 1 to 7, plus SS Colony and Hosapalya',
   },
@@ -59,7 +59,7 @@ const locationSpecificContent = {
     nearbyDesc: 'serving Shanti Nagar Main Road, Lakshmi Road, and the area around Shanti Nagar Bus Stand',
   },
   'adugodi': {
-    subtitle: 'Adugodi is a strategically located neighborhood in Central East Bangalore with excellent connectivity. Spinzo brings its premium laundry service to this bustling area.',
+    subtitle: 'Adugodi is a strategically located neighborhood in Central East Bangalore. Spinzo brings its premium laundry service to this bustling area.',
     highlights: ['Central location with proximity to major offices and commercial areas', 'Well-connected by main roads and public transport', 'Close to Kodihalli, C V Raman Nagar, and HAL area'],
     nearbyDesc: 'serving Adugodi Main Road, Kodihalli, and the broader Central East Bangalore area',
   },
@@ -82,6 +82,31 @@ const locationSpecificContent = {
     subtitle: 'S R Layout is a peaceful residential locality in South Bangalore near Puttanna Garden. Spinzo brings its laundry service to this growing neighborhood.',
     highlights: ['Calm residential layout near Puttanna Garden', 'Close to Gurappanapalya and Roopena Agrahara', 'Growing area with increasing demand for doorstep services'],
     nearbyDesc: 'serving S R Layout, Puttanna Garden, Gurappanapalya, and Roopena Agrahara',
+  },
+  'harlur': {
+    subtitle: 'Harlur is a rapidly growing residential belt off Sarjapur Road and HSR Layout. Busy professionals and families here count on Spinzo for 30-minute laundry pickup and delivery within hours.',
+    highlights: ['Fast-growing residential area near HSR and Sarjapur Road', 'Popular with working professionals and young families', 'Close to Harlur Lake, Junnasandra, and Kudlu Gate'],
+    nearbyDesc: 'serving Harlur Main Road, Harlur Lake Area, Junnasandra, and Kudlu Gate',
+  },
+  'begur': {
+    subtitle: 'Begur is a key Southern suburb on the Hosur Road corridor linking Bangalore to Electronic City. Spinzo covers Begur and its surroundings with premium pickup and delivery.',
+    highlights: ['Strategic location on the Sarjapur–Electronic City corridor', 'Growing residential community with many new apartments', 'Close to Gottigere, Nyanappanahalli, and Chikkanahalli'],
+    nearbyDesc: 'serving Begur Main Road, Begur Hobli, Gottigere, and surrounding areas',
+  },
+  'sarjapur-road': {
+    subtitle: 'Sarjapur Road is one of Bangalore\'s fastest-growing tech and residential corridors. From Sarjapur Junction to Devarabisanahalli, Spinzo brings same-day laundry pickup and delivery to this booming belt.',
+    highlights: ['One of Bangalore\'s fastest-growing residential and IT corridors', 'High density of tech parks, apartments, and young professionals', 'Covers Carmelaram, Devarabisanahalli, Kodathi, and nearby areas'],
+    nearbyDesc: 'serving Sarjapur Junction, Carmelaram, Devarabisanahalli, and Kodathi',
+  },
+  'electronic-city': {
+    subtitle: 'Electronic City is home to some of India\'s largest IT campuses and tens of thousands of busy professionals. Spinzo delivers fast, premium laundry service right to your doorstep here.',
+    highlights: ['One of India\'s largest IT employment hubs', 'Huge concentration of working professionals and hostels/PGs', 'Covers Phase 1 & 2, Neeladri Road, Konappana Agrahara'],
+    nearbyDesc: 'serving Electronic City Phase 1 & 2, Neeladri Road, and Konappana Agrahara',
+  },
+  'bellandur': {
+    subtitle: 'Bellandur is a thriving tech neighborhood along the Outer Ring Road, packed with working professionals and modern apartments. Spinzo provides 30-minute pickup and rapid delivery across Bellandur.',
+    highlights: ['Major Outer Ring Road tech hub near Marathahalli and HSR', 'High density of working professionals and gated communities', 'Covers Bellandur Lake Area, Iblur Village, and HSR-adjacent zones'],
+    nearbyDesc: 'serving Bellandur Outer Ring Road, Iblur Village, and the Bellandur Lake area',
   },
 };
 
@@ -213,56 +238,86 @@ export default async function LocationPage({ params }) {
 
       <Navbar />
       <main>
-        {/* SEO-optimized Hero Section with location name */}
-        <section className="relative pt-24 pb-8 md:pt-28 md:pb-12 bg-gradient-to-b from-purple-50/50 to-white">
-          <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Hero Section with location name */}
+        <section className="relative pt-24 pb-12 md:pt-28 md:pb-16 bg-gradient-to-b from-[#994BFF]/5 to-white overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#994BFF]/5 to-transparent pointer-events-none" />
+          <div className="max-w-7xl mx-auto px-6 md:px-8 relative">
             <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-zinc-900 mb-4 font-display">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-[#994BFF]/10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#994BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                </div>
+                <span className="text-sm font-medium text-[#994BFF] bg-[#994BFF]/5 px-3 py-1 rounded-full">Premium Laundry Service</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F0B3F] mb-4 font-display">
                 Laundry Service in {name}
               </h1>
-              <p className="text-lg md:text-xl text-zinc-700 leading-relaxed mb-4">
+              <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-4">
                 {content.subtitle}
               </p>
-              <p className="text-zinc-600">
-                <span className="font-semibold">📍 Currently {content.nearbyDesc}.</span>
+              <p className="text-zinc-500">
+                <span className="font-medium">📍 Serving {content.nearbyDesc}.</span>
               </p>
 
-              {/* Keywords list for SEO */}
-              <div className="flex flex-wrap gap-2 mt-6">
-                {keywords.slice(0, 4).map((kw) => (
-                  <span key={kw} className="text-xs bg-purple-50 text-purple-700 px-3 py-1.5 rounded-full border border-purple-100">
-                    {kw}
-                  </span>
-                ))}
+              {/* Key USPs strip */}
+              <div className="flex flex-wrap gap-3 mt-6">
+                <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">⏱ 30-min pickup</span>
+                <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">🚚 Free doorstep delivery</span>
+                <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">📱 Track in app</span>
               </div>
 
-              {/* Nearby Areas */}
-              <div className="mt-8 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-purple-600 mb-3">
-                  Areas We Serve in {name}
-                </h2>
+              {/* Keywords + CTA */}
+              <div className="flex flex-wrap items-center gap-4 mt-8">
+                <a
+                  href={`https://spinzo.in/?ref=${loc.slug}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#994BFF] text-white rounded-full font-semibold text-sm hover:bg-[#8828FF] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-[#994BFF]/20"
+                >
+                  Book Pickup in {name}
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
                 <div className="flex flex-wrap gap-2">
-                  {nearby.slice(0, 6).map((area) => (
-                    <span key={area} className="text-sm bg-gray-50 text-gray-700 px-3 py-1.5 rounded-md border border-gray-100">
-                      {area}
+                  {keywords.slice(0, 3).map((kw) => (
+                    <span key={kw} className="text-xs text-zinc-400 bg-white px-2.5 py-1 rounded-md border border-zinc-100">
+                      {kw}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
+
+            {/* Nearby areas card */}
+            <div className="mt-10 p-5 bg-white rounded-2xl border border-purple-100/60 shadow-sm max-w-xl">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#994BFF] mb-3">
+                Areas We Serve in {name}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {nearby.slice(0, 6).map((area) => (
+                  <span key={area} className="text-sm bg-purple-50 text-zinc-700 px-3 py-1.5 rounded-md border border-purple-100/50">
+                    {area}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Highlights */}
-        <section className="py-12 bg-white">
+        {/* Why This Area Section */}
+        <section className="py-12 md:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
-            <h2 className="text-2xl font-bold text-zinc-900 mb-6 font-display">
-              Why {name} Residents Choose Spinzo
-            </h2>
+            <div className="max-w-3xl">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#1F0B3F] mb-6 font-display">
+                Why {name} Residents Choose Spinzo
+              </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {content.highlights.map((h, i) => (
-                <div key={i} className="p-5 bg-purple-50/50 rounded-xl border border-purple-100/50">
-                  <p className="text-zinc-800">{h}</p>
+                <div key={i} className="p-5 bg-purple-50/40 rounded-xl border border-purple-100/50 hover:border-[#994BFF]/20 transition-colors">
+                  <p className="text-zinc-700 leading-relaxed">{h}</p>
                 </div>
               ))}
             </div>
@@ -273,25 +328,25 @@ export default async function LocationPage({ params }) {
         <Services />
 
         {/* Location-specific pricing */}
-        <section className="py-16 bg-gradient-to-b from-white to-purple-50/30">
+        <section className="py-16 bg-gradient-to-b from-white to-purple-50/20">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
-            <h2 className="text-3xl font-bold text-zinc-900 mb-2 text-center font-display">
+            <h2 className="text-3xl font-bold text-[#1F0B3F] mb-2 text-center font-display">
               Laundry Service Prices in {name}
             </h2>
-            <p className="text-zinc-600 text-center mb-10 max-w-2xl mx-auto">
+            <p className="text-zinc-500 text-center mb-10 max-w-2xl mx-auto">
               Transparent weight-based pricing. No hidden charges. Free pickup and delivery in {name}.
             </p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {[
                 { service: 'Wash & Fold', price: '₹85/kg', badge: 'Most Popular' },
                 { service: 'Wash & Iron', price: '₹140/kg', badge: null },
                 { service: 'Steam Ironing', price: '₹18/pc', badge: 'Min 5 pcs' },
                 { service: 'Blanket Wash', price: '₹299+', badge: 'Single/Double' },
               ].map((item) => (
-                <div key={item.service} className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm text-center">
-                  <div className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1">{item.badge || ' '}</div>
+                <div key={item.service} className="bg-white rounded-2xl p-5 border border-purple-100/40 shadow-sm text-center hover:shadow-md hover:border-[#994BFF]/20 transition-all duration-300">
+                  <div className="text-xs font-bold text-[#994BFF] uppercase tracking-wider mb-1">{item.badge || ' '}</div>
                   <h3 className="font-bold text-zinc-900">{item.service}</h3>
-                  <p className="text-2xl font-extrabold text-zinc-900 mt-2">{item.price}</p>
+                  <p className="text-2xl font-extrabold text-[#1F0B3F] mt-2">{item.price}</p>
                 </div>
               ))}
             </div>
@@ -325,14 +380,14 @@ export default async function LocationPage({ params }) {
               <h2 className="text-2xl font-bold text-zinc-900 mb-6 font-display text-center">
                 Also Serving Nearby Areas
               </h2>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-3">
                 {nearbyLocations.map((n) => (
                   <a
                     key={n.slug}
                     href={`/locations/${n.slug}`}
-                    className="px-6 py-3 bg-white rounded-full border border-gray-200 text-zinc-700 hover:text-purple-600 hover:border-purple-300 transition-all font-medium"
+                    className="px-5 py-2.5 bg-white rounded-full border border-zinc-200 text-zinc-700 hover:text-[#994BFF] hover:border-[#994BFF]/30 transition-all text-sm font-medium"
                   >
-                    Laundry Service in {n.name} →
+                    Laundry Service in {n.name} &rarr;
                   </a>
                 ))}
               </div>

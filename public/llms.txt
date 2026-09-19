@@ -34,6 +34,11 @@
 - [Tavarekere](https://spinzonow.com/locations/tavarekere): Laundry service in Tavarekere
 - [Madiwala](https://spinzonow.com/locations/madiwala): Laundry service in Madiwala
 - [S R Layout](https://spinzonow.com/locations/s-r-layout): Laundry service in S R Layout
+- [Harlur](https://spinzonow.com/locations/harlur): Laundry service in Harlur, near HSR and Sarjapur Road
+- [Begur](https://spinzonow.com/locations/begur): Laundry service in Begur, near Bommanahalli
+- [Sarjapur Road](https://spinzonow.com/locations/sarjapur-road): Laundry service in Sarjapur Road
+- [Electronic City](https://spinzonow.com/locations/electronic-city): Laundry service in Electronic City, Bangalore
+- [Bellandur](https://spinzonow.com/locations/bellandur): Laundry service in Bellandur, Bangalore
 - [All Service Areas](https://spinzonow.com/service-areas): Complete list
 
 ## Blog Posts
