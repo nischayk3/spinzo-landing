@@ -61,8 +61,8 @@ export const Footer = () => {
               <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Company</h4>
               <ul className="space-y-3">
                 <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Web App</a></li>
-                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Android App</a></li>
-                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">iOS App</a></li>
+                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Android App</a></li>
+                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">iOS App</a></li>
                 <li><a href={`tel:${CONTACT_PHONE_TEL}`} className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Contact / Help: {CONTACT_PHONE}</a></li>
                 <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Privacy Policy</a></li>
               </ul>

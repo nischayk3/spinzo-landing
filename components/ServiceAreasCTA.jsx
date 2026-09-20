@@ -11,7 +11,8 @@ export function ServiceAreasCTA() {
         href={appDownloadUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-800 transition-all text-sm shadow-md"
+        data-appsflyer-link="true"
+        className="store-download-btn px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-800 transition-all text-sm shadow-md"
       >
         Download App
       </a>

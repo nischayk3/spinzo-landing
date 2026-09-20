@@ -24,7 +24,8 @@ export function LocationHeroCTA({ slug, name }) {
         href={appDownloadUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-5 py-3 bg-white text-zinc-900 rounded-full font-semibold text-sm border border-purple-200 hover:border-purple-400 hover:bg-purple-50/50 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm"
+        data-appsflyer-link="true"
+        className="store-download-btn inline-flex items-center gap-2 px-5 py-3 bg-white text-zinc-900 rounded-full font-semibold text-sm border border-purple-200 hover:border-purple-400 hover:bg-purple-50/50 transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm"
       >
         📱 Get App
       </a>

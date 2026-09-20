@@ -182,7 +182,8 @@ export const Navbar = () => {
                   href={appDownloadUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full mt-4 px-5 py-3 text-base font-semibold text-zinc-900 bg-purple-50 hover:bg-purple-100 border border-purple-200/80 rounded-xl transition-all duration-300 cursor-pointer text-center block"
+                  data-appsflyer-link="true"
+                  className="store-download-btn w-full mt-4 px-5 py-3 text-base font-semibold text-zinc-900 bg-purple-50 hover:bg-purple-100 border border-purple-200/80 rounded-xl transition-all duration-300 cursor-pointer text-center block"
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setMobileOpen(false)}
                 >

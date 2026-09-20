@@ -12,7 +12,8 @@ export function BlogBottomCTA() {
         href={appDownloadUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-800 transition-all text-sm shadow-md hover:scale-105 active:scale-95 duration-200"
+        data-appsflyer-link="true"
+        className="store-download-btn px-6 py-3 bg-zinc-900 text-white rounded-full font-semibold hover:bg-zinc-800 transition-all text-sm shadow-md hover:scale-105 active:scale-95 duration-200"
       >
         📱 Download App
       </a>
