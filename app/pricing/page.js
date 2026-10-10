@@ -6,7 +6,7 @@ import { PricingSection } from "@/components/PricingSection";
 import { Check, Clock, ShieldCheck, Sparkles, Truck } from "lucide-react";
 
 export const metadata = {
-  title: 'Laundry & Dry Cleaning Prices in Bangalore (2026) | Spinzo — From ₹85/kg',
+  title: 'Laundry Prices Bangalore | Spinzo Pricing Guide',
   description: 'Transparent laundry, dry cleaning, and ironing prices in Bangalore. Wash & Fold at ₹85/kg, Wash & Iron ₹140/kg, Steam Ironing ₹18/pc, Dry Cleaning from ₹79/pc. Free doorstep pickup across South Bangalore.',
   keywords: [
     'laundry cost Bangalore',

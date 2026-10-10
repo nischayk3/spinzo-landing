@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   if (!post) return { title: 'Post Not Found' };
 
   return {
-    title: `${post.title} | Spinzo Blog`,
+    title: post.title.length > 55 ? post.title.substring(0, 56) + '...' : post.title,
     description: post.excerpt,
     alternates: {
       canonical: `https://spinzonow.com/blog/${slug}`,

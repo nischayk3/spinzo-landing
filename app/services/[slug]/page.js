@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   const service = getServiceBySlug(slug);
   if (!service) return { title: 'Service Not Found' };
 
-  const title = `${service.name} Service in Bangalore | Spinzo — ${service.tagline}`;
+  const title = `${service.name} Bangalore | Spinzo`;
   return {
     title,
     description: service.description,

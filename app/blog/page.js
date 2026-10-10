@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import blogPosts from "@/lib/blog-posts";
 
 export const metadata = {
-  title: 'Laundry Tips & Guides | Spinzo Blog | Bangalore Laundry Service',
+  title: 'Laundry Tips & Guides | Spinzo Blog',
   description: 'Expert laundry tips, fabric care guides, and insights about laundry services in South Bangalore. Learn about wash and fold, dry cleaning, steam ironing, and more.',
   openGraph: {
     title: 'Laundry Tips & Guides | Spinzo Blog',
