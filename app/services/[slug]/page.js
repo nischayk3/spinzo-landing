@@ -8,6 +8,7 @@ import { SERVICE_LOCATIONS } from "@/lib/locations";
 
 const BASE = 'https://spinzonow.com';
 const SAME_AS = [
+  'https://www.wikidata.org/wiki/Q141685782',
   'https://spinzo.in',
   'https://play.google.com/store/apps/details?id=com.nischayk3.Spinit',
   'https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814'
