@@ -8,12 +8,14 @@ import logo from "../assets/SpinZo.png";
 import { useTrackedUrl } from "../lib/useTrackedUrl";
 
 const navLinks = [
-  { label: "Why Us", href: "#why-spinzo" },
   { label: "Services", href: "#services" },
+  { label: "Pricing", href: "/pricing", isRoute: true },
+  { label: "Spinzo Pass", href: "/subscriptions", isRoute: true },
+  { label: "Service Areas", href: "/service-areas", isRoute: true },
+  { label: "Why Us", href: "#why-spinzo" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog", isRoute: true },
 ];
-
-const blogLink = { label: "Blog", href: "/blog" };
 
 export const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -24,23 +26,36 @@ export const Navbar = () => {
   const borderOpacity = useTransform(scrollY, [0, 70], [0, 1]);
 
   const handleBrandClick = (e) => {
-    e.preventDefault();
-    if (typeof window !== "undefined" && window.lenisInstance) {
-      window.lenisInstance.scrollTo(0);
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      e.preventDefault();
+      if (window.lenisInstance) {
+        window.lenisInstance.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
     setMobileOpen(false);
   };
 
-  const handleLinkClick = (e, href) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      if (typeof window !== "undefined" && window.lenisInstance) {
-        window.lenisInstance.scrollTo(target, { offset: -80 });
+  const handleLinkClick = (e, link) => {
+    if (link.isRoute) {
+      setMobileOpen(false);
+      return;
+    }
+
+    if (link.href.startsWith('#')) {
+      const target = document.querySelector(link.href);
+      if (target) {
+        e.preventDefault();
+        if (typeof window !== "undefined" && window.lenisInstance) {
+          window.lenisInstance.scrollTo(target, { offset: -80 });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       } else {
-        target.scrollIntoView({ behavior: 'smooth' });
+        // If on another page, let standard browser navigation go to /#hash
+        e.preventDefault();
+        window.location.href = `/${link.href}`;
       }
     }
     setMobileOpen(false);
@@ -81,23 +96,26 @@ export const Navbar = () => {
 
             {/* Navigation Links */}
             <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  className="relative px-4 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <Link
-                href={blogLink.href}
-                className="relative px-4 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
-                onClick={() => setMobileOpen(false)}
-              >
-                {blogLink.label}
-              </Link>
+              {navLinks.map((link) =>
+                link.isRoute ? (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="relative px-3.5 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link)}
+                    className="relative px-3.5 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
             </div>
           </div>
 
@@ -161,23 +179,27 @@ export const Navbar = () => {
               className="md:hidden bg-white/95 backdrop-blur-xl border-t border-purple-900/10 overflow-hidden"
             >
               <div className="px-6 py-4 flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link.href)}
-                    className="text-base font-medium text-zinc-900 py-3 px-3 rounded-xl transition-colors duration-200 hover:bg-[#994BFF]/10 cursor-pointer"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-                <Link
-                  href={blogLink.href}
-                  className="text-base font-medium text-zinc-900 py-3 px-3 rounded-xl transition-colors duration-200 hover:bg-[#994BFF]/10 cursor-pointer block"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {blogLink.label}
-                </Link>
+                {navLinks.map((link) =>
+                  link.isRoute ? (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="text-base font-medium text-zinc-900 py-2.5 px-3 rounded-xl transition-colors duration-200 hover:bg-[#994BFF]/10 cursor-pointer block"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={(e) => handleLinkClick(e, link)}
+                      className="text-base font-medium text-zinc-900 py-2.5 px-3 rounded-xl transition-colors duration-200 hover:bg-[#994BFF]/10 cursor-pointer"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
                 <motion.a
                   href={appDownloadUrl}
                   target="_blank"

@@ -7,10 +7,10 @@ import { SERVICE_LOCATIONS } from "@/lib/locations";
 
 export const metadata = {
   title: 'Laundry Service Areas in South Bangalore | Spinzo',
-  description: 'Spinzo serves 14 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered — Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar, and more.',
+  description: 'Spinzo serves 19 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered — Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar, and more.',
   openGraph: {
     title: 'Laundry Service Areas in South Bangalore | Spinzo',
-    description: 'Spinzo serves 14 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered.',
+    description: 'Spinzo serves 19 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered.',
     url: 'https://spinzonow.com/service-areas',
   },
 };
@@ -40,7 +40,7 @@ export default function ServiceAreasPage() {
             Laundry Service Areas in South Bangalore
           </h1>
           <p className="text-lg text-zinc-600 mb-8 max-w-3xl">
-            Spinzo provides fast, premium laundry pickup and delivery across 14 neighborhoods in South Bangalore.
+            Spinzo provides fast, premium laundry pickup and delivery across 19 neighborhoods in South Bangalore.
             If you live or work in any of these areas, we&apos;ll pick up your clothes within 30 minutes and deliver them fresh within hours.
           </p>
 

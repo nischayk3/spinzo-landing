@@ -9,8 +9,8 @@ import step3 from "../assets/Step 3.webp";
 const steps = [
   {
     icon: Smartphone,
-    title: "1. Choose Your Service",
-    description: "Tap into the app and select from Wash & Fold, Wash & Iron, or Steam Ironing.",
+    title: "1. App-based Booking",
+    description: "Use our seamless app-based booking to select from Wash & Fold, Wash & Iron, or Steam Ironing in seconds.",
     image: step1,
   },
   {
@@ -22,7 +22,7 @@ const steps = [
   {
     icon: PackageCheck,
     title: "3. Fresh Clothes Delivered",
-    description: "Track your order in real-time and get your fresh, clean clothes back in hours.",
+    description: "Use live order tracking to follow your clothes in real-time and get them delivered back in hours.",
     image: step3,
   },
 ];

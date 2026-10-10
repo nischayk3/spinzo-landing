@@ -16,6 +16,14 @@ export default function robots() {
         allow: '/',
       },
       {
+        userAgent: 'OAI-SearchBot',
+        allow: '/',
+      },
+      {
+        userAgent: 'ClaudeBot',
+        allow: '/',
+      },
+      {
         userAgent: 'Claude-Web',
         allow: '/',
       },
@@ -29,6 +37,10 @@ export default function robots() {
       },
       {
         userAgent: 'Applebot-Extended',
+        allow: '/',
+      },
+      {
+        userAgent: 'Bingbot',
         allow: '/',
       },
       {

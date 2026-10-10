@@ -1,38 +1,59 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Droplet, Shirt, Wind, Bed } from "lucide-react";
+import { Droplet, Shirt, Wind, Bed, Footprints, Sparkles } from "lucide-react";
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Re-using images from the previous implementation, assuming they are in public folder
 const serviceData = {
   "wash-fold": {
+    slug: "wash-and-fold",
     icon: Droplet,
     title: "Wash & Fold",
     displayTitle: ["Wash &", "Fold"],
-    description: "Perfect for your everyday laundry needs. We wash, dry, and fold with care.",
+    description: "Perfect for your everyday laundry needs. We wash, dry, and neatly fold your clothes with care.",
     image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?auto=format&fit=crop&q=80&w=800",
   },
   "wash-iron": {
+    slug: "wash-and-iron",
     icon: Shirt,
     title: "Wash & Iron",
     displayTitle: ["Wash &", "Iron"],
-    description: "Get your clothes washed, ironed, and returned to you crisp and ready to wear.",
+    description: "Get your clothes washed, steam-ironed, and returned to you crisp, fresh and ready to wear.",
     image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=800",
   },
   "steam-iron": {
+    slug: "steam-ironing",
     icon: Wind,
     title: "Steam Iron",
     displayTitle: ["Steam", "Iron"],
-    description: "Professional steam ironing to remove creases from your garments, keeping them crisp, fresh, and ready to wear.",
+    description: "Professional steam ironing & pressing. Eliminates stubborn creases with doorstep pickup.",
     image: "https://images.unsplash.com/photo-1489274495757-95c7c837b101?auto=format&fit=crop&q=80&w=800",
   },
+  "dry-cleaning": {
+    slug: "dry-cleaning",
+    icon: Sparkles,
+    title: "Dry Cleaning",
+    displayTitle: ["Dry", "Cleaning"],
+    description: "Chemical-free solvent dry cleaning for suits, silk sarees, lehengas, and delicate fabrics.",
+    image: "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&q=80&w=800",
+  },
   "blanket-wash": {
+    slug: "blanket-wash",
     icon: Bed,
     title: "Blanket Wash",
     displayTitle: ["Blanket", "Wash"],
-    description: "Specialized cleaning for blankets, comforters, and quilts with gentle yet thorough care.",
+    description: "Specialized deep cleaning for blankets, comforters, and quilts with gentle yet thorough care.",
     image: "/blanket-wash.png",
+  },
+  "shoe-cleaning": {
+    slug: "shoe-cleaning",
+    icon: Footprints,
+    title: "Shoe Cleaning",
+    displayTitle: ["Shoe", "Cleaning"],
+    description: "Professional shoe cleaning for sneakers, canvas, leather, and suede. Deodorized and revived.",
+    image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?auto=format&fit=crop&q=80&w=800",
   },
 };
 
@@ -65,7 +86,7 @@ export const Services = () => {
 
         <div className="max-w-4xl mx-auto px-2 sm:px-0">
           <div className="flex justify-center mb-10 w-full">
-            <div className="grid grid-cols-4 gap-1 p-1 bg-white/80 backdrop-blur-md rounded-xl border border-zinc-200/50 shadow-sm w-full md:flex md:items-center md:gap-1.5 md:p-1.5 md:rounded-full md:w-auto md:max-w-max">
+            <div className="grid grid-cols-3 sm:grid-cols-3 gap-1 p-1 bg-white/80 backdrop-blur-md rounded-xl border border-zinc-200/50 shadow-sm w-full md:flex md:items-center md:gap-1.5 md:p-1.5 md:rounded-full md:w-auto md:max-w-max">
               {Object.keys(serviceData).map((key) => {
                 const IconComponent = serviceData[key].icon;
                 return (
@@ -112,6 +133,13 @@ export const Services = () => {
                   <p className="text-zinc-700 mb-6 leading-relaxed">
                     {activeService.description}
                   </p>
+                  <Link
+                    href={`/services/${activeService.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#994BFF] hover:text-[#7A28E0] group"
+                  >
+                    Learn More About {activeService.title}
+                    <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </Link>
                 </div>
                 <div className="order-1 md:order-2 h-56 md:h-[280px] w-full relative rounded-2xl overflow-hidden shadow-lg shadow-purple-500/10">
                   <Image

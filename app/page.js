@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { WhySpinzo } from "@/components/WhySpinzo";
 import { Services } from "@/components/Services";
+import { PricingSection } from "@/components/PricingSection";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
@@ -16,6 +17,7 @@ export default function Home() {
     '@context': 'https://schema.org',
     '@type': 'DryCleaningOrLaundry',
     name: 'Spinzo Laundry',
+    alternateName: ['Spinzo', 'SpinZo', 'Spinzone Laundry', 'Spinzo Laundry Bangalore'],
     image: 'https://spinzonow.com/SpinZo.png',
     url: 'https://spinzonow.com',
     telephone: '+917676878832',
@@ -36,7 +38,7 @@ export default function Home() {
       addressRegion: 'Karnataka',
       addressCountry: 'IN'
     },
-    description: `Premium laundry, dry cleaning, and ironing service in Bangalore. 30-min pickup and 6-hour delivery across ${areaNames}.`,
+    description: `Premium laundry, dry cleaning, and ironing service in Bangalore. 30-min pickup and 6-hour delivery across ${SERVICE_LOCATIONS.length} South Bangalore neighborhoods including ${areaNames}.`,
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '09:00', closes: '22:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '09:00', closes: '22:00' },
@@ -46,12 +48,6 @@ export default function Home() {
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '22:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Sunday', opens: '09:00', closes: '22:00' },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      bestRating: '5',
-      ratingCount: '250'
-    },
     sameAs: [
       'https://spinzo.in',
       'https://play.google.com/store/apps/details?id=com.nischayk3.Spinit',
@@ -79,12 +75,12 @@ export default function Home() {
       {
         '@type': 'Question',
         name: 'Which areas does Spinzo serve?',
-        acceptedAnswer: { '@type': 'Answer', text: 'We serve 14 neighborhoods across South Bangalore including Jayanagar, JP Nagar, BTM Layout, Koramangala, HSR Layout, Kudlu, Bommanahalli, Wilson Garden, Shanti Nagar, Adugodi, SG Palya, Tavarekere, Madiwala, and S R Layout.' }
+        acceptedAnswer: { '@type': 'Answer', text: `We serve ${SERVICE_LOCATIONS.length} neighborhoods across South Bangalore including ${SERVICE_LOCATIONS.map(l => l.name).join(', ')}.` }
       },
       {
         '@type': 'Question',
         name: 'What laundry services do you offer?',
-        acceptedAnswer: { '@type': 'Answer', text: 'We offer Wash & Fold at ₹85/kg, Wash & Iron at ₹140/kg, Steam Ironing at ₹18/piece, Blanket Wash from ₹299, and Dry Cleaning. All services include free doorstep pickup and delivery.' }
+        acceptedAnswer: { '@type': 'Answer', text: 'We offer Wash & Fold, Wash & Iron, Steam Ironing, Dry Cleaning, Blanket Wash, and Shoe Cleaning. All services include free doorstep pickup and delivery across South Bangalore.' }
       },
       {
         '@type': 'Question',
@@ -138,11 +134,29 @@ export default function Home() {
       {
         '@type': 'Service',
         position: 4,
+        name: 'Dry Cleaning Service',
+        description: 'Specialized chemical-free dry cleaning for suits, silk sarees, blazers, and delicates starting at ₹79 per piece.',
+        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
+        areaServed: SERVICE_LOCATIONS.map(l => l.name),
+        offers: { '@type': 'Offer', price: '79', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'piece' } }
+      },
+      {
+        '@type': 'Service',
+        position: 5,
         name: 'Blanket Wash Service',
         description: 'Specialized cleaning for blankets and comforters starting at ₹299.',
         provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
         areaServed: SERVICE_LOCATIONS.map(l => l.name),
         offers: { '@type': 'Offer', price: '299', priceCurrency: 'INR' }
+      },
+      {
+        '@type': 'Service',
+        position: 6,
+        name: 'Shoe Cleaning Service',
+        description: 'Professional shoe cleaning for sneakers, canvas, leather, and suede. Deodorized and finished by material type.',
+        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
+        areaServed: SERVICE_LOCATIONS.map(l => l.name),
+        offers: { '@type': 'Offer', price: '199', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'pair' } }
       },
     ]
   };
@@ -170,6 +184,7 @@ export default function Home() {
         <HeroSection />
         <WhySpinzo />
         <Services />
+        <PricingSection />
         <HowItWorks />
         <Testimonials />
         <FAQ />
@@ -184,7 +199,19 @@ export default function Home() {
               Laundry Pickup &amp; Delivery Near You
             </h2>
 
-            <div className="flex flex-wrap justify-center gap-2.5 my-8">
+            <div className="flex flex-wrap justify-center gap-2.5 mb-8">
+              {['wash-and-fold', 'wash-and-iron', 'steam-ironing', 'dry-cleaning', 'blanket-wash', 'shoe-cleaning'].map((slug) => (
+                <a
+                  key={slug}
+                  href={`/services/${slug}`}
+                  className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-sm font-semibold text-[#994BFF] hover:bg-[#994BFF] hover:text-white transition-all duration-200"
+                >
+                  {slug.split('-').join(' ')}
+                </a>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-2.5 my-2">
               {SERVICE_LOCATIONS.map((l) => (
                 <a
                   key={l.slug}
@@ -209,6 +236,10 @@ export default function Home() {
               <span className="inline-flex items-center gap-1.5">
                 <svg className="w-4 h-4 text-[#994BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6a1 1 0 00.9 1.4H19M9 17a1 1 0 110 2 1 1 0 010-2zm9 0a1 1 0 110 2 1 1 0 010-2z" /></svg>
                 Free doorstep service
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <svg className="w-4 h-4 text-[#994BFF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                Live order tracking
               </span>
             </div>
           </div>

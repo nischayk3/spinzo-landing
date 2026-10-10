@@ -1,6 +1,7 @@
 export const dynamic = "force-static";
 
 import { SERVICE_LOCATIONS } from "@/lib/locations";
+import { SERVICES } from "@/lib/services";
 import blogPosts from "@/lib/blog-posts";
 
 export default function sitemap() {
@@ -11,6 +12,13 @@ export default function sitemap() {
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.8,
+  }));
+
+  const serviceUrls = SERVICES.map((s) => ({
+    url: `${baseUrl}/services/${s.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.9,
   }));
 
   const blogUrls = blogPosts.map((post) => ({
@@ -35,11 +43,18 @@ export default function sitemap() {
     },
     ...blogUrls,
     {
+      url: `${baseUrl}/pricing`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/service-areas`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     ...locationUrls,
+    ...serviceUrls,
   ];
 }

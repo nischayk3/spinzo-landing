@@ -39,32 +39,38 @@ export const Footer = () => {
           <div className="md:col-span-8 lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             <div>
               <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Services</h4>
-              <ul className="space-y-3">
-                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Wash & Fold</a></li>
-                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Wash & Iron</a></li>
-                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Steam Ironing</a></li>
-                <li><a href="/#services" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Blanket Wash</a></li>
+              <ul className="space-y-2.5">
+                <li><a href="/services/wash-and-fold" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Wash &amp; Fold</a></li>
+                <li><a href="/services/wash-and-iron" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Wash &amp; Iron</a></li>
+                <li><a href="/services/steam-ironing" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Steam Ironing</a></li>
+                <li><a href="/services/dry-cleaning" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Dry Cleaning</a></li>
+                <li><a href="/services/blanket-wash" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Blanket Wash</a></li>
+                <li><a href="/services/shoe-cleaning" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Shoe Cleaning</a></li>
+                <li><a href="/pricing" className="text-sm text-[#994BFF] font-semibold hover:underline">Pricing Rate Card →</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Service Areas</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 <li><a href="/locations/koramangala" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Koramangala</a></li>
                 <li><a href="/locations/hsr-layout" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">HSR Layout</a></li>
                 <li><a href="/locations/btm-layout" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">BTM Layout</a></li>
                 <li><a href="/locations/jayanagar" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Jayanagar</a></li>
                 <li><a href="/locations/jp-nagar" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">JP Nagar</a></li>
-                <li><a href="/service-areas" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors font-semibold">View All Areas →</a></li>
+                <li><a href="/service-areas" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors font-semibold">View All 19 Areas →</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Company</h4>
-              <ul className="space-y-3">
-                <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Web App</a></li>
-                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Android App</a></li>
-                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">iOS App</a></li>
-                <li><a href={`tel:${CONTACT_PHONE_TEL}`} className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Contact / Help: {CONTACT_PHONE}</a></li>
-                <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Privacy Policy</a></li>
+              <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Company & Links</h4>
+              <ul className="space-y-2.5">
+                <li><a href="/pricing" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Pricing &amp; Plans</a></li>
+                <li><a href="/subscriptions" className="text-sm font-semibold text-[#994BFF] hover:underline transition-colors">Spinzo Pass (Monthly)</a></li>
+                <li><a href="/b2b" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors font-medium">B2B &amp; Bulk Laundry</a></li>
+                <li><a href="/blog" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Laundry Guides &amp; Blog</a></li>
+                <li><a href="/compare/spinzo-vs-tumbledry" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Tumbledry</a></li>
+                <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Web App (spinzo.in)</a></li>
+                <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Download App</a></li>
+                <li><a href={`tel:${CONTACT_PHONE_TEL}`} className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Contact: {CONTACT_PHONE}</a></li>
               </ul>
             </div>
           </div>

@@ -5,11 +5,16 @@ import { useInView } from 'framer-motion';
 export const CountUp = ({ target, isDecimal = false, duration = 2000 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const [count, setCount] = useState(0);
+  // Initialize with target so static HTML export and SEO crawlers see the real metrics
+  const [count, setCount] = useState(target);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimatedRef.current) return;
+    hasAnimatedRef.current = true;
 
+    // Reset to 0 to run visual counter animation for client users
+    setCount(0);
     let startTime = null;
 
     const animate = (timestamp) => {
@@ -28,8 +33,8 @@ export const CountUp = ({ target, isDecimal = false, duration = 2000 }) => {
       }
     };
 
-    requestAnimationFrame(animate);
-
+    const frameId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frameId);
   }, [isInView, target, isDecimal, duration]);
 
   return <span ref={ref}>{isDecimal ? count.toFixed(1) : count.toLocaleString()}</span>;

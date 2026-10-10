@@ -9,7 +9,7 @@ const defaultFaqs = [
   { question: "How are my clothes handled?", answer: "Each garment goes through a meticulous process of tagging, stain treatment, professional washing, drying, ironing, and quality checks, ensuring premium care." },
   { question: "Which areas does Spinzo serve?", answer: "We serve Jayanagar, JP Nagar, BTM Layout, Koramangala, HSR Layout, Kudlu, Bommanahalli, Wilson Garden, Shanti Nagar, Adugodi, SG Palya, Tavarekere, Madiwala, S R Layout, and surrounding areas in South Bangalore." },
   { question: "What if my clothes get damaged?", answer: "While extremely rare, we have a comprehensive 100% safety guarantee. In the rare event of any damage, we provide compensation up to 2x the service value." },
-  { question: "What services do you offer?", answer: "We offer Wash & Fold at ₹85/kg, Wash & Iron at ₹140/kg, Steam Ironing at ₹18/piece, and Blanket Wash starting from ₹299. All services include free doorstep pickup and delivery." },
+  { question: "What services do you offer?", answer: "We offer Wash & Fold, Wash & Iron, Steam Ironing, Dry Cleaning, Blanket Wash, and Shoe Cleaning. All services include free doorstep pickup and delivery across South Bangalore." },
   { question: "Can I include innerwear in Wash & Fold?", answer: "Yes, absolutely. Innerwear can be included in both Wash & Fold and Wash & Iron services. All garments are handled hygienically with proper washing and separate care standards." },
   { question: "What payment methods do you accept?", answer: "We accept UPI, GPay, Paytm, cards, and cash on delivery. Payments can be completed through the app or web platform." },
 ];

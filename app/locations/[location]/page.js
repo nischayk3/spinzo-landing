@@ -60,9 +60,9 @@ const locationSpecificContent = {
     nearbyDesc: 'serving Shanti Nagar Main Road, Lakshmi Road, and the area around Shanti Nagar Bus Stand',
   },
   'adugodi': {
-    subtitle: 'Adugodi is a strategically located neighborhood in Central East Bangalore. Spinzo brings its premium laundry service to this bustling area.',
-    highlights: ['Central location with proximity to major offices and commercial areas', 'Well-connected by main roads and public transport', 'Close to Kodihalli, C V Raman Nagar, and HAL area'],
-    nearbyDesc: 'serving Adugodi Main Road, Kodihalli, and the broader Central East Bangalore area',
+    subtitle: 'Adugodi is a strategically located South Bangalore hub on Hosur Road right next to Koramangala. Spinzo brings its 30-minute pickup and express laundry service to every apartment and office here.',
+    highlights: ['Strategic South Bangalore location along Hosur Main Road corridor', 'Directly adjacent to Koramangala 8th Block, Wilson Garden, and Dairy Circle', 'Fast access for busy tech professionals and long-time residents'],
+    nearbyDesc: 'serving Adugodi Main Road, Hosur Road, Koramangala 8th Block border, and the Dairy Circle vicinity',
   },
   'sg-palya': {
     subtitle: 'SG Palya is a residential area in South Bangalore that we are proud to serve. Whether you need regular wash & fold or deep blanket cleaning, we handle it all.',
@@ -177,7 +177,7 @@ export default async function LocationPage({ params }) {
     notFound();
   }
 
-  const { name, nearby, keywords } = loc;
+  const { name, nearby, keywords, landmarks, pickupTime, localReview } = loc;
   const content = locationSpecificContent[loc.slug] || {
     subtitle: `${name} is a vibrant neighborhood in South Bangalore that Spinzo proudly serves with premium laundry pickup and delivery.`,
     highlights: ['Residential area with busy professionals', 'Growing demand for convenient doorstep services', 'Part of Spinzo\'s expanding South Bangalore coverage'],
@@ -259,13 +259,19 @@ export default async function LocationPage({ params }) {
               <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-4">
                 {content.subtitle}
               </p>
-              <p className="text-zinc-500">
+              <p className="text-zinc-500 mb-2">
                 <span className="font-medium">📍 Serving {content.nearbyDesc}.</span>
               </p>
+              
+              {landmarks && (
+                <p className="text-sm text-zinc-500">
+                  <span className="font-medium">Local landmarks:</span> {landmarks.join(', ')}
+                </p>
+              )}
 
               {/* Key USPs strip */}
               <div className="flex flex-wrap gap-3 mt-6">
-                <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">⏱ 30-min pickup</span>
+                <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">⏱ {pickupTime || '30-min'} pickup</span>
                 <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">🚚 Free doorstep delivery</span>
                 <span className="text-xs font-semibold text-zinc-600 bg-white px-3 py-1.5 rounded-full border border-purple-200 shadow-sm">📱 Track in app</span>
               </div>
@@ -299,6 +305,26 @@ export default async function LocationPage({ params }) {
           </div>
         </section>
 
+        {/* Local Proof Section */}
+        {localReview && (
+          <section className="py-8 bg-purple-50/30 border-y border-purple-100">
+            <div className="max-w-7xl mx-auto px-6 md:px-8">
+              <div className="flex items-center gap-4 bg-white p-6 rounded-2xl shadow-sm border border-purple-100">
+                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 bg-purple-100 text-purple-700 rounded-full font-bold text-xl">
+                  {localReview.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="flex text-yellow-400 text-sm mb-1">
+                    ★★★★★
+                  </div>
+                  <p className="text-zinc-700 italic">"{localReview.text}"</p>
+                  <p className="text-xs text-zinc-500 mt-1">— {localReview.name}, {name} Resident</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Why This Area Section */}
         <section className="py-12 md:py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -329,12 +355,14 @@ export default async function LocationPage({ params }) {
             <p className="text-zinc-500 text-center mb-10 max-w-2xl mx-auto">
               Transparent weight-based pricing. No hidden charges. Free pickup and delivery in {name}.
             </p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {[
                 { service: 'Wash & Fold', price: '₹85/kg', badge: 'Most Popular' },
                 { service: 'Wash & Iron', price: '₹140/kg', badge: null },
                 { service: 'Steam Ironing', price: '₹18/pc', badge: 'Min 5 pcs' },
                 { service: 'Blanket Wash', price: '₹299+', badge: 'Single/Double' },
+                { service: 'Shoe Cleaning', price: '₹199+', badge: 'Per pair' },
+                { service: 'Premium Laundry', price: '₹119/kg', badge: 'Hand-finished' },
               ].map((item) => (
                 <div key={item.service} className="bg-white rounded-2xl p-5 border border-purple-100/40 shadow-sm text-center hover:shadow-md hover:border-[#994BFF]/20 transition-all duration-300">
                   <div className="text-xs font-bold text-[#994BFF] uppercase tracking-wider mb-1">{item.badge || ' '}</div>

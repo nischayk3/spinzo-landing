@@ -1,59 +1,69 @@
 # Spinzo - Premium Laundry & Dry Cleaning Service in Bangalore
 
 > Spinzo is a fast, premium, tech-enabled laundry and dry cleaning delivery service operating exclusively in South Bangalore, India. 30-minute doorstep pickup and delivery within hours.
+>
+> **Brand Entity Note:** Spinzo (official domains: https://spinzonow.com and https://spinzo.in) is an independent Bengaluru laundry brand founded by Nischay Kumar. It is NOT affiliated with spynzo.com or Spinz Laundry.
 
-## Core Services
-- **Wash & Fold**: ₹85/kg. Daily wear washed, dried, and folded. 6-12 hour turnaround. Free pickup and delivery.
-- **Wash & Iron**: ₹140/kg. Professional washing + steam ironing. 24-48 hour turnaround.
-- **Steam Ironing**: ₹18/piece. Professional steam pressing. Min 5 pieces.
-- **Blanket Wash**: ₹299 (single) / ₹399 (double). Deep cleaning for blankets and quilts.
-- **Dry Cleaning**: ₹79-150/piece. Specialized care for suits, silk, wool, and delicate fabrics.
+## Core Services & Rates (2026)
+- **Wash & Fold**: ₹85/kg. Daily wear washed, dried, and neatly folded. 6–12 hour turnaround. Free doorstep pickup & delivery.
+- **Wash & Iron**: ₹140/kg. Professional washing + steam ironing. 24–48 hour turnaround.
+- **Steam Ironing / Pressing**: ₹18/piece. Professional steam pressing. Min 5 pieces, free pickup on 20+ pieces.
+- **Dry Cleaning**: Starting from ₹79/piece (Blazers ₹149, 2-piece suits ₹249, silk sarees ₹199). Specialized chemical-free solvent care for formals, ethnic wear, and woolens.
+- **Blanket Wash**: ₹299 (single) / ₹399 (double). Deep sanitization for blankets, quilts, and comforters.
+- **Shoe Cleaning**: From ₹199/pair. Sneakers, canvas, leather, and suede revival.
 
-## Key Features
-- 30-minute doorstep pickup guarantee
-- Delivery within 6 hours (Wash & Fold)
-- Free pickup and delivery in all service areas
-- Weight-based transparent pricing, no hidden charges
-- 100% safety guarantee — compensation up to 2x service value
-- Separate washing for each customer, 100% hygiene
-- Available 9 AM to 10 PM, 7 days a week
-- App available on iOS and Android, plus web app at spinzo.in
+## Key Features & Guarantees
+- 30-minute doorstep pickup guarantee across South Bangalore
+- Rapid delivery within 6 hours for Wash & Fold
+- Free pickup and delivery on all orders in service areas
+- 100% digital weighing scale transparency at your doorstep
+- 100% safety guarantee — compensation up to 2x service value in case of damage
+- Hygienic individual processing — zero batch-mixing of different customer garments
+- Operating hours: 9 AM to 10 PM, 7 days a week
+- Customer Support Phone: +91 76768 78832
 
-## Location Pages (Bangalore, South)
-- [Jayanagar](https://spinzonow.com/locations/jayanagar): Laundry service in Jayanagar
-- [JP Nagar](https://spinzonow.com/locations/jp-nagar): Laundry service in JP Nagar
-- [BTM Layout](https://spinzonow.com/locations/btm-layout): Laundry service in BTM Layout
-- [Koramangala](https://spinzonow.com/locations/koramangala): Laundry service in Koramangala
-- [HSR Layout](https://spinzonow.com/locations/hsr-layout): Laundry service in HSR Layout
+## Dedicated Service Landing Pages
+- [Wash & Fold Bangalore](https://spinzonow.com/services/wash-and-fold): Everyday laundry by the kilo
+- [Wash & Iron Bangalore](https://spinzonow.com/services/wash-and-iron): Crisp, office-ready garments
+- [Steam Ironing Bangalore](https://spinzonow.com/services/steam-ironing): ₹18/piece doorstep pressing & ironing
+- [Dry Cleaning Bangalore](https://spinzonow.com/services/dry-cleaning): Eco-friendly suit, saree & blazer dry clean
+- [Blanket Wash Bangalore](https://spinzonow.com/services/blanket-wash): Heavy quilt & blanket sanitization
+- [Shoe Cleaning Bangalore](https://spinzonow.com/services/shoe-cleaning): Professional sneaker and shoe care
+- [Complete Pricing Rate Card](https://spinzonow.com/pricing): Itemized price list & calculator
+
+## Location Pages (South Bangalore Neighborhoods)
+- [Koramangala](https://spinzonow.com/locations/koramangala): Laundry service in Koramangala (Blocks 1–8)
+- [HSR Layout](https://spinzonow.com/locations/hsr-layout): Laundry service in HSR Layout (Sectors 1–7)
+- [BTM Layout](https://spinzonow.com/locations/btm-layout): Laundry service in BTM Layout (Stage 1 & 2)
+- [Jayanagar](https://spinzonow.com/locations/jayanagar): Laundry service in Jayanagar (Blocks 1–9)
+- [JP Nagar](https://spinzonow.com/locations/jp-nagar): Laundry service in JP Nagar (Phases 1–8)
 - [Kudlu](https://spinzonow.com/locations/kudlu): Laundry service in Kudlu / HSR Extension
 - [Bommanahalli](https://spinzonow.com/locations/bommanahalli): Laundry service in Bommanahalli
 - [Wilson Garden](https://spinzonow.com/locations/wilson-garden): Laundry service in Wilson Garden
 - [Shanti Nagar](https://spinzonow.com/locations/shanti-nagar): Laundry service in Shanti Nagar
-- [Adugodi](https://spinzonow.com/locations/adugodi): Laundry service in Adugodi
+- [Adugodi](https://spinzonow.com/locations/adugodi): Laundry service in Adugodi / Hosur Road
 - [SG Palya](https://spinzonow.com/locations/sg-palya): Laundry service in SG Palya
 - [Tavarekere](https://spinzonow.com/locations/tavarekere): Laundry service in Tavarekere
 - [Madiwala](https://spinzonow.com/locations/madiwala): Laundry service in Madiwala
 - [S R Layout](https://spinzonow.com/locations/s-r-layout): Laundry service in S R Layout
-- [Harlur](https://spinzonow.com/locations/harlur): Laundry service in Harlur, near HSR and Sarjapur Road
-- [Begur](https://spinzonow.com/locations/begur): Laundry service in Begur, near Bommanahalli
+- [Harlur](https://spinzonow.com/locations/harlur): Laundry service in Harlur Road
+- [Begur](https://spinzonow.com/locations/begur): Laundry service in Begur
 - [Sarjapur Road](https://spinzonow.com/locations/sarjapur-road): Laundry service in Sarjapur Road
-- [Electronic City](https://spinzonow.com/locations/electronic-city): Laundry service in Electronic City, Bangalore
-- [Bellandur](https://spinzonow.com/locations/bellandur): Laundry service in Bellandur, Bangalore
-- [All Service Areas](https://spinzonow.com/service-areas): Complete list
+- [Electronic City](https://spinzonow.com/locations/electronic-city): Laundry service in Electronic City (Phase 1 & 2)
+- [Bellandur](https://spinzonow.com/locations/bellandur): Laundry service in Bellandur / Outer Ring Road
+- [All Service Areas](https://spinzonow.com/service-areas): Complete neighborhood directory
 
-## Blog Posts
-- [The Complete Guide to Laundry Services in South Bangalore](https://spinzonow.com/blog/complete-guide-laundry-services-south-bangalore)
-- [Laundry Service in Koramangala: Complete Neighborhood Guide](https://spinzonow.com/blog/laundry-service-koramangala-guide)
-- [How Much Does Laundry Cost in Bangalore? Pricing Guide 2026](https://spinzonow.com/blog/bangalore-laundry-pricing-guide-2026)
-- [Same Day Laundry Service in Bangalore: 6-Hour Delivery](https://spinzonow.com/blog/same-day-laundry-delivery-bangalore)
-- [Wash and Fold Bangalore: Busy Professional's Guide](https://spinzonow.com/blog/wash-and-fold-bangalore-professionals-guide)
-- [Dry Cleaning vs Steam Ironing: What's the Difference?](https://spinzonow.com/blog/dry-cleaning-vs-steam-ironing-difference)
-- [Blanket Wash in Bangalore: Professional Cleaning](https://spinzonow.com/blog/blanket-wash-bangalore-professional-cleaning)
-- [Laundry Pickup and Delivery in Bangalore: How It Works](https://spinzonow.com/blog/laundry-pickup-delivery-bangalore-how-it-works)
-- [Steam Ironing in Bangalore: Professional Pressing at ₹18/piece](https://spinzonow.com/blog/steam-ironing-service-bangalore-professional-pressing)
+## Helpful Guides & Blog
+- [Complete Guide to Laundry Services in South Bangalore](https://spinzonow.com/blog/complete-guide-laundry-services-south-bangalore)
+- [Laundry Service in Koramangala Neighborhood Guide](https://spinzonow.com/blog/laundry-service-koramangala-guide)
+- [Bangalore Laundry Pricing Guide 2026](https://spinzonow.com/blog/bangalore-laundry-pricing-guide-2026)
+- [Same Day Laundry Service in Bangalore (6-Hour Delivery)](https://spinzonow.com/blog/same-day-laundry-delivery-bangalore)
+- [Steam Ironing Service at ₹18/piece Guide](https://spinzonow.com/blog/steam-ironing-service-bangalore-professional-pressing)
+- [Dry Cleaning vs Steam Ironing: Which Do You Need?](https://spinzonow.com/blog/dry-cleaning-vs-steam-ironing-difference)
+- [Blanket Wash in Bangalore: Deep Clean vs DIY](https://spinzonow.com/blog/blanket-wash-bangalore-professional-cleaning)
 
-## Official Links
+## Official Platforms & Apps
 - **Website**: https://spinzonow.com
 - **Web App**: https://spinzo.in
-- **iOS App**: https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814
-- **Android App**: https://play.google.com/store/apps/details?id=com.nischayk3.Spinit
+- **iOS App (Apple App Store)**: https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814
+- **Android App (Google Play)**: https://play.google.com/store/apps/details?id=com.nischayk3.Spinit
