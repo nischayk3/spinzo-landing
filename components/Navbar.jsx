@@ -75,80 +75,60 @@ export const Navbar = () => {
         />
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between h-20 relative">
           
-          {/* Left side: Logo & Navigation Links */}
-          <div className="flex items-center gap-6 z-10">
-            <motion.a
-              href="#hero"
+          {/* Left side: Logo & Brand Name */}
+          <div className="flex items-center z-10">
+            <Link
+              href="/"
               onClick={handleBrandClick}
-              className="flex items-center cursor-pointer select-none"
-              whileHover="hover"
+              className="flex items-center gap-3 cursor-pointer select-none group"
             >
               <motion.div
                 variants={{
                   hover: { rotate: 360, scale: 1.15 }
                 }}
+                whileHover="hover"
                 transition={{ type: "spring", stiffness: 120, damping: 12 }}
-                className="flex items-center justify-center p-1 bg-white border border-[#994BFF]/30 rounded-full shadow-sm shadow-[#994BFF]/20 overflow-hidden"
+                className="flex items-center justify-center p-1 bg-white border border-[#994BFF]/30 rounded-full shadow-sm shadow-[#994BFF]/20 overflow-hidden shrink-0"
               >
                 <Image src={logo} alt="SpinZo Logo" width={34} height={34} priority className="object-cover scale-110 rounded-full" />
               </motion.div>
-            </motion.a>
-
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) =>
-                link.isRoute ? (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="relative px-3.5 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={(e) => handleLinkClick(e, link)}
-                    className="relative px-3.5 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
-                  >
-                    {link.label}
-                  </a>
-                )
-              )}
-            </div>
+              <span className="text-[#994BFF] font-extrabold text-2xl tracking-wide group-hover:scale-105 transition-transform duration-300">
+                SpinZo
+              </span>
+            </Link>
           </div>
 
-          {/* Center: Brand Name (Centered absolutely) */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center z-10 select-none pointer-events-none">
-            <motion.a
-              href="#hero"
-              onClick={handleBrandClick}
-              className="relative group flex items-center justify-center px-4 py-1 pointer-events-auto"
-              whileHover="hover"
-            >
-              {/* Background Animated Glow */}
-              <div className="absolute inset-0 bg-[#994BFF]/10 blur-md rounded-full scale-90 group-hover:scale-110 transition-transform duration-500 pointer-events-none" />
-              
-              <motion.span
-                className="text-[#994BFF] font-extrabold text-2xl tracking-wide relative z-10"
-                variants={{
-                  hover: { scale: 1.08, letterSpacing: "0.05em" }
-                }}
-                transition={{ type: "spring", stiffness: 350, damping: 15 }}
-              >
-                SpinZo
-              </motion.span>
-            </motion.a>
+          {/* Center: Navigation Links */}
+          <div className="hidden lg:flex items-center gap-1 z-10">
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="relative px-3 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link)}
+                  className="relative px-3 py-2 text-sm font-medium text-zinc-700 rounded-full transition-colors duration-200 hover:text-zinc-950 hover:bg-[#994BFF]/10 cursor-pointer"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
           </div>
 
           {/* Right: CTA Button */}
-          <div className="hidden md:flex items-center z-10">
+          <div className="hidden lg:flex items-center z-10">
             <motion.a
               href={webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 text-sm font-semibold text-white bg-[#994BFF] rounded-full shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] hover:shadow-[0_6px_20px_0_rgb(153,75,255,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer block"
+              className="px-5 py-2 text-sm font-semibold text-white bg-[#994BFF] rounded-full shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] hover:shadow-[0_6px_20px_0_rgb(153,75,255,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer block whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -157,7 +137,7 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile: Hamburger Button */}
-          <div className="md:hidden flex items-center z-10">
+          <div className="lg:hidden flex items-center z-10">
             <button
               className="p-2 text-purple-900 focus:outline-none"
               onClick={() => setMobileOpen(!mobileOpen)}

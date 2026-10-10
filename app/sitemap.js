@@ -28,6 +28,26 @@ export default function sitemap() {
     priority: 0.6,
   }));
 
+  const intersectionUrls = [];
+  const coreAreas = ['koramangala', 'hsr-layout', 'btm-layout', 'jayanagar', 'jp-nagar', 'bellandur'];
+  for (const loc of coreAreas) {
+    for (const s of SERVICES) {
+      intersectionUrls.push({
+        url: `${baseUrl}/locations/${loc}/${s.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.8,
+      });
+    }
+  }
+
+  const competitorUrls = ['tumbledry', 'uclean', 'washho'].map((comp) => ({
+    url: `${baseUrl}/compare/spinzo-vs-${comp}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -54,7 +74,21 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/subscriptions`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/b2b`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     ...locationUrls,
     ...serviceUrls,
+    ...intersectionUrls,
+    ...competitorUrls,
   ];
 }
