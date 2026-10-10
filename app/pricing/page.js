@@ -16,7 +16,13 @@ export const metadata = {
     'how much does ironing cost',
     'ironing cost per shirt',
     'dry cleaning price list Bangalore',
-    'blanket wash cost Bangalore'
+    'dry cleaning rates bangalore',
+    'saree dry cleaning cost',
+    'shoe cleaning price bangalore',
+    'suit dry cleaning cost bangalore',
+    'blanket dry cleaning price',
+    'laundry price list bangalore',
+    'istri charges near me'
   ],
   alternates: {
     canonical: 'https://spinzonow.com/pricing',
