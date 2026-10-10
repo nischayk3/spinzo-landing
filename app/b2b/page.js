@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 export const metadata = {
   title: 'B2B & Bulk Laundry Services in Bangalore | Spinzo',
   description: 'Commercial laundry services for PGs, Co-living, Airbnbs, and Salons in South Bangalore. Reliable weekly linen wash and bulk laundry plans with free pickup.',
+  keywords: ['hotel laundry services near me', 'commercial laundry service bangalore', 'hotel laundry near me', 'bulk laundry service', 'b2b laundry bangalore'],
   alternates: {
     canonical: 'https://spinzonow.com/b2b'
   }
