@@ -96,7 +96,7 @@ export const TrackingScripts = () => {
           width="1"
           style={{ display: 'none' }}
           src="https://www.facebook.com/tr?id=888781886883366&ev=PageView&noscript=1"
-          alt=""
+          alt="Facebook Pixel Tracking"
         />
       </noscript>
 
