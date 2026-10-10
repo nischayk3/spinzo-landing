@@ -17,7 +17,7 @@ const outfit = Outfit({
 export const metadata = {
   metadataBase: new URL('https://spinzonow.com'),
   title: {
-    template: '%s | Spinzo - Premium Laundry Bangalore',
+    template: '%s',
     default: "Spinzo - Bangalore's Top Premium Laundry, Dry Cleaning & Shoe Care at Your Doorstep",
   },
   description: "Bangalore's fastest premium laundry service — doorstep pickup in 30 minutes, delivery within hours. Wash & Fold at ₹85/kg, Steam Ironing, Dry Cleaning & more. Serving Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar, Sarjapur Road, Electronic City & across South Bangalore. Help & support: +91 76768 78832.",

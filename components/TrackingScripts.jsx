@@ -107,6 +107,14 @@ export const TrackingScripts = () => {
         strategy="afterInteractive"
         onLoad={initAppsFlyer}
       />
+
+      {/* --- WeBotApp Signal First-Party Analytics Tag --- */}
+      <Script
+        id="webotapp-signal"
+        strategy="afterInteractive"
+        src="https://signal.webotapp.com/tracker.js"
+        data-site-id="spinzonow.com"
+      />
     </>
   );
 };
