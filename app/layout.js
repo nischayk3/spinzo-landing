@@ -67,6 +67,38 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${jakartaSans.variable} ${outfit.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "DryCleaningOrLaundry",
+              "name": "Spinzo",
+              "url": "https://spinzonow.com",
+              "logo": "https://spinzonow.com/SpinZo.png",
+              "image": "https://spinzonow.com/SpinZo.png",
+              "description": "Bangalore's fastest premium laundry service — doorstep pickup in 30 minutes, delivery within hours. Wash & Fold at ₹85/kg.",
+              "telephone": "+917676878832",
+              "priceRange": "₹₹",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bangalore",
+                "addressRegion": "Karnataka",
+                "addressCountry": "IN"
+              },
+              "areaServed": [
+                "Koramangala", "HSR Layout", "BTM Layout", "Jayanagar", "JP Nagar", "Bellandur", "South Bangalore"
+              ],
+              "sameAs": [
+                "https://spinzo.in",
+                "https://play.google.com/store/apps/details?id=com.nischayk3.Spinit",
+                "https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814"
+              ]
+            })
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-[var(--color-background)] text-[var(--color-text)]">
         <TrackingScripts />
         <LenisProvider>{children}</LenisProvider>
