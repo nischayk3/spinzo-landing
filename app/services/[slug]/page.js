@@ -94,7 +94,7 @@ export default async function ServicePage({ params }) {
                 Spinzo Services
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-[#1F0B3F] mb-4 font-display">
-                {service.name} in Bangalore
+                {service.h1 || `${service.name} in Bangalore`}
               </h1>
               <p className="text-lg md:text-xl text-zinc-700 leading-relaxed mb-4">{service.tagline}</p>
               <p className="text-zinc-600 leading-relaxed mb-6 max-w-2xl">{service.description}</p>
