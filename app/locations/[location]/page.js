@@ -156,7 +156,7 @@ export async function generateMetadata({ params }) {
   const locationName = loc.name;
 
   return {
-    title: `${locationName} Laundry Service Near Me | Wash & Fold ₹85/kg | Spinzo`,
+    title: `${locationName} Laundry Near Me | Wash & Fold ₹85/kg`,
     description: `Looking for laundry service near ${locationName}, Bangalore? Spinzo offers 30-min pickup and delivery in hours. Wash & Fold ₹85/kg, Wash & Iron, Steam Ironing. Serving ${loc.nearby.slice(0, 3).join(', ')}. Free pickup.`,
     alternates: {
       canonical: `https://spinzonow.com/locations/${location}`
