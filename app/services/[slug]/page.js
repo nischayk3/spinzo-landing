@@ -112,14 +112,6 @@ export default async function ServicePage({ params }) {
                 >
                   Book a Pickup
                 </a>
-                <a
-                  href="https://wa.me/917676878832?text=Hi%20Spinzo!%20I%27d%20like%20to%20book%20%3Cservice%3E%20in%20Bangalore."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-green-500/20"
-                >
-                  Book on WhatsApp
-                </a>
               </div>
             </div>
           </div>

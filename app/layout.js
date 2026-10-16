@@ -68,6 +68,12 @@ export default function RootLayout({ children }) {
       className={`${jakartaSans.variable} ${outfit.variable} h-full antialiased`}
     >
       <head>
+        {/* WeBotApp Signal Privacy-First Analytics Tag */}
+        <script
+          defer
+          src="https://signal.webotapp.com/tracker.js"
+          data-site-id="spinzonow.com"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
