@@ -1,6 +1,5 @@
 import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import LenisProvider from "@/components/LenisProvider";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { TrackingScripts } from "@/components/TrackingScripts";
 import "./globals.css";
 
@@ -108,7 +107,6 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col font-sans bg-[var(--color-background)] text-[var(--color-text)]">
         <TrackingScripts />
         <LenisProvider>{children}</LenisProvider>
-        <WhatsAppButton />
       </body>
     </html>
   );

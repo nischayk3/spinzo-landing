@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 import { useTrackedUrl } from "../lib/useTrackedUrl";
+import { trackBookingConversion } from "../lib/deviceRouting";
 
 export const FinalCTA = () => {
   const webAppUrl = useTrackedUrl("https://spinzo.in/");
@@ -34,6 +35,7 @@ export const FinalCTA = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-appsflyer-link="true"
+                onClick={() => trackBookingConversion("Final CTA Google Play")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="store-download-btn inline-flex items-center gap-3 bg-white hover:bg-purple-50 text-zinc-900 rounded-xl px-4 py-2 border border-white transition-all duration-300 shadow-lg shadow-black/10 w-[185px] h-[52px] justify-start"
@@ -56,6 +58,7 @@ export const FinalCTA = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-appsflyer-link="true"
+                onClick={() => trackBookingConversion("Final CTA App Store")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="store-download-btn inline-flex items-center gap-3 bg-white hover:bg-purple-50 text-zinc-900 rounded-xl px-4 py-2 border border-white transition-all duration-300 shadow-lg shadow-black/10 w-[185px] h-[52px] justify-start"
@@ -73,6 +76,7 @@ export const FinalCTA = () => {
                 href={webAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackBookingConversion("Final CTA Web App")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-3 bg-white hover:bg-purple-50 text-zinc-900 rounded-xl px-4 py-2 border border-white transition-all duration-300 shadow-lg shadow-black/10 w-[185px] h-[52px] justify-start"

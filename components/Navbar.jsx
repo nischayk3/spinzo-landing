@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../assets/SpinZo.png";
 import { useTrackedUrl } from "../lib/useTrackedUrl";
+import { trackBookingConversion } from "../lib/deviceRouting";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -128,6 +129,7 @@ export const Navbar = () => {
               href={webAppUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackBookingConversion("Schedule Pickup Navbar")}
               className="px-5 py-2 text-sm font-semibold text-white bg-[#994BFF] rounded-full shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] hover:shadow-[0_6px_20px_0_rgb(153,75,255,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer block whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -187,7 +189,10 @@ export const Navbar = () => {
                   data-appsflyer-link="true"
                   className="store-download-btn w-full mt-4 px-5 py-3 text-base font-semibold text-zinc-900 bg-purple-50 hover:bg-purple-100 border border-purple-200/80 rounded-xl transition-all duration-300 cursor-pointer text-center block"
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    trackBookingConversion("Mobile Menu Download App");
+                    setMobileOpen(false);
+                  }}
                 >
                   📱 Download Spinzo App
                 </motion.a>
@@ -197,7 +202,10 @@ export const Navbar = () => {
                   rel="noopener noreferrer"
                   className="w-full mt-2 px-5 py-3 text-base font-semibold text-white bg-[#994BFF] rounded-xl shadow-[0_4px_14px_0_rgb(153,75,255,0.4)] transition-all duration-300 cursor-pointer text-center block"
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => {
+                    trackBookingConversion("Mobile Menu Schedule Pickup Web");
+                    setMobileOpen(false);
+                  }}
                 >
                   Schedule Pickup (Web)
                 </motion.a>

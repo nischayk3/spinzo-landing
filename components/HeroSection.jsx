@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Clock, Truck, Sparkles, Globe } from "lucide-react";
 import { PhoneMockup } from "./PhoneMockup";
 import { useTrackedUrl } from "../lib/useTrackedUrl";
+import { trackBookingConversion } from "../lib/deviceRouting";
 
 
 const fadeUp = {
@@ -74,6 +75,7 @@ export const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-appsflyer-link="true"
+                  onClick={() => trackBookingConversion("Hero Google Play")}
                   className="store-download-btn inline-flex items-center gap-3 bg-black hover:bg-zinc-900 text-white rounded-xl px-4 py-2 border border-zinc-800 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-black/10"
                 >
                   <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +95,7 @@ export const HeroSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   data-appsflyer-link="true"
+                  onClick={() => trackBookingConversion("Hero App Store")}
                   className="store-download-btn inline-flex items-center gap-3 bg-black hover:bg-zinc-900 text-white rounded-xl px-4 py-2 border border-zinc-800 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-black/10"
                 >
                   <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -107,6 +110,7 @@ export const HeroSection = () => {
                   href={webAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackBookingConversion("Hero Web App")}
                   className="inline-flex items-center gap-2 rounded-xl px-4 py-[11px] text-sm font-semibold text-zinc-900 bg-white hover:bg-purple-50/50 border border-purple-200 shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
                 >
                   <Globe size={16} className="text-[#994BFF]" />

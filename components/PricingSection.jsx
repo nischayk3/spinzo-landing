@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
+import { useTrackedUrl } from "@/lib/useTrackedUrl";
+import { trackBookingConversion } from "@/lib/deviceRouting";
 
 const pricingPlans = [
   {
@@ -67,6 +69,8 @@ const pricingPlans = [
 ];
 
 export const PricingSection = () => {
+  const appDownloadUrl = useTrackedUrl("https://spinzonow.onelink.me/SVxb/89uz4xf3");
+
   return (
     <section id="pricing" className="py-20 lg:py-28 bg-gradient-to-b from-white to-purple-50/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -128,10 +132,14 @@ export const PricingSection = () => {
               </div>
 
               <a
-                href={`https://wa.me/917676878832?text=Hi%20Spinzo!%20I%20want%20to%20book%20a%20${encodeURIComponent(plan.name)}%20pickup`}
+                href={appDownloadUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs font-semibold rounded-xl transition-all duration-200 ${
+                data-appsflyer-link="true"
+                onClick={() => {
+                  trackBookingConversion(plan.name, { turnaround: plan.turnaround });
+                }}
+                className={`store-download-btn w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs font-semibold rounded-xl transition-all duration-200 ${
                   plan.popular
                     ? "bg-[#8B5CF6] text-white hover:bg-[#7A28E0] shadow-md shadow-purple-500/20"
                     : "bg-purple-50 text-[#8B5CF6] hover:bg-[#8B5CF6] hover:text-white"
