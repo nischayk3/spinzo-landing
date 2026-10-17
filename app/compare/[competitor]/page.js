@@ -31,6 +31,24 @@ const competitors = {
       '6 hour express delivery available vs standard 48 hours.',
       'Better rated on Play Store for customer service.'
     ]
+  },
+  'laundrymate': {
+    name: 'Laundrymate',
+    spinzoWins: [
+      'Fast 6-hour delivery option vs rigid standard 24–48 hour turnaround.',
+      'Hyper-local South Bangalore dark stores guarantee 30-min pickup response.',
+      'Strict 100% individual wash cycles per customer with zero missing clothes.',
+      'Doorstep digital weighing scale so you verify exact weight before paying.'
+    ]
+  },
+  'local-dhobi': {
+    name: 'Local Dhobi / Iron Shop',
+    spinzoWins: [
+      'Commercial-grade steam pressing prevents fabric shine and burns from coal irons.',
+      'Doorstep 30-min pickup & scheduled return — never haul heavy laundry bags down the street.',
+      'Zero monsoon delays with indoor industrial climate-controlled washers and tumblers.',
+      'Transparent flat pricing from ₹18/piece with digital billing and UPI/card payments.'
+    ]
   }
 };
 

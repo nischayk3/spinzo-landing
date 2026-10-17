@@ -10,8 +10,10 @@ import { Footer } from "@/components/Footer";
 import { LocationHeroCTA } from "@/components/LocationHeroCTA";
 import {
   SERVICE_LOCATIONS,
+  CORE_SERVICE_AREAS,
   getLocationBySlug,
 } from "@/lib/locations";
+import { SERVICES } from "@/lib/services";
 
 const locationSpecificContent = {
   'jayanagar': {
@@ -355,21 +357,31 @@ export default async function LocationPage({ params }) {
             <p className="text-zinc-500 text-center mb-10 max-w-2xl mx-auto">
               Transparent weight-based pricing. No hidden charges. Free pickup and delivery in {name}.
             </p>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              {[
-                { service: 'Wash & Fold', price: '₹85/kg', badge: 'Most Popular' },
-                { service: 'Wash & Iron', price: '₹140/kg', badge: null },
-                { service: 'Steam Ironing', price: '₹18/pc', badge: 'Min 5 pcs' },
-                { service: 'Blanket Wash', price: '₹299+', badge: 'Single/Double' },
-                { service: 'Shoe Cleaning', price: '₹199+', badge: 'Per pair' },
-                { service: 'Premium Laundry', price: '₹119/kg', badge: 'Hand-finished' },
-              ].map((item) => (
-                <div key={item.service} className="bg-white rounded-2xl p-5 border border-purple-100/40 shadow-sm text-center hover:shadow-md hover:border-[#994BFF]/20 transition-all duration-300">
-                  <div className="text-xs font-bold text-[#994BFF] uppercase tracking-wider mb-1">{item.badge || ' '}</div>
-                  <h3 className="font-bold text-zinc-900">{item.service}</h3>
-                  <p className="text-2xl font-extrabold text-[#1F0B3F] mt-2">{item.price}</p>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              {SERVICES.map((item) => {
+                const isCoreArea = CORE_SERVICE_AREAS.includes(loc.slug);
+                const targetUrl = isCoreArea ? `/locations/${loc.slug}/${item.slug}` : `/services/${item.slug}`;
+                return (
+                  <a
+                    key={item.slug}
+                    href={targetUrl}
+                    className="group bg-white rounded-2xl p-5 border border-purple-100/60 shadow-sm text-center hover:shadow-lg hover:border-[#994BFF]/40 hover:-translate-y-1 transition-all duration-300 block"
+                  >
+                    <div className="text-xs font-bold text-[#994BFF] uppercase tracking-wider mb-1">
+                      {item.turnaround || 'Express'}
+                    </div>
+                    <h3 className="font-bold text-zinc-900 group-hover:text-[#994BFF] transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="text-2xl font-extrabold text-[#1F0B3F] mt-2 mb-3">
+                      {item.price}
+                    </p>
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#994BFF] group-hover:gap-1.5 transition-all">
+                      {isCoreArea ? `${item.shortName} in ${name} →` : `View details →`}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>

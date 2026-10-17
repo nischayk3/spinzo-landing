@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
 import { SERVICES, getServiceBySlug } from "@/lib/services";
-import { SERVICE_LOCATIONS } from "@/lib/locations";
+import { SERVICE_LOCATIONS, CORE_SERVICE_AREAS } from "@/lib/locations";
 
 const BASE = 'https://spinzonow.com';
 const SAME_AS = [
@@ -145,18 +145,43 @@ export default async function ServicePage({ params }) {
               {service.name} Near You
             </h2>
             <p className="text-zinc-600 text-center mb-10 max-w-2xl mx-auto">
-              We provide {service.shortName.toLowerCase()} across South Bangalore. Select your area for details. All include free pickup &amp; delivery.
+              We provide express {service.shortName.toLowerCase()} across South Bangalore. Select your neighborhood for local pricing, pickup times, and doorstep delivery.
             </p>
-            <div className="flex flex-wrap justify-center gap-2.5">
-              {SERVICE_LOCATIONS.map((l) => (
-                <Link
-                  key={l.slug}
-                  href={`/locations/${l.slug}/${service.slug}`}
-                  className="px-4 py-2 rounded-full bg-white border border-purple-100 text-sm font-medium text-zinc-600 hover:text-[#994BFF] hover:border-[#994BFF]/40 transition-all"
-                >
-                  {l.name}
-                </Link>
-              ))}
+
+            <div className="max-w-4xl mx-auto space-y-6">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-[#994BFF] text-center mb-3">
+                  Dedicated {service.shortName} Express Hubs (30-min pickup)
+                </p>
+                <div className="flex flex-wrap justify-center gap-2.5">
+                  {SERVICE_LOCATIONS.filter(l => CORE_SERVICE_AREAS.includes(l.slug)).map((l) => (
+                    <Link
+                      key={l.slug}
+                      href={`/locations/${l.slug}/${service.slug}`}
+                      className="px-4 py-2 rounded-full bg-white border border-purple-200 text-sm font-semibold text-zinc-800 hover:text-[#994BFF] hover:border-[#994BFF] hover:shadow-sm transition-all"
+                    >
+                      {service.shortName} in {l.name} &rarr;
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-zinc-400 text-center mb-3">
+                  Also Serving These South Bangalore Neighborhoods
+                </p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {SERVICE_LOCATIONS.filter(l => !CORE_SERVICE_AREAS.includes(l.slug)).map((l) => (
+                    <Link
+                      key={l.slug}
+                      href={`/locations/${l.slug}`}
+                      className="px-3.5 py-1.5 rounded-full bg-white/80 border border-zinc-200 text-xs font-medium text-zinc-600 hover:text-[#994BFF] hover:border-[#994BFF]/40 transition-all"
+                    >
+                      {l.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>

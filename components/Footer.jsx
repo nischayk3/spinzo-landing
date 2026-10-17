@@ -46,6 +46,8 @@ export const Footer = () => {
                 <li><a href="/services/dry-cleaning" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Dry Cleaning</a></li>
                 <li><a href="/services/blanket-wash" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Blanket Wash</a></li>
                 <li><a href="/services/shoe-cleaning" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Shoe Cleaning</a></li>
+                <li><a href="/services/premium-laundry" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Premium Laundry</a></li>
+                <li><a href="/services/express-laundry" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Express Same-Day</a></li>
                 <li><a href="/pricing" className="text-sm text-[#994BFF] font-semibold hover:underline">Pricing Rate Card →</a></li>
               </ul>
             </div>
@@ -68,6 +70,10 @@ export const Footer = () => {
                 <li><a href="/b2b" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors font-medium">B2B &amp; Bulk Laundry</a></li>
                 <li><a href="/blog" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Laundry Guides &amp; Blog</a></li>
                 <li><a href="/compare/spinzo-vs-tumbledry" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Tumbledry</a></li>
+                <li><a href="/compare/spinzo-vs-laundrymate" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Laundrymate</a></li>
+                <li><a href="/compare/spinzo-vs-local-dhobi" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Local Dhobi</a></li>
+                <li><a href="/compare/spinzo-vs-uclean" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs UClean</a></li>
+                <li><a href="/compare/spinzo-vs-washho" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Washho</a></li>
                 <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Web App (spinzo.in)</a></li>
                 <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Download App</a></li>
                 <li><a href={`tel:${CONTACT_PHONE_TEL}`} className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Contact: {CONTACT_PHONE}</a></li>

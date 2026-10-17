@@ -6,6 +6,9 @@ import blogPosts from "@/lib/blog-posts";
 export const metadata = {
   title: 'Laundry Tips & Guides | Spinzo Blog',
   description: 'Expert laundry tips, fabric care guides, and insights about laundry services in South Bangalore. Learn about wash and fold, dry cleaning, steam ironing, and more.',
+  alternates: {
+    canonical: 'https://spinzonow.com/blog',
+  },
   openGraph: {
     title: 'Laundry Tips & Guides | Spinzo Blog',
     description: 'Expert laundry tips, fabric care guides, and insights about laundry services in South Bangalore.',

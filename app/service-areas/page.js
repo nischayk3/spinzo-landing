@@ -3,11 +3,15 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PricingSection } from "@/components/PricingSection";
 import { ServiceAreasCTA } from "@/components/ServiceAreasCTA";
-import { SERVICE_LOCATIONS } from "@/lib/locations";
+import { SERVICE_LOCATIONS, CORE_SERVICE_AREAS } from "@/lib/locations";
+import { SERVICES } from "@/lib/services";
 
 export const metadata = {
   title: 'Laundry Service Areas in South Bangalore | Spinzo',
   description: 'Spinzo serves 19 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered — Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar, and more.',
+  alternates: {
+    canonical: 'https://spinzonow.com/service-areas',
+  },
   openGraph: {
     title: 'Laundry Service Areas in South Bangalore | Spinzo',
     description: 'Spinzo serves 19 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered.',
@@ -59,6 +63,49 @@ export default function ServiceAreasPage() {
                 </p>
               </Link>
             ))}
+          </div>
+
+          {/* Core Express Hubs & Dedicated Service Links */}
+          <div className="mb-12 p-8 bg-gradient-to-br from-purple-50/50 to-white rounded-3xl border border-purple-100 shadow-sm">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#994BFF] mb-2 block">
+              Direct Service Matrix
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-zinc-900 mb-4 font-display">
+              Popular Express Services by Neighborhood
+            </h2>
+            <p className="text-sm text-zinc-600 mb-6 leading-relaxed">
+              Explore specialized laundry, steam ironing, and dry cleaning landing pages for our high-speed express hubs across South Bangalore:
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {SERVICE_LOCATIONS.filter(l => CORE_SERVICE_AREAS.includes(l.slug)).map((loc) => (
+                <div key={loc.slug} className="bg-white p-5 rounded-2xl border border-purple-100/80 shadow-sm">
+                  <h3 className="font-bold text-zinc-900 font-display text-base mb-3 flex items-center justify-between">
+                    <span>{loc.name}</span>
+                    <span className="text-[11px] font-semibold text-[#994BFF] bg-purple-50 px-2 py-0.5 rounded-full">
+                      {loc.pickupTime || '30-min'}
+                    </span>
+                  </h3>
+                  <div className="space-y-1.5 text-xs">
+                    {SERVICES.slice(0, 5).map((s) => (
+                      <Link
+                        key={s.slug}
+                        href={`/locations/${loc.slug}/${s.slug}`}
+                        className="block text-zinc-600 hover:text-[#994BFF] hover:translate-x-0.5 transition-all"
+                      >
+                        {s.name} in {loc.name} &rarr;
+                      </Link>
+                    ))}
+                    <Link
+                      href={`/locations/${loc.slug}`}
+                      className="block text-[#994BFF] font-semibold pt-1 hover:underline"
+                    >
+                      View all {loc.name} services &rarr;
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="bg-purple-50 rounded-3xl p-8 md:p-12 mb-12">
