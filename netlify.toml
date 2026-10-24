@@ -7,3 +7,152 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "upgrade-insecure-requests; block-all-mixed-content"
+
+# 301 redirects: dropped intersection pages → parent area page
+# These pages were generated for 6 areas × 8 services (48 pages) but we now
+# build only 4 core areas × 3 intersection services (12 pages).
+# Google had 39 of the original 48 "Discovered – not indexed" — the redirect
+# consolidates link equity and removes the content-similarity penalty.
+
+# Areas removed from CORE_SERVICE_AREAS entirely — redirect all service links
+[[redirects]]
+  from = "/locations/jayanagar/:service"
+  to = "/locations/jayanagar"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/jp-nagar/:service"
+  to = "/locations/jp-nagar"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/bellandur/:service"
+  to = "/locations/bellandur"
+  status = 301
+  force = true
+
+# Silk Board is new in CORE — redirect non-intersection services to /services/
+[[redirects]]
+  from = "/locations/silk-board/dry-cleaning"
+  to = "/services/dry-cleaning"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/silk-board/blanket-wash"
+  to = "/services/blanket-wash"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/silk-board/shoe-cleaning"
+  to = "/services/shoe-cleaning"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/silk-board/premium-laundry"
+  to = "/services/premium-laundry"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/silk-board/express-laundry"
+  to = "/services/express-laundry"
+  status = 301
+  force = true
+
+# BTM Layout — redirect non-intersection services
+[[redirects]]
+  from = "/locations/btm-layout/dry-cleaning"
+  to = "/locations/btm-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/btm-layout/blanket-wash"
+  to = "/locations/btm-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/btm-layout/shoe-cleaning"
+  to = "/locations/btm-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/btm-layout/premium-laundry"
+  to = "/locations/btm-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/btm-layout/express-laundry"
+  to = "/locations/btm-layout"
+  status = 301
+  force = true
+
+# HSR Layout — redirect non-intersection services
+[[redirects]]
+  from = "/locations/hsr-layout/dry-cleaning"
+  to = "/locations/hsr-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/hsr-layout/blanket-wash"
+  to = "/locations/hsr-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/hsr-layout/shoe-cleaning"
+  to = "/locations/hsr-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/hsr-layout/premium-laundry"
+  to = "/locations/hsr-layout"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/hsr-layout/express-laundry"
+  to = "/locations/hsr-layout"
+  status = 301
+  force = true
+
+# Koramangala — redirect non-intersection services
+[[redirects]]
+  from = "/locations/koramangala/dry-cleaning"
+  to = "/locations/koramangala"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/koramangala/blanket-wash"
+  to = "/locations/koramangala"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/koramangala/shoe-cleaning"
+  to = "/locations/koramangala"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/koramangala/premium-laundry"
+  to = "/locations/koramangala"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locations/koramangala/express-laundry"
+  to = "/locations/koramangala"
+  status = 301
+  force = true

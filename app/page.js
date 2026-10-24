@@ -1,3 +1,5 @@
+import { SERVICES } from "@/lib/services";
+import { SERVICE_LOCATIONS } from "@/lib/locations";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { WhySpinzo } from "@/components/WhySpinzo";
@@ -8,7 +10,22 @@ import { Testimonials } from "@/components/Testimonials";
 import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
-import { SERVICE_LOCATIONS } from "@/lib/locations";
+
+// Auto-generate ItemList schema from service catalogue — stays in sync as services evolve.
+const SERVICE_LIST_ITEMS = SERVICES.map((s, i) => ({
+  '@type': 'Service',
+  position: i + 1,
+  name: `${s.name} Service`,
+  description: s.description,
+  provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
+  areaServed: SERVICE_LOCATIONS.map(l => l.name),
+  offers: {
+    '@type': 'Offer',
+    price: String(s.priceValue),
+    priceCurrency: 'INR',
+    ...(s.priceUnit ? { priceSpecification: { '@type': 'UnitPriceSpecification', unitText: s.priceUnit } } : {}),
+  },
+}));
 
 export default function Home() {
   const areaNames = SERVICE_LOCATIONS.slice(0, 6).map(l => l.name).join(', ') + ' and more';
@@ -104,62 +121,7 @@ export default function Home() {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    itemListElement: [
-      {
-        '@type': 'Service',
-        position: 1,
-        name: 'Wash & Fold Laundry Service',
-        description: 'Wash, dry and fold service at ₹85 per kg. Free pickup and delivery in 6-12 hours.',
-        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
-        areaServed: SERVICE_LOCATIONS.map(l => l.name),
-        offers: { '@type': 'Offer', price: '85', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'kg' } }
-      },
-      {
-        '@type': 'Service',
-        position: 2,
-        name: 'Wash & Iron Laundry Service',
-        description: 'Professional washing with steam ironing at ₹140 per kg. Crisp ready-to-wear clothes.',
-        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
-        areaServed: SERVICE_LOCATIONS.map(l => l.name),
-        offers: { '@type': 'Offer', price: '140', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'kg' } }
-      },
-      {
-        '@type': 'Service',
-        position: 3,
-        name: 'Steam Ironing Service',
-        description: 'Professional steam pressing at ₹18 per piece. Free pickup on 20+ pieces.',
-        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
-        areaServed: SERVICE_LOCATIONS.map(l => l.name),
-        offers: { '@type': 'Offer', price: '18', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'piece' } }
-      },
-      {
-        '@type': 'Service',
-        position: 4,
-        name: 'Dry Cleaning Service',
-        description: 'Specialized chemical-free dry cleaning for suits, silk sarees, blazers, and delicates starting at ₹79 per piece.',
-        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
-        areaServed: SERVICE_LOCATIONS.map(l => l.name),
-        offers: { '@type': 'Offer', price: '79', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'piece' } }
-      },
-      {
-        '@type': 'Service',
-        position: 5,
-        name: 'Blanket Wash Service',
-        description: 'Specialized cleaning for blankets and comforters starting at ₹299.',
-        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
-        areaServed: SERVICE_LOCATIONS.map(l => l.name),
-        offers: { '@type': 'Offer', price: '299', priceCurrency: 'INR' }
-      },
-      {
-        '@type': 'Service',
-        position: 6,
-        name: 'Shoe Cleaning Service',
-        description: 'Professional shoe cleaning for sneakers, canvas, leather, and suede. Deodorized and finished by material type.',
-        provider: { '@type': 'LocalBusiness', name: 'Spinzo' },
-        areaServed: SERVICE_LOCATIONS.map(l => l.name),
-        offers: { '@type': 'Offer', price: '199', priceCurrency: 'INR', priceSpecification: { '@type': 'UnitPriceSpecification', unitText: 'pair' } }
-      },
-    ]
+    itemListElement: SERVICE_LIST_ITEMS
   };
 
   return (
@@ -201,13 +163,13 @@ export default function Home() {
             </h2>
 
             <div className="flex flex-wrap justify-center gap-2.5 mb-8">
-              {['wash-and-fold', 'wash-and-iron', 'steam-ironing', 'dry-cleaning', 'blanket-wash', 'shoe-cleaning'].map((slug) => (
+              {SERVICES.map((s) => (
                 <a
-                  key={slug}
-                  href={`/services/${slug}`}
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
                   className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-purple-50 border border-purple-100 text-sm font-semibold text-[#994BFF] hover:bg-[#994BFF] hover:text-white transition-all duration-200"
                 >
-                  {slug.split('-').join(' ')}
+                  {s.name}
                 </a>
               ))}
             </div>

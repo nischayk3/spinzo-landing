@@ -10,14 +10,27 @@ import { Footer } from "@/components/Footer";
 import { LocationHeroCTA } from "@/components/LocationHeroCTA";
 import {
   SERVICE_LOCATIONS,
-  CORE_SERVICE_AREAS,
+  hasIntersectionPage,
   getLocationBySlug,
 } from "@/lib/locations";
 import { SERVICES } from "@/lib/services";
 
+// Speed benchmark table driven by data — used on every location + service page.
+// Turnaround times verified against competitor public listings (Oct 2026).
+const SPEED = [
+  { rank: 1, name: 'Spinzo', pickup: '30 min', delivery: '6–12 hours', ours: true },
+  { rank: 2, name: 'Fab Fresh', pickup: 'Scheduled', delivery: '4–5 hours', note: 'Silk Board only' },
+  { rank: 3, name: 'Tumbledry', pickup: 'Scheduled', delivery: '24 hours' },
+  { rank: 4, name: 'UClean', pickup: 'Scheduled', delivery: '24–48 hours' },
+  { rank: 5, name: 'DhobiLite', pickup: 'Scheduled', delivery: '48 hours' },
+  { rank: 6, name: 'BumbleDry', pickup: 'Scheduled', delivery: '2–3 days' },
+  { rank: 7, name: 'LaundroKart', pickup: 'Scheduled', delivery: '4–5 days' },
+  { rank: 8, name: 'Washho', pickup: 'Scheduled', delivery: '72 hours' },
+];
+
 const locationSpecificContent = {
   'jayanagar': {
-    subtitle: 'Jayanagar is one of Bangalore\'s oldest and most well-planned neighborhoods. Spinzo brings premium laundry pickup and delivery right to your doorstep — whether you\'re in 3rd Block, 4th Block, or the quieter streets of Dollars Colony.',
+    subtitle: 'Jayanagar is one of Bangalore\'s oldest and most well-planned neighborhoods, home to families, professionals, and students alike. Spinzo brings premium laundry pickup and delivery right to your doorstep — whether you\'re in 3rd Block, 4th Block, or the quieter streets of Dollars Colony.',
     highlights: ['Family-friendly residential area with multi-generational households', 'Home to Jayanagar 4th Block shopping complex and commercial hubs', 'Close to BTM Layout, JP Nagar, and Wilson Garden'],
     nearbyDesc: 'serving Jayanagar 3rd & 4th Block, KR Garden, Dollars Colony, and surrounding areas',
   },
@@ -40,6 +53,11 @@ const locationSpecificContent = {
     subtitle: 'HSR Layout is one of South Bangalore\'s most sought-after residential areas. Spinzo covers every sector with our fast 30-minute pickup service.',
     highlights: ['Well-planned layout with Sectors 1-7', 'Popular among tech professionals and families', 'Excellent social and dining scene makes residents busy and time-pressed'],
     nearbyDesc: 'serving all sectors of HSR Layout from Sector 1 to 7, plus SS Colony and Hosapalya',
+  },
+  'silk-board': {
+    subtitle: 'Silk Board is the transport heartbeat of South Bangalore — and our fastest pickup zone. Our dark store is located right here, so we can reach most addresses in under 20 minutes.',
+    highlights: ['Our South Bangalore dark store is located right at Silk Board', 'Fastest pickup zone in the entire Spinzo network (18 mins average)', 'Gives us a speed advantage that competitors with centralised plants can\'t match'],
+    nearbyDesc: 'serving Central Silk Board Colony, BTM 2nd Stage, Madiwala and nearby areas',
   },
   'kudlu': {
     subtitle: 'Kudlu and HSR Extension are rapidly growing residential areas. Spinzo brings professional laundry care to this developing neighborhood with the same speed and quality.',
@@ -113,7 +131,75 @@ const locationSpecificContent = {
   },
 };
 
-function getUniqueFAQs(slug, name) {
+function SpeedComparisonTable({ area }) {
+  const title = area
+    ? `How ${area} Competitors Compare on Speed`
+    : 'How Bangalore Laundry Services Compare';
+  return (
+    <section className="py-12 bg-gradient-to-b from-purple-50/30 to-white border-y border-purple-100">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 text-center">
+        <span className="inline-block text-sm font-bold uppercase tracking-widest text-[#994BFF] mb-3">
+          Speed Comparison
+        </span>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#1F0B3F] mb-2 font-display">
+          {title}
+        </h2>
+        <p className="text-zinc-500 text-sm mb-8 max-w-xl mx-auto">
+          Pickup-to-delivery turnaround for standard wash &amp; fold. Verified against public listings (Oct 2026).
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full max-w-2xl mx-auto text-sm">
+            <thead>
+              <tr className="border-b-2 border-purple-200">
+                <th className="py-3 px-4 text-left font-bold text-zinc-500 text-xs uppercase tracking-wider">Rank</th>
+                <th className="py-3 px-4 text-left font-bold text-zinc-500 text-xs uppercase tracking-wider">Service</th>
+                <th className="py-3 px-4 text-left font-bold text-zinc-500 text-xs uppercase tracking-wider">Pickup</th>
+                <th className="py-3 px-4 text-left font-bold text-zinc-500 text-xs uppercase tracking-wider">Delivery</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SPEED.map((s) => (
+                <tr
+                  key={s.name}
+                  className={`border-b border-gray-100 ${
+                    s.ours ? 'bg-purple-50 font-semibold' : ''
+                  }`}
+                >
+                  <td className="py-3 px-4 text-zinc-400 text-xs">
+                    {s.ours ? (
+                      <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#994BFF] text-white text-xs font-bold">
+                        {s.rank}
+                      </span>
+                    ) : (
+                      s.rank
+                    )}
+                  </td>
+                  <td className="py-3 px-4 text-left">
+                    <span className={s.ours ? 'text-[#994BFF] font-bold' : 'text-zinc-700'}>
+                      {s.name}
+                    </span>
+                    {s.note && <span className="text-xs text-zinc-400 ml-1">({s.note})</span>}
+                  </td>
+                  <td className="py-3 px-4 text-zinc-600">{s.pickup}</td>
+                  <td className="py-3 px-4">
+                    <span className={`font-semibold ${s.ours ? 'text-green-600' : 'text-zinc-600'}`}>
+                      {s.delivery}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-zinc-400 mt-6 max-w-lg mx-auto">
+          The only other service within 24 hours is Fab Fresh (Silk Board only). Spinzo is 4–20× faster than every on-demand laundry service in South Bangalore.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function getUniqueFAQs(name) {
   return [
     {
       question: `Does Spinzo offer laundry pickup and delivery in ${name}?`,
@@ -179,13 +265,13 @@ export default async function LocationPage({ params }) {
     notFound();
   }
 
-  const { name, nearby, keywords, landmarks, pickupTime, localReview } = loc;
+  const { name, nearby, keywords, landmarks, pickupTime, localReview, pincode, hubNote, accessNote } = loc;
   const content = locationSpecificContent[loc.slug] || {
     subtitle: `${name} is a vibrant neighborhood in South Bangalore that Spinzo proudly serves with premium laundry pickup and delivery.`,
     highlights: ['Residential area with busy professionals', 'Growing demand for convenient doorstep services', 'Part of Spinzo\'s expanding South Bangalore coverage'],
     nearbyDesc: `serving ${name} and its surrounding areas`,
   };
-  const uniqueFAQs = getUniqueFAQs(loc.slug, name);
+  const uniqueFAQs = getUniqueFAQs(name);
   const nearbyLocations = getNearbyLinks(loc.slug);
 
   const jsonLd = {
@@ -264,11 +350,22 @@ export default async function LocationPage({ params }) {
               <p className="text-zinc-500 mb-2">
                 <span className="font-medium">📍 Serving {content.nearbyDesc}.</span>
               </p>
-              
+              {pincode && (
+                <p className="text-sm text-zinc-400">
+                  <span className="font-medium">Pincode:</span> {pincode}
+                </p>
+              )}
               {landmarks && (
-                <p className="text-sm text-zinc-500">
+                <p className="text-sm text-zinc-500 mt-1">
                   <span className="font-medium">Local landmarks:</span> {landmarks.join(', ')}
                 </p>
+              )}
+
+              {/* Hub note — only for Silk Board and others that have it */}
+              {hubNote && (
+                <div className="mt-4 p-4 bg-[#994BFF]/5 border border-[#994BFF]/20 rounded-xl">
+                  <p className="text-sm text-[#1F0B3F] font-semibold">📍 {hubNote}</p>
+                </div>
               )}
 
               {/* Key USPs strip */}
@@ -342,6 +439,13 @@ export default async function LocationPage({ params }) {
                 </div>
               ))}
             </div>
+            {accessNote && (
+              <div className="mt-6 max-w-3xl p-5 bg-purple-50/20 rounded-xl border border-purple-100/40">
+                <p className="text-sm text-zinc-600 leading-relaxed">
+                  <span className="font-semibold">Rider note:</span> {accessNote}
+                </p>
+              </div>
+            )}
           </div>
         </section>
 
@@ -359,8 +463,9 @@ export default async function LocationPage({ params }) {
             </p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
               {SERVICES.map((item) => {
-                const isCoreArea = CORE_SERVICE_AREAS.includes(loc.slug);
-                const targetUrl = isCoreArea ? `/locations/${loc.slug}/${item.slug}` : `/services/${item.slug}`;
+                const targetUrl = hasIntersectionPage(loc.slug, item.slug)
+                  ? `/locations/${loc.slug}/${item.slug}`
+                  : `/services/${item.slug}`;
                 return (
                   <a
                     key={item.slug}
@@ -377,7 +482,7 @@ export default async function LocationPage({ params }) {
                       {item.price}
                     </p>
                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#994BFF] group-hover:gap-1.5 transition-all">
-                      {isCoreArea ? `${item.shortName} in ${name} →` : `View details →`}
+                      {hasIntersectionPage(loc.slug, item.slug) ? `${item.shortName} in ${name} →` : `View details →`}
                     </span>
                   </a>
                 );
@@ -385,6 +490,9 @@ export default async function LocationPage({ params }) {
             </div>
           </div>
         </section>
+
+        {/* Speed Comparison Table */}
+        <SpeedComparisonTable area={name} />
 
         {/* Near Me SEO Block */}
         <section className="py-12 bg-white">

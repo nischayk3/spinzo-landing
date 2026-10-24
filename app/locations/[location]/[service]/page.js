@@ -6,15 +6,13 @@ import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { LocationHeroCTA } from "@/components/LocationHeroCTA";
-import { SERVICE_LOCATIONS, CORE_SERVICE_AREAS, getLocationBySlug } from "@/lib/locations";
+import { SERVICE_LOCATIONS, CORE_SERVICE_AREAS, INTERSECTION_SERVICES, getLocationBySlug } from "@/lib/locations";
 import { SERVICES, getServiceBySlug } from "@/lib/services";
 
 export async function generateStaticParams() {
   const params = [];
-  const allServices = SERVICES.map(s => s.slug);
-  
   for (const location of CORE_SERVICE_AREAS) {
-    for (const service of allServices) {
+    for (const service of INTERSECTION_SERVICES) {
       params.push({ location, service });
     }
   }
