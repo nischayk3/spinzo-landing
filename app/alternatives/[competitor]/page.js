@@ -128,11 +128,29 @@ export default async function AlternativePage({ params }) {
               <p className="text-lg md:text-xl text-zinc-600 leading-relaxed max-w-2xl mx-auto mb-6">
                 {content.intro}
               </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <a href="https://spinzo.in/"
-                   className="inline-flex items-center gap-2 bg-[#994BFF] hover:bg-[#8828FF] text-white rounded-xl px-6 py-3 text-sm font-semibold shadow-lg shadow-purple-500/20">
-                  Try Spinzo — ₹85/kg, 30-min pickup →
-                </a>
+              <div className="flex flex-col items-center justify-center gap-3">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#994BFF] bg-purple-50 px-4 py-1.5 rounded-full border border-purple-200">
+                  🎉 Switch to Spinzo: ₹300 off your first order — code <strong className="text-[#1F0B3F]">SPINZO300</strong>
+                </span>
+                <div className="flex flex-wrap justify-center gap-3 mt-1">
+                  <a
+                    href="https://spinzonow.onelink.me/SVxb/89uz4xf3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-appsflyer-link="true"
+                    className="store-download-btn inline-flex items-center gap-2 bg-[#994BFF] hover:bg-[#8828FF] text-white rounded-xl px-6 py-3 text-sm font-bold shadow-lg shadow-purple-500/20 hover:scale-105 active:scale-95 transition-all"
+                  >
+                    📱 Download Spinzo App
+                  </a>
+                  <a
+                    href="https://spinzo.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-zinc-900 border border-purple-200 hover:bg-purple-50 rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-all"
+                  >
+                    🌐 Use Web App (No Install) &rarr;
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -196,13 +196,29 @@ export default async function ServicePage({ params }) {
                 <span className="inline-flex items-center text-sm font-semibold text-zinc-600 bg-white px-4 py-2 rounded-xl border border-zinc-100">⏱ Turnaround: {service.turnaround}</span>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="https://spinzo.in/"
-                  className="inline-flex items-center gap-2 bg-[#994BFF] hover:bg-[#8828FF] text-white rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-purple-500/20"
-                >
-                  Book a Pickup
-                </a>
+              <div className="mt-8 flex flex-col items-start gap-3">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#994BFF] bg-purple-50 px-3.5 py-1.5 rounded-full border border-purple-200">
+                  🎉 ₹300 off your first order — code <strong className="text-[#1F0B3F]">SPINZO300</strong>
+                </span>
+                <div className="flex flex-wrap items-center gap-3">
+                  <a
+                    href="https://spinzonow.onelink.me/SVxb/89uz4xf3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-appsflyer-link="true"
+                    className="store-download-btn inline-flex items-center gap-2 bg-[#994BFF] hover:bg-[#8828FF] text-white rounded-xl px-6 py-3 text-sm font-bold shadow-lg shadow-purple-500/20 hover:scale-105 active:scale-95 transition-all"
+                  >
+                    📱 Download Spinzo App
+                  </a>
+                  <a
+                    href="https://spinzo.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white text-zinc-900 border border-purple-200 hover:bg-purple-50 rounded-xl px-5 py-3 text-sm font-semibold shadow-sm transition-all"
+                  >
+                    🌐 Book on Web (No App) &rarr;
+                  </a>
+                </div>
               </div>
             </div>
           </div>

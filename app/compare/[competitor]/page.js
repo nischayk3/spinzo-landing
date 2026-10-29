@@ -233,6 +233,31 @@ export default async function ComparePage({ params }) {
           </div>
 
           <TLDR comp={comp} />
+
+          <div className="mt-8 flex flex-col items-center justify-center gap-3">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#994BFF] bg-purple-50 px-4 py-1.5 rounded-full border border-purple-200 shadow-sm">
+              🎉 Switch from {comp.name} & get ₹300 off your first order — code <strong className="text-[#1F0B3F]">SPINZO300</strong>
+            </span>
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-1">
+              <a
+                href="https://spinzonow.onelink.me/SVxb/89uz4xf3"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-appsflyer-link="true"
+                className="store-download-btn inline-flex items-center gap-2 px-6 py-3 bg-[#994BFF] hover:bg-[#8828FF] text-white rounded-xl font-bold text-sm shadow-lg shadow-purple-500/25 hover:scale-105 active:scale-95 transition-all"
+              >
+                📱 Download Spinzo App
+              </a>
+              <a
+                href="https://spinzo.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-white text-zinc-900 rounded-xl font-semibold text-sm border border-purple-200 hover:bg-purple-50 hover:border-purple-300 shadow-sm transition-all"
+              >
+                🌐 Order on Web (No App) &rarr;
+              </a>
+            </div>
+          </div>
         </section>
 
         {/* Comparison Table */}
