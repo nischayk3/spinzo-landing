@@ -6,7 +6,7 @@ import { FAQ } from "@/components/FAQ";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { LocationHeroCTA } from "@/components/LocationHeroCTA";
-import { SERVICE_LOCATIONS, CORE_SERVICE_AREAS, INTERSECTION_SERVICES, getLocationBySlug } from "@/lib/locations";
+import { SERVICE_LOCATIONS, CORE_SERVICE_AREAS, INTERSECTION_SERVICES, getLocationBySlug, hasIntersectionPage } from "@/lib/locations";
 import { SERVICES, getServiceBySlug } from "@/lib/services";
 
 export async function generateStaticParams() {
@@ -26,16 +26,30 @@ export async function generateMetadata({ params }) {
   
   if (!loc || !srv) return { title: 'Not Found' };
 
+  const rawDesc = `${srv.name} in ${loc.name}: ${loc.pickupTime || '30-min'} pickup, 6-hr delivery. ${srv.price}, no minimum. Serving ${loc.nearby.slice(0, 2).join(', ')}. Book Spinzo.`;
+  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+
   return {
     title: `${srv.name} Near Me in ${loc.name} | Spinzo`,
-    description: `Looking for ${srv.name.toLowerCase()} in ${loc.name}? Spinzo offers ${loc.pickupTime || '30-min'} doorstep pickup and rapid delivery. ${srv.tagline} Serving ${loc.nearby.slice(0, 3).join(', ')}.`,
+    description,
     alternates: {
       canonical: `https://spinzonow.com/locations/${location}/${service}`
     },
     openGraph: {
       title: `${srv.name} Service in ${loc.name} | Spinzo`,
-      description: `Get your ${srv.name.toLowerCase()} picked up in ${loc.pickupTime || '30 minutes'} in ${loc.name}. Fresh clothes delivered to your doorstep.`,
+      description: `Get ${srv.name.toLowerCase()} picked up in ${loc.pickupTime || '30 minutes'} in ${loc.name}. Fast delivery to your doorstep.`,
       url: `https://spinzonow.com/locations/${location}/${service}`,
+      siteName: 'Spinzo',
+      locale: 'en_IN',
+      type: 'website',
+      images: [
+        {
+          url: 'https://spinzonow.com/SpinZo.png',
+          width: 512,
+          height: 512,
+          alt: `${srv.name} in ${loc.name} - Spinzo Laundry`,
+        },
+      ],
     },
   };
 }
@@ -291,21 +305,26 @@ export default async function LocationServicePage({ params }) {
             </p>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto mb-10">
-              {otherServices.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={`/locations/${location}/${s.slug}`}
-                  className="p-4 bg-white rounded-2xl border border-zinc-200 text-left hover:border-[#994BFF] hover:shadow-md transition-all group"
-                >
-                  <span className="text-[11px] font-bold text-[#994BFF] block mb-1">{s.price}</span>
-                  <h3 className="font-bold text-zinc-900 group-hover:text-[#994BFF] text-sm transition-colors">
-                    {s.name} in {name}
-                  </h3>
-                  <span className="text-xs text-zinc-400 mt-2 inline-flex items-center gap-1 group-hover:text-[#994BFF]">
-                    View rates &rarr;
-                  </span>
-                </Link>
-              ))}
+              {otherServices.map((s) => {
+                const targetUrl = hasIntersectionPage(location, s.slug)
+                  ? `/locations/${location}/${s.slug}`
+                  : `/services/${s.slug}`;
+                return (
+                  <Link
+                    key={s.slug}
+                    href={targetUrl}
+                    className="p-4 bg-white rounded-2xl border border-zinc-200 text-left hover:border-[#994BFF] hover:shadow-md transition-all group"
+                  >
+                    <span className="text-[11px] font-bold text-[#994BFF] block mb-1">{s.price}</span>
+                    <h3 className="font-bold text-zinc-900 group-hover:text-[#994BFF] text-sm transition-colors">
+                      {s.name} in {name}
+                    </h3>
+                    <span className="text-xs text-zinc-400 mt-2 inline-flex items-center gap-1 group-hover:text-[#994BFF]">
+                      {hasIntersectionPage(location, s.slug) ? `View ${s.shortName} in ${name} →` : `View details →`}
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Back to Location & Service Parents */}

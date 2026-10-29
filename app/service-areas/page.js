@@ -8,14 +8,25 @@ import { SERVICES } from "@/lib/services";
 
 export const metadata = {
   title: 'Laundry Service Areas in South Bangalore | Spinzo',
-  description: 'Spinzo serves 19 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered — Jayanagar, Koramangala, HSR Layout, BTM Layout, JP Nagar, and more.',
+  description: 'Spinzo laundry pickup and delivery across 19 South Bangalore areas: Koramangala, HSR, BTM, Jayanagar, JP Nagar. 30-min pickup, 6-hr delivery.',
   alternates: {
     canonical: 'https://spinzonow.com/service-areas',
   },
   openGraph: {
     title: 'Laundry Service Areas in South Bangalore | Spinzo',
-    description: 'Spinzo serves 19 neighborhoods across South Bangalore with premium laundry pickup and delivery. Check if your area is covered.',
+    description: 'Spinzo serves 19 neighborhoods across South Bangalore with 30-minute pickup and 6-hour delivery. Check if your area is covered.',
     url: 'https://spinzonow.com/service-areas',
+    siteName: 'Spinzo',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinzonow.com/SpinZo.png',
+        width: 512,
+        height: 512,
+        alt: 'Spinzo Laundry Service Areas Bangalore',
+      },
+    ],
   },
 };
 
@@ -87,7 +98,7 @@ export default function ServiceAreasPage() {
                     </span>
                   </h3>
                   <div className="space-y-1.5 text-xs">
-                    {SERVICES.slice(0, 5).map((s) => (
+                    {SERVICES.filter(s => CORE_SERVICE_AREAS.includes(loc.slug) && ['wash-and-fold', 'wash-and-iron', 'steam-ironing'].includes(s.slug)).map((s) => (
                       <Link
                         key={s.slug}
                         href={`/locations/${loc.slug}/${s.slug}`}

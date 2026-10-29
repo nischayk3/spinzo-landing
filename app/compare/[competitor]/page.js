@@ -164,16 +164,34 @@ export async function generateMetadata({ params }) {
 
   if (!compData) return { title: 'Not Found' };
 
+  const shortName = compData.name.split('/')[0].trim();
+  const rawTitle = `Spinzo vs ${shortName} | Bangalore Laundry`;
+  const title = rawTitle.length > 58 ? rawTitle.substring(0, 58) : rawTitle;
+
+  const rawDesc = `Spinzo vs ${shortName}: 30-min pickup, 6-hr delivery, ₹85/kg flat vs ${compData.name}'s ${compData.delivery} delivery. Bangalore laundry comparison.`;
+  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+
   return {
-    title: `Spinzo vs ${compData.name} | Bangalore Laundry Comparison (Oct 2026)`,
-    description: `Comparing Spinzo and ${compData.name} in Bangalore. Spinzo: 30-min pickup, 6-12h delivery, ₹85/kg. ${compData.name}: ${compData.pickup} pickup, ${compData.delivery} delivery, ${compData.washFoldPrice || compData.pricing}. Verified Oct 2026.`,
+    title,
+    description,
     alternates: {
       canonical: `https://spinzonow.com/compare/${competitor}`
     },
     openGraph: {
-      title: `Spinzo vs ${compData.name} | Bangalore Laundry Comparison`,
-      description: `See how Spinzo stacks up against ${compData.name}. Faster pickup, cheaper per-kg pricing, same-day delivery.`,
+      title: `Spinzo vs ${shortName} | Bangalore Laundry Comparison`,
+      description: `See how Spinzo stacks up against ${shortName}. Faster pickup, cheaper per-kg pricing, same-day delivery.`,
       url: `https://spinzonow.com/compare/${competitor}`,
+      siteName: 'Spinzo',
+      locale: 'en_IN',
+      type: 'website',
+      images: [
+        {
+          url: 'https://spinzonow.com/SpinZo.png',
+          width: 512,
+          height: 512,
+          alt: `Spinzo vs ${shortName} Comparison`,
+        },
+      ],
     },
   };
 }

@@ -7,7 +7,7 @@ import { Check, Clock, ShieldCheck, Sparkles, Truck } from "lucide-react";
 
 export const metadata = {
   title: 'Laundry Prices Bangalore | Spinzo Pricing Guide',
-  description: 'Transparent laundry, dry cleaning, and ironing prices in Bangalore. Wash & Fold at ₹85/kg, Wash & Iron ₹140/kg, Steam Ironing ₹18/pc, Dry Cleaning from ₹79/pc. Free doorstep pickup across South Bangalore.',
+  description: 'Transparent Bangalore laundry pricing: Wash & Fold ₹85/kg, Steam Ironing ₹18/pc, Dry Cleaning from ₹79/pc. Free 30-min pickup across South Bangalore.',
   keywords: [
     'laundry cost Bangalore',
     'laundry charges per kg Bangalore',
@@ -31,6 +31,17 @@ export const metadata = {
     title: 'Spinzo Laundry Pricing Bangalore — Wash & Fold ₹85/kg, Iron ₹18/pc',
     description: '100% transparent weight-based laundry and dry cleaning pricing with free 30-minute pickup.',
     url: 'https://spinzonow.com/pricing',
+    siteName: 'Spinzo',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinzonow.com/SpinZo.png',
+        width: 512,
+        height: 512,
+        alt: 'Spinzo Laundry Pricing Rate Card Bangalore',
+      },
+    ],
   },
 };
 

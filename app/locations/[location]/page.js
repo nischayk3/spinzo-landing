@@ -243,16 +243,30 @@ export async function generateMetadata({ params }) {
 
   const locationName = loc.name;
 
+  const rawDesc = `Laundry in ${locationName}: 30-min pickup, 6-hr delivery. Wash & Fold ₹85/kg, Steam Ironing & Dry Cleaning. Free doorstep pickup in Bangalore.`;
+  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+
   return {
     title: `${locationName} Laundry Near Me | Wash & Fold ₹85/kg`,
-    description: `Looking for laundry service near ${locationName}, Bangalore? Spinzo offers 30-min pickup and delivery in hours. Wash & Fold ₹85/kg, Wash & Iron, Steam Ironing. Serving ${loc.nearby.slice(0, 3).join(', ')}. Free pickup.`,
+    description,
     alternates: {
       canonical: `https://spinzonow.com/locations/${location}`
     },
     openGraph: {
       title: `Laundry Service in ${locationName} | Spinzo`,
-      description: `Get your laundry picked up in 30 minutes in ${locationName}. Wash & Fold, Wash & Iron, Steam Ironing — fresh clothes delivered to your door.`,
+      description: `Get laundry picked up in 30 minutes in ${locationName}. Wash & Fold ₹85/kg, Steam Ironing & Dry Cleaning delivered to your door.`,
       url: `https://spinzonow.com/locations/${location}`,
+      siteName: 'Spinzo',
+      locale: 'en_IN',
+      type: 'website',
+      images: [
+        {
+          url: 'https://spinzonow.com/SpinZo.png',
+          width: 512,
+          height: 512,
+          alt: `Laundry Service in ${locationName} - Spinzo`,
+        },
+      ],
     },
   };
 }

@@ -97,15 +97,22 @@ export async function generateMetadata({ params }) {
   if (!service) return { title: 'Service Not Found' };
 
   const title = `${service.name} Bangalore | Spinzo`;
+  const description = service.description.length > 155
+    ? service.description.substring(0, 152) + '...'
+    : service.description;
+
   return {
     title,
-    description: service.description,
+    description,
     alternates: { canonical: `${BASE}/services/${slug}` },
     keywords: service.keywords,
     openGraph: {
       title: `${service.name} Bangalore | Spinzo`,
-      description: service.description,
+      description,
       url: `${BASE}/services/${slug}`,
+      siteName: 'Spinzo',
+      locale: 'en_IN',
+      type: 'website',
       images: [{ url: service.image, width: 800, height: 600, alt: `${service.name} service Bangalore` }],
     },
   };

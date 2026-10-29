@@ -18,16 +18,33 @@ export async function generateMetadata({ params }) {
   const comp = getCompetitor(competitor);
   if (!comp) return { title: 'Not Found' };
 
+  const rawTitle = `Best ${comp.name} Alternative in Bangalore | Spinzo`;
+  const title = rawTitle.length > 58 ? rawTitle.substring(0, 58) : rawTitle;
+
+  const rawDesc = `Looking for a ${comp.name} alternative in Bangalore? Spinzo offers 30-min pickup, 6-hr delivery & ₹85/kg pricing across South Bangalore. No minimums.`;
+  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+
   return {
-    title: `Best ${comp.name} Alternative in Bangalore | Spinzo (2026)`,
-    description: `Looking for a ${comp.name} alternative in Bangalore? Spinzo offers 30-min pickup, 6-hour delivery, and ₹85/kg pricing. Serving BTM, HSR, Koramangala, Jayanagar & more. Free doorstep service.`,
+    title,
+    description,
     alternates: {
       canonical: `https://spinzonow.com/alternatives/${competitor}`
     },
     openGraph: {
       title: `Why South Bangalore is Switching from ${comp.name} to Spinzo`,
-      description: `${comp.name} not delivering on time? Spinzo picks up in 30 minutes and delivers in 6 hours — ₹85/kg, no minimum, free doorstep service.`,
+      description: `${comp.name} delay? Spinzo picks up in 30 mins and delivers in 6 hours — ₹85/kg, no minimum, free doorstep service.`,
       url: `https://spinzonow.com/alternatives/${competitor}`,
+      siteName: 'Spinzo',
+      locale: 'en_IN',
+      type: 'website',
+      images: [
+        {
+          url: 'https://spinzonow.com/SpinZo.png',
+          width: 512,
+          height: 512,
+          alt: `Best ${comp.name} Alternative - Spinzo Laundry`,
+        },
+      ],
     },
   };
 }

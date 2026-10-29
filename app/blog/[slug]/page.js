@@ -15,16 +15,32 @@ export async function generateMetadata({ params }) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: 'Post Not Found' };
 
+  const title = post.title.length > 55 ? post.title.substring(0, 56) + '...' : post.title;
+  const description = post.excerpt.length > 155 ? post.excerpt.substring(0, 152) + '...' : post.excerpt;
+
   return {
-    title: post.title.length > 55 ? post.title.substring(0, 56) + '...' : post.title,
-    description: post.excerpt,
+    title,
+    description,
     alternates: {
       canonical: `https://spinzonow.com/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
-      description: post.excerpt,
+      description,
       url: `https://spinzonow.com/blog/${slug}`,
+      siteName: 'Spinzo',
+      locale: 'en_IN',
+      type: 'article',
+      publishedTime: `${post.date}T00:00:00+05:30`,
+      modifiedTime: `${post.date}T00:00:00+05:30`,
+      images: [
+        {
+          url: 'https://spinzonow.com/SpinZo.png',
+          width: 512,
+          height: 512,
+          alt: post.title,
+        },
+      ],
     },
   };
 }
@@ -53,6 +69,8 @@ export default async function BlogPostPage({ params }) {
     .slice(0, Math.max(0, 3 - relatedPosts.length));
   const displayRelated = [...relatedPosts, ...randomRelated].slice(0, 3);
 
+  const isoDate = `${post.date}T00:00:00+05:30`;
+
   return (
     <div className="flex flex-col min-h-screen">
       <script
@@ -61,13 +79,17 @@ export default async function BlogPostPage({ params }) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Article',
-            headline: post.title,
+            headline: post.title.length > 108 ? post.title.substring(0, 105) + '...' : post.title,
             description: post.excerpt,
-            image: 'https://spinzonow.com/SpinZo.png',
-            datePublished: post.date,
-            dateModified: post.date,
-            author: { '@type': 'Organization', name: 'Spinzo', url: 'https://spinzonow.com' },
-            publisher: { '@type': 'Organization', name: 'Spinzo', logo: { '@type': 'ImageObject', url: 'https://spinzonow.com/SpinZo.png' } },
+            image: ['https://spinzonow.com/SpinZo.png'],
+            datePublished: isoDate,
+            dateModified: isoDate,
+            author: [{ '@type': 'Organization', name: 'Spinzo', url: 'https://spinzonow.com' }],
+            publisher: {
+              '@type': 'Organization',
+              name: 'Spinzo',
+              logo: { '@type': 'ImageObject', url: 'https://spinzonow.com/SpinZo.png' }
+            },
             mainEntityOfPage: { '@type': 'WebPage', '@id': `https://spinzonow.com/blog/${slug}` }
           })
         }}

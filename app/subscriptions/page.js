@@ -6,8 +6,8 @@ import { Check, TrendingDown, Zap } from "lucide-react";
 import { SERVICE_LOCATIONS } from "@/lib/locations";
 
 export const metadata = {
-  title: 'Monthly Laundry Subscription Plans in Bangalore | Spinzo Pass',
-  description: 'Save up to 25% on laundry with Spinzo Pass monthly plans. Bachelor ₹1,499/mo, Couples ₹2,499/mo, Family ₹3,999/mo. Free weekly pickups, no minimum order, priority processing. Serving Koramangala, HSR, BTM, Jayanagar & more.',
+  title: 'Monthly Laundry Subscription in Bangalore | Spinzo Pass',
+  description: 'Save up to 25% with Spinzo Pass monthly laundry plans from ₹1,499/mo. Free weekly pickups & priority delivery across South Bangalore. No minimums.',
   alternates: {
     canonical: 'https://spinzonow.com/subscriptions'
   },
@@ -15,6 +15,17 @@ export const metadata = {
     title: 'Spinzo Pass — Save 25% on Laundry Every Month',
     description: 'Fixed monthly laundry plans starting ₹1,499/mo. Free weekly pickups, no minimums, priority processing across South Bangalore.',
     url: 'https://spinzonow.com/subscriptions',
+    siteName: 'Spinzo',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinzonow.com/SpinZo.png',
+        width: 512,
+        height: 512,
+        alt: 'Spinzo Pass Monthly Laundry Subscription Bangalore',
+      },
+    ],
   },
 };
 

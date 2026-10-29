@@ -63,20 +63,29 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Company & Links</h4>
+              <h4 className="text-sm font-semibold text-zinc-900 mb-4 uppercase tracking-wider">Company &amp; Guides</h4>
               <ul className="space-y-2.5">
                 <li><a href="/pricing" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Pricing &amp; Plans</a></li>
                 <li><a href="/subscriptions" className="text-sm font-semibold text-[#994BFF] hover:underline transition-colors">Spinzo Pass (Monthly)</a></li>
                 <li><a href="/b2b" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors font-medium">B2B &amp; Bulk Laundry</a></li>
                 <li><a href="/blog" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Laundry Guides &amp; Blog</a></li>
-                <li><a href="/compare/spinzo-vs-tumbledry" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Tumbledry</a></li>
-                <li><a href="/compare/spinzo-vs-laundrymate" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Laundrymate</a></li>
-                <li><a href="/compare/spinzo-vs-local-dhobi" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Local Dhobi</a></li>
-                <li><a href="/compare/spinzo-vs-uclean" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs UClean</a></li>
-                <li><a href="/compare/spinzo-vs-washho" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Spinzo vs Washho</a></li>
                 <li><a href={webAppUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Web App (spinzo.in)</a></li>
                 <li><a href={appDownloadUrl} target="_blank" rel="noopener noreferrer" data-appsflyer-link="true" className="store-download-btn text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Download App</a></li>
                 <li><a href={`tel:${CONTACT_PHONE_TEL}`} className="text-sm text-zinc-600 hover:text-[#994BFF] transition-colors">Contact: {CONTACT_PHONE}</a></li>
+              </ul>
+
+              <h4 className="text-xs font-semibold text-zinc-900 mt-6 mb-3 uppercase tracking-wider">Comparisons &amp; Alternatives</h4>
+              <ul className="space-y-1.5 text-xs">
+                <li><a href="/compare/spinzo-vs-tumbledry" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs Tumbledry</a></li>
+                <li><a href="/compare/spinzo-vs-bumbledry" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs BumbleDry</a></li>
+                <li><a href="/compare/spinzo-vs-laundrymate" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs Laundrymate</a></li>
+                <li><a href="/compare/spinzo-vs-laundrokart" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs LaundroKart</a></li>
+                <li><a href="/compare/spinzo-vs-uclean" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs UClean</a></li>
+                <li><a href="/compare/spinzo-vs-washho" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs Washho</a></li>
+                <li><a href="/compare/spinzo-vs-local-dhobi" className="text-zinc-500 hover:text-[#994BFF] transition-colors">Spinzo vs Local Dhobi</a></li>
+                <li className="pt-1.5"><a href="/alternatives/bumbledry" className="text-purple-600 hover:underline">BumbleDry Alternative →</a></li>
+                <li><a href="/alternatives/tumbledry" className="text-purple-600 hover:underline">Tumbledry Alternative →</a></li>
+                <li><a href="/alternatives/laundrokart" className="text-purple-600 hover:underline">LaundroKart Alternative →</a></li>
               </ul>
             </div>
           </div>

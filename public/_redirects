@@ -1,0 +1,36 @@
+# Clean redirects for legacy or dropped intersection pages
+/locations/jayanagar/:service  /locations/jayanagar  301!
+/locations/jp-nagar/:service   /locations/jp-nagar   301!
+/locations/bellandur/:service  /locations/bellandur  301!
+
+# Silk Board dropped intersection services
+/locations/silk-board/dry-cleaning    /services/dry-cleaning    301!
+/locations/silk-board/blanket-wash    /services/blanket-wash    301!
+/locations/silk-board/shoe-cleaning   /services/shoe-cleaning   301!
+/locations/silk-board/premium-laundry /services/premium-laundry 301!
+/locations/silk-board/express-laundry /services/express-laundry 301!
+
+# BTM Layout dropped intersection services
+/locations/btm-layout/dry-cleaning    /services/dry-cleaning    301!
+/locations/btm-layout/blanket-wash    /services/blanket-wash    301!
+/locations/btm-layout/shoe-cleaning   /services/shoe-cleaning   301!
+/locations/btm-layout/premium-laundry /services/premium-laundry 301!
+/locations/btm-layout/express-laundry /services/express-laundry 301!
+
+# HSR Layout dropped intersection services
+/locations/hsr-layout/dry-cleaning    /services/dry-cleaning    301!
+/locations/hsr-layout/blanket-wash    /services/blanket-wash    301!
+/locations/hsr-layout/shoe-cleaning   /services/shoe-cleaning   301!
+/locations/hsr-layout/premium-laundry /services/premium-laundry 301!
+/locations/hsr-layout/express-laundry /services/express-laundry 301!
+
+# Koramangala dropped intersection services
+/locations/koramangala/dry-cleaning    /services/dry-cleaning    301!
+/locations/koramangala/blanket-wash    /services/blanket-wash    301!
+/locations/koramangala/shoe-cleaning   /services/shoe-cleaning   301!
+/locations/koramangala/premium-laundry /services/premium-laundry 301!
+/locations/koramangala/express-laundry /services/express-laundry 301!
+
+# Section index fallbacks
+/services   /pricing        301!
+/locations  /service-areas  301!

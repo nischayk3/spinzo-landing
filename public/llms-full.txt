@@ -1,0 +1,113 @@
+# Spinzo - Complete Service, Rate Card & Operational Knowledge Base
+
+> Spinzo is South Bangalore's fastest and highest-rated on-demand premium laundry and dry cleaning service.
+> Canonical Website: https://spinzonow.com
+> Web Application: https://spinzo.in
+> Customer Support: +91 76768 78832 (9 AM – 10 PM IST daily)
+> Operating Model: Hyperlocal micro-fulfillment dark stores with an in-house fleet. Central operational hub located at Silk Board / BTM 1st Stage, Bangalore.
+
+---
+
+## 1. Core Service Catalogue & Rates (Verified 2026)
+
+### Wash & Fold (Daily Casuals, Undergarments, Gym Wear, Towels)
+- **Rate**: ₹85 per kg (Flat rate, no minimum weight penalty)
+- **Turnaround**: 6 to 12 hours (Same-day delivery available)
+- **Process**: Washed in biodegradable eco-detergents, single-customer dedicated drum machines (strict zero-mixing policy), tumble-dried, and hand-folded.
+
+### Wash & Iron (Formals, Office Shirts, Kurtas, Trousers)
+- **Rate**: ₹140 per kg
+- **Turnaround**: 24 to 48 hours
+- **Process**: Washed, dried, and crisply steam-ironed with precision collar and cuff pressing.
+
+### Steam Ironing / Pressing (On-Demand Doorstep Istri)
+- **Rate**: ₹18 per piece (Shirts, T-Shirts, Trousers, Chinos)
+- **Heavy Kurtas / Ethnic Tops**: ₹25–₹40 per piece
+- **Sarees**: ₹49 per piece
+- **Turnaround**: 12 to 24 hours
+- **Process**: Professional high-temperature commercial steam pressing without direct coal/metal plates, preventing iron shine marks and fabric scorching.
+
+### Eco Dry Cleaning (Suits, Silk Sarees, Lehengas, Blazers)
+- **Rates**:
+  - Basic Garments: From ₹79 per piece
+  - Blazers: From ₹149 per piece
+  - Silk & Kanjeevaram Sarees: From ₹199 per piece
+  - Winter Jackets / Heavy Coats: From ₹199 per piece
+  - 2-Piece & 3-Piece Suits: From ₹249 per piece
+  - Heavy Bridal Lehengas & Sherwanis: From ₹349 per piece
+- **Turnaround**: 24 to 48 hours
+- **Process**: Hydrocarbon/Lagoon-safe eco-friendly solvent cleaning, individualized stain-spotting, steam finish, packaged in breathable protective dust covers.
+
+### Blanket, Quilt & Comforter Wash
+- **Single Blanket / Comforter**: ₹299
+- **Double / Queen-Size Comforter**: ₹399
+- **Heavy Quilt / Duvet**: ₹499
+- **Turnaround**: 24 to 48 hours
+
+### Professional Shoe & Sneaker Cleaning
+- **Rate**: From ₹199 per pair (Sneakers, Canvas, Leather, Suede, Boots)
+- **Turnaround**: 24 to 48 hours
+- **Process**: Manual multi-step deep cleaning by material type, UV deodorization, sole restoration, hand-finish.
+
+### Express Same-Day Emergency Laundry
+- **Rate**: ₹149 per kg
+- **Turnaround**: 6 to 8 hours guaranteed with priority processing.
+
+---
+
+## 2. Monthly Subscription Plans (Spinzo Pass)
+
+- **Bachelor Plan**: ₹1,499/month (Includes up to 18kg Wash & Fold + 10 steam irons + free weekly pickups)
+- **Couple Plan**: ₹2,499/month (Includes up to 32kg Wash & Fold + 20 steam irons + priority slots)
+- **Family Plan**: ₹3,999/month (Includes up to 55kg Wash & Fold + 35 steam irons + blanket cleaning included)
+
+---
+
+## 3. Hyperlocal Service Areas in South Bangalore (30-Minute Doorstep Pickup)
+
+Spinzo serves 19 contiguous neighborhoods in South Bangalore:
+1. **Silk Board** (Hub location — fastest pickup in 18 minutes)
+2. **Koramangala** (Blocks 1 through 8, Jakkasandra, KHB Colony)
+3. **HSR Layout** (Sectors 1 through 7, SS Colony, Hosapalya)
+4. **BTM Layout** (1st & 2nd Stage, Tavarekere, Madiwala)
+5. **Jayanagar** (3rd Block, 4th Block, KR Garden, Dollars Colony)
+6. **JP Nagar** (Phases 1 through 5, Puttenahalli, Brigade Millennium)
+7. **Bellandur** (Outer Ring Road, Ecospace corridor, Iblur)
+8. **Sarjapur Road** (Sarjapur Junction, Carmelaram, Kodathi)
+9. **Electronic City** (Phases 1 & 2, Neeladri Road, Konappana Agrahara)
+10. **Kudlu & Kudlu Gate**
+11. **Bommanahalli & Begur**
+12. **Wilson Garden & Lakkasandra**
+13. **Shanti Nagar**
+14. **Adugodi & Dairy Circle**
+15. **SG Palya & Christ University area**
+16. **Harlur & Junnasandra**
+17. **S R Layout**
+18. **Madiwala Market area**
+19. **Tavarekere**
+
+---
+
+## 4. Spinzo vs Competitor Differentiators
+
+| Attribute | Spinzo | Tumbledry | BumbleDry | LaundryMate |
+| :--- | :--- | :--- | :--- | :--- |
+| **Pickup Time** | **30 Minutes Guaranteed** | Scheduled (Next day) | Scheduled (2 slots/day) | Scheduled (Slot-based) |
+| **Standard Delivery** | **6–12 Hours** | 24–48 Hours | 2–3 Days | 24 Hours |
+| **Wash & Fold Pricing** | **₹85/kg Flat** | ₹25–40/piece (≈₹160–250/kg) | ₹95–99/kg | Per-piece billing |
+| **Minimum Order** | **₹0 (No minimum)** | ₹0 | ₹299 minimum order | ₹500 for free delivery |
+| **Fulfillment Model** | In-house dark store | Franchise stores | Regional facility | Central industrial plant |
+| **Tracking** | Live pilot tracking | SMS updates | WhatsApp manual | App tracking |
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+### How does Spinzo maintain a 30-minute pickup window?
+Spinzo operates dedicated dark stores located at Silk Board and BTM 1st Stage. Dedicated delivery pilots patrol localized clusters in Koramangala, HSR, and BTM continuously, eliminating the commute lag seen in centralized plant setups.
+
+### Does Spinzo mix clothes from different customers?
+No. Spinzo enforces a strict single-customer drum policy. Every order is tagged, digitally weighed, and washed in separate dedicated commercial washing machines.
+
+### How do I place an order?
+Orders can be placed via the web application at https://spinzo.in or via the Spinzo mobile application available on iOS App Store and Google Play Store. Telephone support: +91 76768 78832.

@@ -5,16 +5,27 @@ import { Footer } from "@/components/Footer";
 import { SERVICE_LOCATIONS } from "@/lib/locations";
 
 export const metadata = {
-  title: 'B2B & Bulk Laundry Services in South Bangalore | Hotels, PGs, Gyms, Salons',
-  description: 'Commercial laundry for PGs, co-living spaces, Airbnbs, hotels, gyms, and salons in Koramangala, HSR, BTM, Jayanagar & JP Nagar. Volume discounts, scheduled pickups, dedicated account manager.',
+  title: 'B2B & Bulk Laundry Services in Bangalore | Spinzo',
+  description: 'Commercial bulk laundry for PGs, Airbnbs, hotels, gyms & salons across South Bangalore. Scheduled pickups, volume pricing & dedicated account manager.',
   keywords: ['hotel laundry services near me', 'commercial laundry service bangalore', 'bulk laundry service', 'b2b laundry bangalore', 'pg laundry service bangalore', 'linen service bangalore'],
   alternates: {
     canonical: 'https://spinzonow.com/b2b'
   },
   openGraph: {
-    title: 'Bulk & Commercial Laundry — South Bangalore | Spinzo',
-    description: 'Reliable bulk laundry for PGs, Airbnbs, gyms, and salons across BTM, HSR, Koramangala, and 16 more locations. Free scheduled pickups.',
+    title: 'B2B & Commercial Bulk Laundry in Bangalore | Spinzo',
+    description: 'Reliable bulk laundry for PGs, Airbnbs, gyms & salons across South Bangalore. Free scheduled doorstep pickups and volume discounts.',
     url: 'https://spinzonow.com/b2b',
+    siteName: 'Spinzo',
+    locale: 'en_IN',
+    type: 'website',
+    images: [
+      {
+        url: 'https://spinzonow.com/SpinZo.png',
+        width: 512,
+        height: 512,
+        alt: 'B2B Bulk Laundry Services Bangalore - Spinzo',
+      },
+    ],
   },
 };
 
