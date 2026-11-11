@@ -41,7 +41,7 @@ const faqLd = {
     {
       '@type': 'Question',
       name: 'What areas do you serve for B2B laundry in Bangalore?',
-      acceptedAnswer: { '@type': 'Answer', text: `We serve all 19 South Bangalore neighborhoods including Koramangala, HSR Layout, BTM Layout, Jayanagar, JP Nagar, Silk Board, Bellandur, Electronic City, Sarjapur Road, and 11 more areas.` }
+      acceptedAnswer: { '@type': 'Answer', text: `We serve all 20 South Bangalore neighborhoods including Koramangala, HSR Layout, BTM Layout, Jayanagar, JP Nagar, Silk Board, Bellandur, Electronic City, Sarjapur Road, and 11 more areas.` }
     },
     {
       '@type': 'Question',
@@ -177,7 +177,7 @@ export default function B2BPage() {
               <div className="flex gap-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm">
                 <div className="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold shrink-0">6</div>
                 <div>
-                  <h4 className="font-bold text-zinc-900">Covering 19 South Bangalore Locations</h4>
+                  <h4 className="font-bold text-zinc-900">Covering 20 South Bangalore Locations</h4>
                   <p className="text-sm text-zinc-600">From Koramangala to Electronic City, BTM to Bellandur — if it&apos;s South Bangalore, we service it.</p>
                 </div>
               </div>

@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Services } from "@/components/Services";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
-import { COMPETITORS, getCompetitor } from "@/lib/competitors";
+import { getCompetitor } from "@/lib/competitors";
 
 // Only these competitors get alternative pages — the ones with the most
 // review complaints and switch-intent search volume.
@@ -109,9 +109,20 @@ export default async function AlternativePage({ params }) {
 
   const { content, faqLd } = renderAlternativeContent(comp, competitor);
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spinzonow.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://spinzonow.com/blog' },
+      { '@type': 'ListItem', position: 3, name: `${comp.name} Alternative`, item: `https://spinzonow.com/alternatives/${competitor}` }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <Navbar />
       <main>

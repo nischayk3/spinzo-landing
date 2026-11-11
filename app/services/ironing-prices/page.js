@@ -33,7 +33,7 @@ const PRICING_FAQS = [
   { q: 'Do you iron sarees? How much?', a: 'Yes. We professionally steam press sarees — including silk, Kanjeevaram, and cotton sarees — for ₹49 per piece. Our steam press eliminates creases without crushing the fabric unlike traditional charcoal irons.' },
   { q: 'What is steam ironing vs dry ironing?', a: 'Steam ironing uses pressurised steam to relax fabric fibres and remove creases without direct plate contact. This prevents "iron shine" — the glossy burn mark that coal and dry irons leave on dark clothes. Steam ironing also lasts longer because the steam sets the fabric.' },
   { q: 'Do you offer ironing-only service (no wash)?', a: 'Yes. Our Steam Ironing service is for clothes that are already clean but need pressing. ₹18 per piece with free pickup on 20+ pieces. Minimum order: 5 pieces.' },
-  { q: 'What areas do you cover for ironing pickup?', a: 'We cover 19 South Bangalore neighborhoods including BTM Layout, Koramangala, HSR Layout, Jayanagar, JP Nagar, Bellandur, Sarjapur Road, Electronic City, and more. Check our service areas page for the full list.' },
+  { q: 'What areas do you cover for ironing pickup?', a: 'We cover 20 South Bangalore neighborhoods including BTM Layout, Koramangala, HSR Layout, Jayanagar, JP Nagar, Bellandur, Sarjapur Road, Electronic City, and more. Check our service areas page for the full list.' },
 ];
 
 export default function IroningPricesPage() {

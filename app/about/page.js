@@ -67,7 +67,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto px-6 md:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1F0B3F] mb-6 font-display">Who We Are</h2>
             <p className="text-zinc-600 leading-relaxed mb-6">
-              Spinzo was founded in 2024 by Nischay Kumar with a simple thesis: Bangalore professionals should not have to spend their weekends doing laundry. What started as a hyper-local pickup service in BTM Layout has grown into a premium laundry and dry cleaning network spanning 19 neighborhoods across South Bangalore.
+              Spinzo was founded in 2024 by Nischay Kumar with a simple thesis: Bangalore professionals should not have to spend their weekends doing laundry. What started as a hyper-local pickup service in BTM Layout has grown into a premium laundry and dry cleaning network spanning 20 neighborhoods across South Bangalore.
             </p>
             <p className="text-zinc-600 leading-relaxed mb-6">
               We operate a central dark store facility at Garuda Bhive Workspace, Old Madiwala &mdash; the geographical epicentre of South Bangalore. This location is why we can reach most addresses in under 30 minutes and return fresh clothes within hours.

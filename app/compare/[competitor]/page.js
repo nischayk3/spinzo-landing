@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Services } from "@/components/Services";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
-import { COMPETITORS, getCompetitor } from "@/lib/competitors";
+import { getCompetitor } from "@/lib/competitors";
 
 function TLDR({ comp }) {
   return (
@@ -145,10 +145,36 @@ function FAQSchema({ comp }) {
       {
         '@type': 'Question',
         name: `Does Spinzo serve the same areas as ${comp.name}?`,
-        acceptedAnswer: { '@type': 'Answer', text: `Spinzo covers 19 South Bangalore neighborhoods: ${['Koramangala', 'HSR Layout', 'BTM Layout', 'Jayanagar', 'JP Nagar', 'Bellandur', 'Silk Board', 'Electronic City', 'Sarjapur Road', 'and more'].join(', ')}.` }
+        acceptedAnswer: { '@type': 'Answer', text: `Spinzo covers 20 South Bangalore neighborhoods: ${['Koramangala', 'HSR Layout', 'BTM Layout', 'Jayanagar', 'JP Nagar', 'Bellandur', 'Silk Board', 'Electronic City', 'Sarjapur Road', 'and more'].join(', ')}.` }
       },
     ]
   };
+}
+
+function FAQSection({ comp }) {
+  const faqs = FAQSchema({ comp }).mainEntity;
+  return (
+    <section className="py-14 bg-purple-50/30 border-t border-purple-100/50">
+      <div className="max-w-4xl mx-auto px-6 md:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1F0B3F] mb-3 font-display">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-sm md:text-base text-zinc-600">
+            Spinzo vs {comp.name} — answered.
+          </p>
+        </div>
+        <div className="space-y-4">
+          {faqs.map((faq) => (
+            <div key={faq.name} className="bg-white rounded-2xl p-6 border border-purple-100/70 shadow-sm">
+              <h3 className="text-base font-bold text-zinc-900 mb-2">{faq.name}</h3>
+              <p className="text-sm text-zinc-600 leading-relaxed">{faq.acceptedAnswer.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export async function generateStaticParams() {
@@ -207,9 +233,20 @@ export default async function ComparePage({ params }) {
 
   const faqSchema = FAQSchema({ comp });
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://spinzonow.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://spinzonow.com/blog' },
+      { '@type': 'ListItem', position: 3, name: `Spinzo vs ${comp.name}`, item: `https://spinzonow.com/compare/${competitor}` }
+    ]
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <Navbar />
       <main>
@@ -287,6 +324,7 @@ export default async function ComparePage({ params }) {
         {/* Honest assessment */}
         <HonestAssessment comp={comp} />
         <WhosItFor comp={comp} />
+        <FAQSection comp={comp} />
 
         <Services />
         <FinalCTA />

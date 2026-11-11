@@ -10,7 +10,7 @@ export const metadata = {
   alternates: { canonical: 'https://spinzonow.com/services' },
   openGraph: {
     title: 'All Laundry Services in Bangalore | Spinzo',
-    description: 'Complete laundry services with 30-minute free pickup across 19 South Bangalore neighborhoods. Full rate card, turnarounds, and coverage areas.',
+    description: 'Complete laundry services with 30-minute free pickup across 20 South Bangalore neighborhoods. Full rate card, turnarounds, and coverage areas.',
     url: 'https://spinzonow.com/services',
     siteName: 'Spinzo',
     locale: 'en_IN',

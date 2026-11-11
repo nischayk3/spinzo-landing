@@ -49,7 +49,7 @@ const faqLd = {
     {
       '@type': 'Question',
       name: 'Does Spinzo offer laundry subscriptions in Koramangala and HSR Layout?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Spinzo Pass is available across all 19 South Bangalore neighborhoods including Koramangala, HSR Layout, BTM Layout, Jayanagar, JP Nagar, Silk Board, Bellandur, Electronic City, and more.' }
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. Spinzo Pass is available across all 20 South Bangalore neighborhoods including Koramangala, HSR Layout, BTM Layout, Jayanagar, JP Nagar, Silk Board, Bellandur, Electronic City, and more.' }
     },
     {
       '@type': 'Question',

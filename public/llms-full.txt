@@ -65,7 +65,7 @@
 
 ## 3. Hyperlocal Service Areas in South Bangalore (30-Minute Doorstep Pickup)
 
-Spinzo serves 19 contiguous neighborhoods in South Bangalore:
+Spinzo serves 20 contiguous neighborhoods in South Bangalore:
 1. **Silk Board** (Hub location — fastest pickup in 18 minutes)
 2. **Koramangala** (Blocks 1 through 8, Jakkasandra, KHB Colony)
 3. **HSR Layout** (Sectors 1 through 7, SS Colony, Hosapalya)

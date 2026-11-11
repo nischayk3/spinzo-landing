@@ -51,6 +51,11 @@ const categoryColors = {
   'How It Works': 'bg-amber-50 text-amber-700 border-amber-100',
   'Services': 'bg-purple-50 text-purple-700 border-purple-100',
   'Local Guide': 'bg-rose-50 text-rose-700 border-rose-100',
+  'Care Guides': 'bg-cyan-50 text-cyan-700 border-cyan-100',
+  'Fabric Care': 'bg-teal-50 text-teal-700 border-teal-100',
+  'Home Care': 'bg-orange-50 text-orange-700 border-orange-100',
+  'Lifestyle': 'bg-pink-50 text-pink-700 border-pink-100',
+  'Pricing': 'bg-green-50 text-green-700 border-green-100',
 };
 
 export default async function BlogPostPage({ params }) {
