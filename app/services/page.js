@@ -1,5 +1,4 @@
 import { SERVICES } from "@/lib/services";
-import { SERVICE_LOCATIONS } from "@/lib/locations";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -20,6 +19,7 @@ export const metadata = {
 };
 
 export default function ServicesHubPage() {
+  const areaCount = 20;
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -29,7 +29,7 @@ export default function ServicesHubPage() {
     ],
   };
 
-  const areaCount = SERVICE_LOCATIONS.length;
+  const areaCount = 20;
 
   return (
     <div className="flex flex-col min-h-screen">
