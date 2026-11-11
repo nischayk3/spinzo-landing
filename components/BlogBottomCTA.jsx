@@ -26,10 +26,10 @@ export function BlogBottomCTA() {
         Book on Web
       </a>
       <Link
-        href="/"
+        href="/services"
         className="px-6 py-3 bg-white text-zinc-900 rounded-full font-semibold border border-zinc-200 hover:border-purple-300 transition-all text-sm"
       >
-        Learn More
+        View All Services
       </Link>
     </div>
   );

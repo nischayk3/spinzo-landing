@@ -7,7 +7,7 @@ import blogPosts from "@/lib/blog-posts";
 
 export default function sitemap() {
   const baseUrl = 'https://spinzonow.com';
-  const siteUpdateDate = new Date('2026-10-23T00:00:00.000Z');
+  const siteUpdateDate = new Date('2026-11-11T00:00:00.000Z');
 
   const locationUrls = SERVICE_LOCATIONS.map((loc) => ({
     url: `${baseUrl}/locations/${loc.slug}`,
