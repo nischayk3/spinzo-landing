@@ -96,6 +96,12 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/services/ironing-prices`,
+      lastModified: siteUpdateDate,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/b2b`,
       lastModified: siteUpdateDate,
       changeFrequency: 'monthly',

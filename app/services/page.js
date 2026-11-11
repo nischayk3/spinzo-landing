@@ -19,7 +19,6 @@ export const metadata = {
 };
 
 export default function ServicesHubPage() {
-  const areaCount = 20;
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

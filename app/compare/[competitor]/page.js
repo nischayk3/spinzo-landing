@@ -152,7 +152,7 @@ function FAQSchema({ comp }) {
 }
 
 export async function generateStaticParams() {
-  return ['spinzo-vs-tumbledry', 'spinzo-vs-uclean', 'spinzo-vs-washho', 'spinzo-vs-laundrymate', 'spinzo-vs-bumbledry', 'spinzo-vs-laundrokart', 'spinzo-vs-local-dhobi'].map((competitor) => ({
+  return ['spinzo-vs-tumbledry', 'spinzo-vs-uclean', 'spinzo-vs-washho', 'spinzo-vs-laundrymate', 'spinzo-vs-bumbledry', 'spinzo-vs-laundrokart', 'spinzo-vs-local-dhobi', 'spinzo-vs-iztri'].map((competitor) => ({
     competitor
   }));
 }
