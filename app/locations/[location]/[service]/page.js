@@ -63,7 +63,7 @@ export default async function LocationServicePage({ params }) {
     notFound();
   }
 
-  const { name, nearby, landmarks, pickupTime, localReview } = loc;
+  const { name, nearby, landmarks, pickupTime, localReview, hubNote, accessNote } = loc;
   
   const customFaqs = [
     {
@@ -284,6 +284,52 @@ export default async function LocationServicePage({ params }) {
             </div>
           </section>
         )}
+
+        {/* Location-specific context — unique per area (not boilerplate) */}
+        {(hubNote || accessNote) && (
+          <section className="py-10 bg-white border-t border-zinc-100">
+            <div className="max-w-3xl mx-auto px-6 md:px-8">
+              <h2 className="text-2xl font-bold text-zinc-900 mb-4 font-display text-center">
+                Service in {name}: Local Notes
+              </h2>
+              <div className="space-y-3">
+                {hubNote && (
+                  <div className="bg-purple-50 rounded-xl p-5 border border-purple-100">
+                    <p className="text-sm text-zinc-700 leading-relaxed">
+                      <span className="font-semibold text-[#1F0B3F]">📍 {hubNote}</span>
+                    </p>
+                  </div>
+                )}
+                {accessNote && (
+                  <div className="bg-purple-50/30 rounded-xl p-5 border border-purple-100/60">
+                    <p className="text-sm text-zinc-600 leading-relaxed">
+                      <span className="font-semibold">Rider note:</span> {accessNote}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Areas within {name} we serve */}
+        <section className="py-10 bg-gray-50 border-y border-zinc-200/60">
+          <div className="max-w-3xl mx-auto px-6 md:px-8 text-center">
+            <h2 className="text-xl font-bold text-zinc-900 mb-4 font-display">
+              {srv.name} Coverage in {name}
+            </h2>
+            <p className="text-sm text-zinc-600 mb-5">
+              Washing and delivery within all sub-areas. Estimated pickup: <strong>{pickupTime || '30 mins'}</strong>.
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {(nearby || []).slice(0, 6).map((a) => (
+                <span key={a} className="text-xs bg-white px-3 py-1.5 rounded-full border border-zinc-200 text-zinc-600 font-medium">
+                  {a}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* How Spinzo Works */}
         <HowItWorks />

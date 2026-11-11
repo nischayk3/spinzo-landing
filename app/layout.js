@@ -68,6 +68,8 @@ export default function RootLayout({ children }) {
       className={`${jakartaSans.variable} ${outfit.variable} h-full antialiased`}
     >
       <head>
+        {/* iOS Smart App Banner — prompts app install/open from organic search */}
+        <meta name="apple-itunes-app" content="app-id=6758751814, app-argument=https://spinzonow.com" />
         {/* WeBotApp Signal Privacy-First Analytics Tag */}
         <script
           defer
@@ -100,6 +102,39 @@ export default function RootLayout({ children }) {
                 "https://spinzo.in",
                 "https://play.google.com/store/apps/details?id=com.nischayk3.Spinit",
                 "https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814"
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "bestRating": "5",
+                "ratingCount": "2000",
+                "reviewCount": "230"
+              },
+              "review": [
+                {
+                  "@type": "Review",
+                  "author": { "@type": "Person", "name": "Priya K." },
+                  "reviewBody": "Fast pickup near Ashoka Pillar. Great care with my silk sarees.",
+                  "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                },
+                {
+                  "@type": "Review",
+                  "author": { "@type": "Person", "name": "Ananya S." },
+                  "reviewBody": "Best laundry in BTM! They picked up in 20 minutes from 2nd Stage.",
+                  "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                },
+                {
+                  "@type": "Review",
+                  "author": { "@type": "Person", "name": "Vikram D." },
+                  "reviewBody": "Life saver for NGV residents. Steam ironing is crisp.",
+                  "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                },
+                {
+                  "@type": "Review",
+                  "author": { "@type": "Person", "name": "Karthik R." },
+                  "reviewBody": "They picked up from right outside Silk Board metro in 15 minutes and I had everything back the same evening.",
+                  "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+                }
               ]
             })
           }}

@@ -15,6 +15,7 @@ const navLinks = [
   { label: "Service Areas", href: "/service-areas", isRoute: true },
   { label: "Why Us", href: "#why-spinzo" },
   { label: "FAQ", href: "#faq" },
+  { label: "About", href: "/about", isRoute: true },
   { label: "Blog", href: "/blog", isRoute: true },
 ];
 

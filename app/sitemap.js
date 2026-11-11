@@ -84,6 +84,18 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/about`,
+      lastModified: siteUpdateDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: siteUpdateDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/b2b`,
       lastModified: siteUpdateDate,
       changeFrequency: 'monthly',

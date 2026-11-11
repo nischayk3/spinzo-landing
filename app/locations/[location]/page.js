@@ -242,19 +242,46 @@ export async function generateMetadata({ params }) {
   if (!loc) return { title: 'Location Not Found' };
 
   const locationName = loc.name;
+  const areaAbbrs = {
+    'jayanagar': '3rd & 4th Block, Ashoka Pillar',
+    'jp-nagar': 'All 5 Phases, Ranga Shankara',
+    'btm-layout': '1st & 2nd Stage, BTM Lake',
+    'silk-board': 'Metro Station, 18-min Pickup',
+    'koramangala': 'All 8 Blocks, Forum Mall',
+    'hsr-layout': 'All 7 Sectors, Agara Lake',
+    'kudlu': 'HSR Extension, Gottigere',
+    'bommanahalli': 'Hosur Road, Metro Station',
+    'wilson-garden': 'Lalbagh West, NIMHANS',
+    'shanti-nagar': 'Bus Stand, Richmond Circle',
+    'adugodi': 'Dairy Circle, Hosur Road',
+    'sg-palya': 'Christ University, Madiwala',
+    'tavarekere': 'Madiwala Lake, BTM',
+    'madiwala': 'Lake Area, Bus Stand',
+    's-r-layout': 'Puttanna Garden, Bommanahalli',
+    'harlur': 'Sarjapur Road, HSR Backside',
+    'begur': 'Begur Fort, Bannerghatta Rd',
+    'sarjapur-road': 'Carmelaram, Tech Parks',
+    'electronic-city': 'Phase 1 & 2, Infosys',
+    'bellandur': 'ORR, Ecospace, Iblur',
+  };
+  const abbr = areaAbbrs[loc.slug] || `${(loc.nearby || [''])[0]}`;
+  const pickup = loc.pickupTime || '30-min';
 
-  const rawDesc = `Laundry in ${locationName}: 30-min pickup, 6-hr delivery. Wash & Fold ₹85/kg, Steam Ironing & Dry Cleaning. Free doorstep pickup in Bangalore.`;
+  const titleStr = `${locationName} Laundry: ${pickup} Pickup, ₹85/kg, ${abbr}`;
+  const title = titleStr.length > 63 ? titleStr.substring(0, 60).replace(/,\s*[^,]*$/, '') : titleStr;
+
+  const rawDesc = `Laundry in ${locationName}: ${pickup} doorstep pickup from ${abbr}. Wash & Fold ₹85/kg, Steam Ironing ₹18/pc. Free delivery.`;
   const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
 
   return {
-    title: `${locationName} Laundry Near Me | Wash & Fold ₹85/kg`,
+    title,
     description,
     alternates: {
       canonical: `https://spinzonow.com/locations/${location}`
     },
     openGraph: {
       title: `Laundry Service in ${locationName} | Spinzo`,
-      description: `Get laundry picked up in 30 minutes in ${locationName}. Wash & Fold ₹85/kg, Steam Ironing & Dry Cleaning delivered to your door.`,
+      description: `Get laundry picked up in ${pickup} in ${locationName}. Wash & Fold ₹85/kg, Steam Ironing & Dry Cleaning delivered to your door.`,
       url: `https://spinzonow.com/locations/${location}`,
       siteName: 'Spinzo',
       locale: 'en_IN',
@@ -308,7 +335,13 @@ export default async function LocationPage({ params }) {
       '@type': 'Place',
       name: nearby.slice(0, 5).join(', ')
     },
-    description: `Professional laundry, dry cleaning, and ironing service in ${name}, Bangalore. 30 min pickup and 6 hour delivery.`
+    description: `Professional laundry, dry cleaning, and ironing service in ${name}, Bangalore. 30 min pickup and 6 hour delivery.`,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      bestRating: '5',
+      ratingCount: '2000'
+    }
   };
 
   const faqSchema = {
@@ -501,6 +534,11 @@ export default async function LocationPage({ params }) {
                   </a>
                 );
               })}
+            </div>
+            <div className="text-center mt-6">
+              <a href="/pricing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#994BFF] hover:underline">
+                View Full Rate Card &rarr; Wash &amp; Fold &#x20B9;85/kg &middot; Ironing &#x20B9;18/pc
+              </a>
             </div>
           </div>
         </section>

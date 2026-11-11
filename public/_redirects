@@ -31,6 +31,10 @@
 /locations/koramangala/premium-laundry /services/premium-laundry 301!
 /locations/koramangala/express-laundry /services/express-laundry 301!
 
-# Section index fallbacks
-/services   /pricing        301!
+# Section index fallbacks — /services has a real hub page now (not redirected)
 /locations  /service-areas  301!
+
+# Removed locations — 301 to service-areas (no direct replacement area)
+/locations/whitefield   /service-areas  301!
+/locations/indiranagar  /service-areas  301!
+/locations/marathahalli /service-areas  301!

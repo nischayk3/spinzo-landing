@@ -96,10 +96,12 @@ export async function generateMetadata({ params }) {
   const service = getServiceBySlug(slug);
   if (!service) return { title: 'Service Not Found' };
 
-  const title = `${service.name} Bangalore | Spinzo`;
-  const description = service.description.length > 155
-    ? service.description.substring(0, 152) + '...'
+  const titleSuffix = service.price ? ` • ${service.price}` : '';
+  const title = `${service.name} Bangalore${titleSuffix} | Spinzo`;
+  const truncated = service.description.length > 140
+    ? service.description.substring(0, 137) + '...'
     : service.description;
+  const description = `${truncated} ${service.price ? service.price + ' — free 30-min pickup.' : 'Free 30-min pickup.'}`;
 
   return {
     title,
@@ -255,6 +257,11 @@ export default async function ServicePage({ params }) {
               <p className="text-zinc-600 leading-relaxed max-w-3xl mx-auto">
                 {seoContent.seoParagraph}
               </p>
+              <div className="text-center mt-6">
+                <a href="/pricing" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#994BFF] hover:underline">
+                  View Full Rate Card &rarr; {service.price} &middot; Free Pickup
+                </a>
+              </div>
             </div>
           </section>
         )}
