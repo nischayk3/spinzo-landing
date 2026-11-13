@@ -77,6 +77,28 @@ const SERVICE_CONTENT = {
       { q: 'How much does express laundry cost?', a: 'Express Same-Day Laundry is ₹149/kg. This includes priority 30-minute pickup, express wash cycle, and priority delivery within 6-8 hours.' },
     ],
   },
+  'saree-dry-cleaning': {
+    seoParagraph: 'Silk sarees, Kanjeevarams, Banarasi brocades, and designer lehengas need specialised care — not a run through a standard dry cleaning process. Spinzo\'s saree dry cleaning service starts with a thorough pre-inspection and gentle stain spotting, followed by a chemical-safe solvent bath that preserves the fabric\'s natural sheen and structural integrity. Every saree then receives a traditional roll press (charak) finish that restores its original crispness without crushing the delicate zari work.',
+    faq: [
+      { q: 'How much does saree dry cleaning cost in Bangalore?', a: 'Spinzo offers saree dry cleaning from ₹149 for basic silk sarees, ₹199 for Kanjeevarams and Banarasi brocades, and ₹349 for heavy designer lehengas and bridal wear. Includes traditional roll press finish and free pickup.' },
+      { q: 'What is roll press (charak) for sarees?', a: 'Roll press or charak is a traditional finishing technique that restores a saree\'s crispness and sheen by pressing it under controlled heat and pressure on a rotating roller. Unlike regular ironing, it doesn\'t crush the fabric fibers or damage the zari work.' },
+      { q: 'Can you dry clean wedding lehengas?', a: 'Yes. Spinzo specialises in bridal wear including heavy lehengas, sherwanis, and embroidered garments. Each piece is pre-inspected, spot-treated, and cleaned individually with fabric-safe solvents. Acid-free tissue packing included.' },
+    ],
+  },
+  'curtain-cleaning': {
+    seoParagraph: 'Curtains trap dust, allergens, and odours that can recirculate through your home. Professional curtain cleaning removes what vacuuming leaves behind — deeply embedded grime from months of Bangalore\'s dust and pollution. Spinzo handles all fabric types from delicate sheers to heavy blackout drapes. Each set is pre-treated for dust removal, deep-cleaned, and returned crisp, folded, and ready to rehang.',
+    faq: [
+      { q: 'Can you clean sheer curtains without damaging them?', a: 'Yes. Sheer curtains require a gentle cycle with reduced agitation. We adjust drum speed and water temperature based on the fabric type. Heavy blackout drapes get a commercial-grade deep clean.' },
+      { q: 'How much does curtain cleaning cost in Bangalore?', a: 'Spinzo charges ₹299 per set for standard curtains, ₹499 for heavy blackout drapes or floor-length curtains. Turnaround is 48-72 hours with free pickup and delivery.' },
+    ],
+  },
+  'sofa-cleaning': {
+    seoParagraph: 'Sofas absorb years of dust, spills, pet dander, and body oils — even if they look clean on the surface. Professional sofa cleaning uses hot water extraction that forces cleaning solution deep into the fabric and vacuums out the dissolved dirt, bacteria, and allergens. Fabric sofas get a deep shampoo treatment; leather sofas receive a specialised clean and conditioning restore.Supported by trained partners.',
+    faq: [
+      { q: 'How much does sofa cleaning cost in Bangalore?', a: 'Spinzo offers sofa cleaning from ₹499 per seat for fabric sofas. Pricing depends on size and fabric type. Leather sofa conditioning starts at ₹799 per seat. Free pickup and delivery.' },
+      { q: 'Can you clean leather sofas?', a: 'Yes. Leather sofas receive a specialised clean with pH-balanced leather cleaner, followed by a conditioning treatment that restores suppleness and prevents cracking. We do not use water extraction on leather.' },
+    ],
+  },
 };
 
 const BASE = 'https://spinzonow.com';
@@ -97,7 +119,8 @@ export async function generateMetadata({ params }) {
   if (!service) return { title: 'Service Not Found' };
 
   const titleSuffix = service.price ? ` • ${service.price}` : '';
-  const title = `${service.name} Bangalore${titleSuffix} | Spinzo`;
+  const rawTitle = `${service.name} Bangalore${titleSuffix} | Spinzo`;
+  const title = rawTitle.length <= 57 ? rawTitle : rawTitle.slice(0, 57).replace(/\s+\S*$/, '');
   const suffix = service.price ? ` ${service.price} — free 30-min pickup.` : ' Free 30-min pickup.';
   const maxDescLen = 155 - suffix.length;
   const description = service.description.length <= maxDescLen
