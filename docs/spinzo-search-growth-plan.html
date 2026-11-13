@@ -1,0 +1,444 @@
+<title>Spinzo Search Growth Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: an operations docket. Ledger rows with tabular figures,
+   a numbered spine because the fix order genuinely is a sequence. */
+:root{
+  --bg:#f4f6f7; --surface:#ffffff; --surface-2:#fafbfc; --line:#e0e4e8; --line-2:#cdd3da;
+  --ink:#0f151c; --ink-2:#414c59; --ink-3:#6d7885;
+  --accent:#0b63c5; --accent-soft:#e9f1fb; --accent-ink:#08488f;
+  --crit:#b8342a; --crit-soft:#fbeceb;
+  --warn:#9a6410; --warn-soft:#fdf3e2;
+  --good:#176b45; --good-soft:#e9f5ef;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --disp:"Archivo","IBM Plex Sans",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1014; --surface:#141a20; --surface-2:#111720; --line:#252e38; --line-2:#333e4a;
+    --ink:#e9edf2; --ink-2:#adb8c4; --ink-3:#7e8996;
+    --accent:#53a3f0; --accent-soft:#15263a; --accent-ink:#8dc2f7;
+    --crit:#ef7263; --crit-soft:#2c1a18;
+    --warn:#dda746; --warn-soft:#2a2114;
+    --good:#4fc38c; --good-soft:#12271d;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1014; --surface:#141a20; --surface-2:#111720; --line:#252e38; --line-2:#333e4a;
+  --ink:#e9edf2; --ink-2:#adb8c4; --ink-3:#7e8996;
+  --accent:#53a3f0; --accent-soft:#15263a; --accent-ink:#8dc2f7;
+  --crit:#ef7263; --crit-soft:#2c1a18;
+  --warn:#dda746; --warn-soft:#2a2114;
+  --good:#4fc38c; --good-soft:#12271d;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1060px;margin:0 auto;padding-block:40px 72px}
+h1,h2,h3,h4{font-family:var(--disp);text-wrap:balance;margin:0;line-height:1.16;letter-spacing:-0.018em}
+h1{font-weight:800;font-size:clamp(2rem,5.2vw,3.1rem)}
+h2{font-weight:700;font-size:clamp(1.35rem,3vw,1.85rem)}
+h3{font-weight:600;font-size:1.02rem;letter-spacing:-0.008em}
+p{margin:0}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:500}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:8px}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.kicker b{color:var(--accent);font-weight:600}
+.lede{margin-top:16px;font-size:1.06rem;color:var(--ink-2);max-width:64ch}
+
+/* ---------- section spine ---------- */
+section{border-top:1px solid var(--line);padding-block:34px}
+.spine{display:grid;grid-template-columns:52px minmax(0,1fr);gap:20px}
+@media(max-width:640px){.spine{grid-template-columns:1fr;gap:10px}}
+.sno{font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--accent);
+     letter-spacing:.1em;padding-top:7px}
+.sbody{min-width:0;display:flex;flex-direction:column;gap:16px}
+
+/* ---------- stat strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.stat{background:var(--surface);padding:16px 16px 15px}
+.stat .lab{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:7px;display:block}
+.stat .val{font-family:var(--disp);font-weight:700;font-size:1.65rem;letter-spacing:-.03em;line-height:1;display:block}
+.stat .sub{font-size:.78rem;color:var(--ink-3);margin-top:5px;display:block}
+.stat.is-crit .val{color:var(--crit)}
+.stat.is-good .val{color:var(--good)}
+
+/* ---------- callout ---------- */
+.callout{border-left:3px solid var(--accent);background:var(--accent-soft);padding:16px 18px;border-radius:0 3px 3px 0}
+.callout.crit{border-color:var(--crit);background:var(--crit-soft)}
+.callout.warn{border-color:var(--warn);background:var(--warn-soft)}
+.callout.good{border-color:var(--good);background:var(--good-soft)}
+.callout h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:8px;font-weight:600}
+.callout.crit h4{color:var(--crit)}
+.callout.warn h4{color:var(--warn)}
+.callout.good h4{color:var(--good)}
+.callout p{font-size:.94rem;color:var(--ink-2)}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:3px}
+table{border-collapse:collapse;width:100%;font-size:.86rem;background:var(--surface);min-width:520px}
+th{font-family:var(--mono);font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+   text-align:left;padding:9px 13px;background:var(--surface-2);border-bottom:1px solid var(--line-2);font-weight:600;white-space:nowrap}
+td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.r,th.r{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.q{font-family:var(--mono);font-size:.82rem;color:var(--ink)}
+.pill{display:inline-block;font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.05em;
+      padding:2px 7px;border-radius:2px;white-space:nowrap;text-transform:uppercase}
+.p-crit{background:var(--crit-soft);color:var(--crit)}
+.p-warn{background:var(--warn-soft);color:var(--warn)}
+.p-good{background:var(--good-soft);color:var(--good)}
+.p-neutral{background:var(--accent-soft);color:var(--accent-ink)}
+
+/* ---------- bar chart ---------- */
+.chart{display:flex;flex-direction:column;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:18px}
+.bar-row{display:grid;grid-template-columns:96px minmax(0,1fr) 128px;gap:12px;align-items:center}
+@media(max-width:560px){.bar-row{grid-template-columns:74px minmax(0,1fr);}.bar-row .bmeta{grid-column:2;font-size:.7rem}}
+.bar-row .bl{font-family:var(--mono);font-size:.74rem;color:var(--ink-2)}
+.track{background:var(--surface-2);border:1px solid var(--line);border-radius:2px;height:22px;position:relative;overflow:hidden}
+.fill{height:100%;background:var(--accent);border-radius:1px}
+.fill.f-crit{background:var(--crit)}
+.fill.f-warn{background:var(--warn)}
+.fill.f-good{background:var(--good)}
+.bmeta{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.card{background:var(--surface);padding:16px 17px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card .chead{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.card h3{font-size:.98rem}
+.card p{font-size:.85rem;color:var(--ink-2)}
+.card .meta{font-family:var(--mono);font-size:.72rem;color:var(--ink-3);margin-top:auto;padding-top:8px;border-top:1px solid var(--line)}
+
+/* ---------- list ---------- */
+ul.tight{margin:0;padding-left:19px;display:flex;flex-direction:column;gap:7px}
+ul.tight li{font-size:.92rem;color:var(--ink-2)}
+ul.tight li::marker{color:var(--ink-3)}
+code{font-family:var(--mono);font-size:.84em;background:var(--surface-2);border:1px solid var(--line);padding:1px 5px;border-radius:2px;color:var(--accent-ink)}
+strong{font-weight:600;color:var(--ink)}
+
+/* ---------- phase ---------- */
+.phase{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--surface)}
+.phase-h{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.phase-h .tag{font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border-radius:2px;background:var(--accent);color:#fff}
+.phase-h .tag.t-crit{background:var(--crit)}
+.phase-h .tag.t-warn{background:var(--warn)}
+.phase-h .tag.t-good{background:var(--good)}
+.phase-h h3{font-size:1rem;flex:1;min-width:0}
+.phase-h .when{font-family:var(--mono);font-size:.72rem;color:var(--ink-3)}
+.phase-b{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.phase-b p{font-size:.9rem;color:var(--ink-2)}
+
+footer{border-top:2px solid var(--ink);margin-top:10px;padding-top:18px;font-size:.82rem;color:var(--ink-3)}
+footer p+p{margin-top:7px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">
+    <span>Spinzo &middot; spinzonow.com</span>
+    <span>Search Console <b>9 Aug &ndash; 8 Nov 2026</b></span>
+    <span>313 queries analysed</span>
+  </div>
+  <h1>You don't have a click problem.<br>You have a suppression problem.</h1>
+  <p class="lede">Your read of the data was that Spinzo ranks but doesn't earn clicks, so the fix is titles and meta descriptions. The data says something harder and more fixable: for anything commercial, Spinzo does not rank high enough to be clicked, and the reason is visible in your own code. Fix the cause and the clicks follow. Optimise titles first and you will spend a quarter polishing pages Google is actively holding down.</p>
+</header>
+
+<section>
+  <div class="spine">
+    <div class="sno">01</div>
+    <div class="sbody">
+      <h2>What the 91 days actually contain</h2>
+      <div class="stats">
+        <div class="stat"><span class="lab">Impressions</span><span class="val">2,248</span><span class="sub">25 per day</span></div>
+        <div class="stat"><span class="lab">Clicks</span><span class="val">123</span><span class="sub">1.4 per day</span></div>
+        <div class="stat is-crit"><span class="lab">Non-brand clicks</span><span class="val">22</span><span class="sub">0.24 per day</span></div>
+        <div class="stat is-crit"><span class="lab">Non-brand CTR</span><span class="val">1.7%</span><span class="sub">1,309 impressions</span></div>
+      </div>
+      <div class="callout crit">
+        <h4>The number that matters</h4>
+        <p>Of 313 queries, <strong>292 produced zero clicks.</strong> Strip out searches for your own name and the entire organic channel delivered <strong>22 clicks in three months</strong> &mdash; roughly one every four days. For a business spending <span class="num">&#8377;2,700</span> a day on Google Ads, organic search is not currently a channel. It is a rounding error.</p>
+      </div>
+      <p>That reframes the brief. There is no CTR lever that rescues a page sitting at position 14. The opportunity is not to convert the impressions you already have &mdash; it is that you are only appearing for a sliver of the searches your pages should own, and only at positions where nobody clicks.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="spine">
+    <div class="sno">02</div>
+    <div class="sbody">
+      <h2>You rank, but never in the top three</h2>
+      <p>Splitting all 313 queries by position shows where the traffic dies. Positions 1&ndash;3 convert at a healthy rate and are almost entirely your own brand name. Everything below position 5 collects impressions and returns almost nothing.</p>
+      <div class="chart">
+        <div class="bar-row">
+          <span class="bl">Pos 1&ndash;3</span>
+          <span class="track"><span class="fill f-good" style="width:100%"></span></span>
+          <span class="bmeta">93 q &middot; 815 imp &middot; 94 clk</span>
+        </div>
+        <div class="bar-row">
+          <span class="bl">Pos 3&ndash;5</span>
+          <span class="track"><span class="fill" style="width:35%"></span></span>
+          <span class="bmeta">48 q &middot; 288 imp &middot; 18 clk</span>
+        </div>
+        <div class="bar-row">
+          <span class="bl">Pos 5&ndash;10</span>
+          <span class="track"><span class="fill f-crit" style="width:76%"></span></span>
+          <span class="bmeta">96 q &middot; 622 imp &middot; 8 clk</span>
+        </div>
+        <div class="bar-row">
+          <span class="bl">Pos 10&ndash;20</span>
+          <span class="track"><span class="fill f-crit" style="width:50%"></span></span>
+          <span class="bmeta">48 q &middot; 407 imp &middot; 3 clk</span>
+        </div>
+        <div class="bar-row">
+          <span class="bl">Pos 20+</span>
+          <span class="track"><span class="fill f-crit" style="width:14%"></span></span>
+          <span class="bmeta">28 q &middot; 116 imp &middot; 0 clk</span>
+        </div>
+      </div>
+      <p>Look at the third row: <strong>96 queries sit between positions 5 and 10, carrying 622 impressions and returning 8 clicks.</strong> That is a 1.3% CTR where 5&ndash;8% is normal. Part of that is bad titles. Most of it is that page one on mobile, below a local pack and often an AI answer, is a place where almost nobody scrolls.</p>
+      <div class="callout warn">
+        <h4>Why this is worth more than it looks</h4>
+        <p>Impressions are not fixed. Google shows a result far more often as it climbs. A query that earns 48 impressions from position 14 can earn several hundred from position 3 &mdash; and click through five to ten times better there. <strong>Ranking and CTR compound.</strong> That is the case for fixing the cause rather than the copy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="spine">
+    <div class="sno">03</div>
+    <div class="sbody">
+      <h2>The four clusters hiding in your query list</h2>
+      <p>Grouping the 313 queries by what the searcher wants shows that this is not one problem. It is four, with very different fixes and very different urgency.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Cluster</th><th class="r">Queries</th><th class="r">Impr</th><th class="r">Clicks</th><th class="r">CTR</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ironing &amp; pressing</strong></td><td class="r">94</td><td class="r">230</td><td class="r">6</td><td class="r">2.6%</td><td>Your largest uncovered intent. Roughly 40 of these are price questions.</td></tr>
+            <tr><td><strong>Blanket, quilt, comforter</strong></td><td class="r">43</td><td class="r">154</td><td class="r">4</td><td class="r">2.6%</td><td>Bangalore's Nov&ndash;Feb season. The window is open right now.</td></tr>
+            <tr><td><strong>Location queries</strong></td><td class="r">143</td><td class="r">988</td><td class="r">12</td><td class="r">1.2%</td><td>Where most of your visibility sits, and where it converts worst.</td></tr>
+            <tr><td><strong>Competitor names</strong></td><td class="r">22</td><td class="r">141</td><td class="r">0</td><td class="r">0%</td><td>People actively shopping your rivals. 141 impressions, zero captured.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="chead"><h3>Koramangala is your worst page</h3><span class="pill p-crit">Pos 15.5</span></div>
+          <p>181 impressions across 12 queries, and <strong>not one click.</strong> You have a location page plus three service pages for the area. Every other neighbourhood does better with less.</p>
+          <p class="meta">laundry in koramangala &middot; 48 imp &middot; pos 14.6</p>
+        </div>
+        <div class="card">
+          <div class="chead"><h3>BTM is your best, still uncaptured</h3><span class="pill p-warn">Pos 8.0</span></div>
+          <p>"laundry in btm 2nd stage" is your single largest non-brand query. 65 impressions, position 8, <strong>zero clicks.</strong> The BTM page exists but never says "2nd Stage" in its title.</p>
+          <p class="meta">laundry in btm 2nd stage &middot; 65 imp</p>
+        </div>
+        <div class="card">
+          <div class="chead"><h3>Every competitor query is unclaimed</h3><span class="pill p-crit">0 clicks</span></div>
+          <p>People searching Laundry Pro, Laundry Express, Wash and Wear, LaundryMate's charges and reviews. You have comparison pages for some of these and they convert none of it.</p>
+          <p class="meta">laundrymate charges &middot; 11 imp &middot; pos 5.3</p>
+        </div>
+        <div class="card">
+          <div class="chead"><h3>Jayanagar has no service pages</h3><span class="pill p-warn">59 imp</span></div>
+          <p>Jayanagar pulls 59 impressions from a single location page. You built service pages for four other areas and skipped this one.</p>
+          <p class="meta">laundry jayanagar &middot; pos 9.7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="spine">
+    <div class="sno">04</div>
+    <div class="sbody">
+      <h2>Five defects, read from your own source</h2>
+      <p>These are not guesses. Each one is visible in the built output of spinzonow.com.</p>
+
+      <div class="callout crit">
+        <h4>Defect 1 &mdash; twelve pages are byte-identical</h4>
+        <p>The twelve <code>/locations/{area}/{service}</code> pages &mdash; BTM, Koramangala, HSR and Silk Board crossed with wash &amp; fold, wash &amp; iron and steam ironing &mdash; render <strong>the same service description, the same inclusions and the same "best for" copy on every one.</strong> The page differs from its sibling only in the city name in the heading. <code>/locations/koramangala/wash-and-fold</code> and <code>/locations/hsr-layout/wash-and-fold</code> are identical but for the word Koramangala.</p>
+      </div>
+
+      <div class="callout crit">
+        <h4>Defect 2 &mdash; and there is no hub above them</h4>
+        <p>Google's doorway-abuse policy names two patterns. The first is "creating substantially similar pages." The second is pages "closer to search results than a clearly defined, browseable hierarchy." <strong>You have built both halves.</strong> <code>/services</code> does not exist as a page &mdash; it 301-redirects to <code>/pricing</code>. The only hierarchy above those twelve near-duplicates is the main navigation. This is the single most likely reason commercial queries stall at position 8&ndash;15.</p>
+      </div>
+
+      <div class="callout warn">
+        <h4>Defect 3 &mdash; twenty locations share one template and one FAQ</h4>
+        <p>Every location page renders the identical title pattern <code>{Area} Laundry Near Me | Wash &amp; Fold &#8377;85/kg</code> and a meta description that changes only the area name. Measured on rendered text, the pages average <strong>56% mutual similarity</strong>. The FAQ block is the same five questions with the area name substituted &mdash; and because that block is also the FAQPage schema, you are emitting twenty near-identical structured-data blocks.</p>
+        <p style="margin-top:9px">The irony: your location <em>data</em> is genuinely good. Real pincodes, landmarks, sub-areas, pickup times and named local reviews. BTM has a note about riders collecting on foot from narrow inner lanes; Silk Board explains the metro-side service lanes. <strong>You already own the material that would differentiate these pages. The template buries it.</strong></p>
+      </div>
+
+      <div class="callout warn">
+        <h4>Defect 4 &mdash; your titles are truncated in the results</h4>
+        <p>Six or more blog titles land at exactly 59 characters and are cut off in the search result with an ellipsis: <span class="mono" style="font-size:.82rem">"7 Hidden Benefits of Professional Laundry Services in Ba&hellip;"</span>. A truncated title reads as unfinished and costs clicks.</p>
+      </div>
+
+      <div class="callout warn">
+        <h4>Defect 5 &mdash; forty price queries point at one orphaned page</h4>
+        <p>You have a real, itemised rate card, rendered as crawlable text: Wash &amp; Fold <span class="num">&#8377;85/kg</span>, Wash &amp; Iron <span class="num">&#8377;140/kg</span>, steam ironing <span class="num">&#8377;18</span> a piece, sarees <span class="num">&#8377;49</span>. It lives on a single 877-word page, and <strong>no service page, location page or blog post links to it.</strong> Its only inbound links are the navbar and the footer. Roughly forty price-intent queries that your content already answers collect zero clicks because the answer is not on the page Google shows them.</p>
+      </div>
+
+      <div class="callout">
+        <h4>Two smaller things worth knowing</h4>
+        <p>You emit <code>AggregateRating</code> and <code>Review</code> schema nowhere, even though named customer reviews sit in your location data &mdash; so no star rating can ever surface. And <code>REMOVED_LOCATIONS</code> in <code>lib/locations.js</code> lists Whitefield, Indiranagar and Marathahalli, but nothing consumes it and no redirect covers those URLs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="spine">
+    <div class="sno">05</div>
+    <div class="sbody">
+      <h2>What the market looks like</h2>
+      <p>Your competitors have the same problems, but they are solving different ones faster.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Competitor</th><th>What they do that you don't</th><th>What they do worse</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tumbledry</strong></td><td>1600+ stores across 650 cities. Per-locality dedicated URLs (tumbledry.in/best-laundry-in-{area}-bangalore/). Google ratings + review counts shown inline across 50 locale cards. 23 Q&amp;A FAQ on city hub. <em>Massive content depth.</em></td><td>No prices anywhere on the city page. Deliberately withheld as a funnel. From the client's query data, they don't surface for price questions at all.</td></tr>
+            <tr><td><strong>LaundroKart</strong></td><td>50+ outlets, since 2016. Per-piece pricing printed inline on locality pages (&#8377;12&ndash;24/pc). Inline Google rating (3.9 from 102 reviews) with Maps link. Per-locality "what we actually see here" paragraph that reads as genuinely local.</td><td>Only 700&ndash;800 words on locality pages. Smaller blog layer. Fewer service pages.</td></tr>
+            <tr><td><strong>Iztri</strong></td><td>Mumbai/Bangalore 2024 startup, steam-ironing first. Pricing-first landing pages. Their entire brand is built around the one thing users search most and your site least surfaces.</td><td>Very new. Not yet competitive on breadth.</td></tr>
+            <tr><td><strong>LaundryMate</strong></td><td>50,000 sq ft in-house facility. "Sprint" 4-hour express. But Reddit has active negative threads &mdash; quality complaints are giving you a <em>conquest</em> opportunity.</td><td>Pricing unclear from homepage. Review signal mixed.</td></tr>
+            <tr><td><strong>Pressto &amp; UClean</strong></td><td>Franchise chains. Store-level price lists published (&#8377;75&ndash;99/kg). National. Good GBP density. But their app is not their differentiator.</td><td>Franchise model means quality variance. Less trust signal for app-first model.</td></tr>
+            <tr><td><strong>DhobiLite</strong></td><td>IIT-BHU founded, 74+ cities. Sharpest rate card published anywhere. Blog + franchise content engine. Brownie points for price transparency.</td><td>Franchise-first. Less modern app experience.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout good">
+        <h4>Your genuine advantages</h4>
+        <p>You have the fastest pickup (30 minutes vs Tumbledry's 2&ndash;3 days, LaundryMate's 24 hours). You have the most detailed per-location data in your codebase. You have a real app. You have named reviews. And your <span class="num">&#8377;85/kg</span> price is genuinely competitive. <strong>None of these advantages surfaces in your titles, meta descriptions, or structured data.</strong></p>
+      </div>
+      <div class="callout">
+        <h4>The brand confusion that costs you directly</h4>
+        <p>"spinzone laundry" earned 168 impressions from people searching <em>a different business entirely.</em> Spinzone Laundry is a franchise chain (Austin, TX and Australia) that has no connection to you. You appear for their name at position 2.5 and the 29 people who clicked found spinzonow.com &mdash; a good landing but a confusing first encounter. Unclear whether Google understands you are different entities. An entity page spelling out "Spinzo was founded in 2024 in Bangalore by [name]. Not related to Spinzone Laundry or Spinzone franchise." would help disentangle this.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="spine">
+    <div class="sno">06</div>
+    <div class="sbody">
+      <h2>Implementation plan</h2>
+      <p>These are ordered by impact divided by effort. Phase 1 should ship in November.</p>
+
+      <div class="phase">
+        <div class="phase-h">
+          <span class="tag t-good">Phase 1</span>
+          <h3>Fix the signal leaks &mdash; this week</h3>
+          <span class="when">1&ndash;3 days</span>
+        </div>
+        <div class="phase-b">
+          <ol class="tight">
+            <li><strong>Add the iOS Smart App Banner.</strong> One meta tag in your layout. An organic visitor to your site sees "Open in the Spinzo app" above the page &mdash; and if they don't have it, they see "Download from the App Store." This is the highest-impact single line of code you can write, and you currently don't have it.</li>
+            <li><strong>Rewrite every location page title to include the core service and a testimonial hook.</strong> From <code>BTM Layout Laundry Near Me | Wash &amp; Fold &#8377;85/kg</code> &rarr; <code>BTM Layout Laundry: 30 Min Pickup, 2nd Stage, &#8377;85/kg</code>. Pull "2nd Stage" from the real data you already have in <code>nearby</code>. You don't even need to read the page.</li>
+            <li><strong>Fix the six truncated blog titles.</strong> Cut them to 52&ndash;54 characters of the same message. A 59-character title that renders as "7 Hidden Benefits of Professional Laundry Services in Ba&hellip;" becomes "7 Hidden Benefits of Professional Laundry Services" (49 chars) &mdash; complete, readable, clickable.</li>
+            <li><strong>Publish the price answer on every service page.</strong> Add "Wash &amp; Fold &#8377;85/kg &middot; Steam Ironing &#8377;18/pc &middot; Dry Cleaning from &#8377;79" to every service page title and H1. If a searcher types "ironing cost per shirt", the page they land on should begin with the price, not explain it five paragraphs down.</li>
+            <li><strong>Add AggregateRating and Review schema.</strong> You have 19 named reviews in your location data. Mark them up as first-party reviews on a LocalBusiness. Without this schema, there is no star in the search result and no first-party trust signal for Google to use.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="phase" style="margin-top:1px">
+        <div class="phase-h">
+          <span class="tag t-warn">Phase 2</span>
+          <h3>Un-suppress the service pages &mdash; this month</h3>
+          <span class="when">1&ndash;2 weeks</span>
+        </div>
+        <div class="phase-b">
+          <ol class="tight">
+            <li><strong>Build a real <code>/services</code> hub.</strong> A page that lists all 8 services with a one-paragraph description, pricing, and a link to each service page. This fixes the doorway-abuse hierarchy problem. It also gives you a page that deserves the internal links currently scattered from nav bars.</li>
+            <li><strong>Differentiate the twelve near-duplicate intersection pages.</strong> Take the location-specific data you already have &mdash; pickup time, landmarks, access notes, the local review &mdash; and surface it on each page. The Silk Board wash-and-fold page should mention the metro-side service lane and the 18-minute pickup. The BTM wash-and-iron page should mention the narrow inner lanes and the WhatsApp confirmation. Google read the difference between these pages. Your own data what would make them different.</li>
+            <li><strong>Link <code>/pricing</code> from every relevant page.</strong> The pricing page should have inbound links from every service page, every location page, and every price-related blog post. A "View Full Rate Card &rarr;" link after the first price mention on any page.</li>
+            <li><strong>Link blog posts to services.</strong> Eight of your 21 blog posts have only 1&ndash;2 inbound links (all from the blog index). Every post that mentions wash and fold should link to <code>/services/wash-and-fold</code> and <code>/pricing</code>.</li>
+            <li><strong>Create a founder / about / entity page.</strong> A page at <code>/about</code> with a founder bio, founding story, and an explicit Entity disambiguation: "Spinzo was founded in Bangalore in 2024. Not related to Spinzone Laundry and Dry Cleaning or any Spinzone franchise." Add Organization + Person schema with <code>sameAs</code> pointing to verified social profiles. This helps Google resolve the brand-confusion problem visible in your GSC data.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="phase" style="margin-top:1px">
+        <div class="phase-h">
+          <span class="tag t-warn">Phase 3</span>
+          <h3>Cover your entire market &mdash; Q1 2027</h3>
+          <span class="when">4&ndash;6 weeks</span>
+        </div>
+        <div class="phase-b">
+          <ol class="tight">
+            <li><strong>Create location pages for all 20 service areas.</strong> You have 20 location records but only 4 have intersection service pages. Jayanagar (59 imp), JP Nagar (29), Bellandur (15+), Sarjapur (16+) are all outside the "core" set and attract real search volume with zero conversion. Each one should have at minimum a location page with a real title, unique text from the existing data, and service links.</li>
+            <li><strong>Build a <code>/services/ironing-prices-bangalore</code> or equivalent rate-card landing page.</strong> Separate from the general pricing page. Target the 40 ironing/price-intent queries directly. The title: "Ironing Prices Bangalore: &#8377;18/Shirt, &#8377;49/Saree &middot; Free Pickup". The page is simply a rate card, an FAQ, and a CTA. You have all the data for it.</li>
+            <li><strong>Blanket, quilt, comforter service pages per area.</strong> The Nov&ndash;Feb season is heating up. Your single <code>/services/blanket-wash</code> page handles 27 queries. Add location-level blanket-wash pages for the areas that show demand, timed for maximum seasonal lift.</li>
+            <li><strong>Competitor comparison pages with real content, not just one paragraph.</strong> Your existing comparison pages are 645&ndash;650 words of boilerplate. Expand them with: a table comparing every service + price point, a "why people search for {competitor}" section, and a conversion grid. Build for the "laundrymate charges" and "laundrokart vs" searcher who is already shopping.</li>
+            <li><strong>Add 301 redirect rules for REMOVED_LOCATIONS.</strong> Whitefield, Indiranagar and Marathahalli URLs currently 404. If they have any backlinks, they are being wasted.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="phase" style="margin-top:1px">
+        <div class="phase-h">
+          <span class="tag">Phase 4</span>
+          <h3>Build the moat &mdash; 2027</h3>
+          <span class="when">Ongoing</span>
+        </div>
+        <div class="phase-b">
+          <p style="font-size:.9rem;color:var(--ink-2)">At some point, your competitors will copy your pages. Against that, only three things compound and cannot be copied quickly.</p>
+          <ol class="tight">
+            <li><strong>Reviews.</strong> Your competitors' Google Business Profile ratings are solid but beatable &mdash; Tumbledry BTM shows 3.4 from 98 reviews. A review-request system built into the delivery flow (WhatsApp message when the delivery rider leaves, asking for a review) can produce the 150&ndash;300 reviews per location that will put you in the local pack. This is the single highest-leverage offline activity in this whole plan.</li>
+            <li><strong>Pricing content no one else publishes.</strong> Your pricing page is better than any competitor's. Expand it: regional breakdown, comparison of dhobi rates vs app rates, seasonal blanket pricing. When a competitor wants to copy this, they have to actually decide to lower their own pricing transparency &mdash; which they have not done yet.</li>
+            <li><strong>A blog that serves actual search intent.</strong> Your blog leans toward "why you should..." (7 Hidden Benefits, How Laundry Works, The Complete Guide). Only one post in 21 directly addresses a who vs. which vs. how-much question in its title. People who search "how much does ironing cost" or "which is the best laundry app" are a click away from converting, and there is currently no page designed to catch them.</li>
+            <li><strong>App store + web conversion funnel.</strong> With the smart banner in place, the next step is deferred deep linking (Branch / Adjust / Linkrunner or self-built with Play Install Referrer API). An organic visitor who searches "laundry in btm layout", lands on your page, and installs the app should land on the BTM booking screen in the app, not the app home page. This is measurable in GA4 only if you instrument it specifically.</li>
+            <li><strong>Quarterly market scan.</strong> Compare your GSC queries against competitors' new pages every 90 days. The Bangalore laundry market is consolidating and a new operator appears every 3&ndash;6 months. Ten minutes of search once a quarter catches them early.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="spine">
+    <div class="sno">07</div>
+    <div class="sbody">
+      <h2>Ask me for before you start</h2>
+      <ul class="tight">
+        <li><strong>Exact locations and service mix.</strong> Which areas are live and active right now vs planned. Bitla, Gottigere, Arekere &mdash; if you serve them, they should have pages before someone searches for them.</li>
+        <li><strong>Google Business Profile access.</strong> The strongest single move in this plan is not code &mdash; it is the review-request WhatsApp flow. If you control the GBP, I can draft the delivery-reply message and timing.</li>
+        <li><strong>GA4 or server logs.</strong> The traffic volumes in GSC are small enough that a spike of even 50 clicks would tell you exactly what worked. If you can share a snapshot of pages landing page engagement or search query impressions over time, I can tell you which of the fixes above produced the lift.</li>
+        <li><strong>Which pages are already getting ad traffic.</strong> It is possible that one or more of the queries in the "non-click" bucket is served by an Ads landing page. If so, I should know not to build organic depth against a query your Ads conversion already owns.</li>
+        <li><strong>Deep-link setup.</strong> Do you already have a deep-linking SDK (Branch, Adjust, Firebase Dynamic Links)? If not, it changes the "install from search" strategy substantially.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Based on Google Search Console export for spinzonow.com, 9 Aug &ndash; 8 Nov 2026 (91 days, 313 queries). Site audit of statically built output (<code>out/</code>) from the Next.js project at <code>/Users/nischaykumar/Desktop/Developer/next-spinzo.nosync</code>.</p>
+  <p>Competitor pricing benchmarks gathered from live pages: LaundroKart, Washho, BumbleDry, DhobiLite, Laundry Pro, Laundrology, Laundrywala. Google algorithm guidance verified from Search Central documentation (spam policies updated 2026-08-28, AI optimization guide 2026-05-15).</p>
+</footer>
+
+</div>
+

@@ -33,7 +33,10 @@ const founderJd = {
       sameAs: [
         'https://spinzo.in',
         'https://play.google.com/store/apps/details?id=com.nischayk3.Spinit',
-        'https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814'
+        'https://apps.apple.com/in/app/spinzo-get-laundry-in-hours/id6758751814',
+        'https://www.instagram.com/spinzolaundry/',
+        'https://www.facebook.com/spinzolaundry/',
+        'https://www.linkedin.com/company/spinzoofficial/'
       ]
     },
     {
