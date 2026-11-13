@@ -26,8 +26,10 @@ export async function generateMetadata({ params }) {
   
   if (!loc || !srv) return { title: 'Not Found' };
 
-  const rawDesc = `${srv.name} in ${loc.name}: ${loc.pickupTime || '30-min'} pickup, 6-hr delivery. ${srv.price}, no minimum. Serving ${loc.nearby.slice(0, 2).join(', ')}. Book Spinzo.`;
-  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+  const description = (() => {
+    const raw = `${srv.name} in ${loc.name}: ${loc.pickupTime || '30-min'} pickup, 6-hr delivery. ${srv.price}, no minimum. Serving ${loc.nearby.slice(0, 2).join(', ')}. Book Spinzo.`;
+    return raw.length <= 155 ? raw : raw.slice(0, 155).replace(/\s+\S*$/, '');
+  })();
 
   return {
     title: `${srv.name} Near Me in ${loc.name} | Spinzo`,

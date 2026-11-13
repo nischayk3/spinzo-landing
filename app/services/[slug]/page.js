@@ -98,10 +98,11 @@ export async function generateMetadata({ params }) {
 
   const titleSuffix = service.price ? ` • ${service.price}` : '';
   const title = `${service.name} Bangalore${titleSuffix} | Spinzo`;
-  const truncated = service.description.length > 140
-    ? service.description.substring(0, 137) + '...'
-    : service.description;
-  const description = `${truncated} ${service.price ? service.price + ' — free 30-min pickup.' : 'Free 30-min pickup.'}`;
+  const suffix = service.price ? ` ${service.price} — free 30-min pickup.` : ' Free 30-min pickup.';
+  const maxDescLen = 155 - suffix.length;
+  const description = service.description.length <= maxDescLen
+    ? service.description + suffix
+    : service.description.slice(0, maxDescLen).replace(/\s+\S*$/, '') + suffix;
 
   return {
     title,

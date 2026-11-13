@@ -4,7 +4,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 
 export const metadata = {
   title: 'About Spinzo — Bangalore\'s Fastest Laundry Service',
-  description: 'Founded in 2024 by Nischay Kumar, Spinzo is a Bangalore-based premium laundry and dry cleaning service with 30-minute pickup and 6-hour delivery.',
+  description: 'Founded in 2024 by Nischay Kumar & Kishan Gupta, Spinzo is a Bangalore laundry and dry cleaning service with 30-minute pickup and 6-hour delivery.',
   alternates: {
     canonical: 'https://spinzonow.com/about',
   },
@@ -29,7 +29,7 @@ const founderJd = {
       alternateName: 'Spinzo Laundry & Dry Cleaning',
       description: 'Bangalore\'s fastest premium laundry and dry cleaning service with 30-minute doorstep pickup and delivery within hours.',
       foundingDate: '2024',
-      founders: [{ '@type': 'Person', name: 'Nischay Kumar', url: 'https://spinzonow.com/about' }],
+      founders: [{ '@type': 'Person', name: 'Nischay Kumar & Kishan Gupta', url: 'https://spinzonow.com/about' }],
       sameAs: [
         'https://spinzo.in',
         'https://play.google.com/store/apps/details?id=com.nischayk3.Spinit',
@@ -39,7 +39,7 @@ const founderJd = {
     {
       '@type': 'Person',
       '@id': 'https://spinzonow.com/about/#founder',
-      name: 'Nischay Kumar',
+      name: 'Nischay Kumar & Kishan Gupta',
       affiliation: { '@type': 'Organization', name: 'Spinzo' },
       description: 'Founder of Spinzo, a Bangalore-based on-demand laundry and dry cleaning platform.'
     }
@@ -67,7 +67,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto px-6 md:px-8">
             <h2 className="text-2xl md:text-3xl font-bold text-[#1F0B3F] mb-6 font-display">Who We Are</h2>
             <p className="text-zinc-600 leading-relaxed mb-6">
-              Spinzo was founded in 2024 by Nischay Kumar with a simple thesis: Bangalore professionals should not have to spend their weekends doing laundry. What started as a hyper-local pickup service in BTM Layout has grown into a premium laundry and dry cleaning network spanning 20 neighborhoods across South Bangalore.
+              Spinzo was founded in 2024 with a simple thesis: Bangalore professionals should not have to spend their weekends doing laundry. What started as a hyper-local pickup service in BTM Layout has grown into a premium laundry and dry cleaning network spanning 20 neighborhoods across South Bangalore.
             </p>
             <p className="text-zinc-600 leading-relaxed mb-6">
               We operate a central dark store facility at Garuda Bhive Workspace, Old Madiwala &mdash; the geographical epicentre of South Bangalore. This location is why we can reach most addresses in under 30 minutes and return fresh clothes within hours.

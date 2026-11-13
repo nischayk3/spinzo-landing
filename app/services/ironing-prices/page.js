@@ -5,8 +5,8 @@ import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
 
 export const metadata = {
-  title: 'Ironing Prices Bangalore: ₹18/Shirt, ₹49/Saree — Free Pickup',
-  description: 'Steam ironing charges in Bangalore: ₹18 per shirt/trouser, ₹22 kurta, ₹49 saree. Free 30-min doorstep pickup. No minimum on 20+ pieces. Professional steam press.',
+  title: 'Ironing Prices Bangalore: ₹18/Shirt, ₹49/Saree',
+  description: 'Steam ironing charges in Bangalore: ₹18 per shirt, ₹22 kurta, ₹49 saree. Free 30-min doorstep pickup. Professional steam press.',
   alternates: { canonical: 'https://spinzonow.com/services/ironing-prices' },
   openGraph: {
     title: 'Ironing Prices in Bangalore — ₹18/shirt, Free Pickup | Spinzo',

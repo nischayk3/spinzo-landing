@@ -15,8 +15,8 @@ export async function generateMetadata({ params }) {
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: 'Post Not Found' };
 
-  const title = post.title.length > 55 ? post.title.substring(0, 56) + '...' : post.title;
-  const description = post.excerpt.length > 155 ? post.excerpt.substring(0, 152) + '...' : post.excerpt;
+  const title = post.title.length <= 57 ? post.title : post.title.slice(0, 57).replace(/\s+\S*$/, '');
+  const description = post.excerpt.length <= 155 ? post.excerpt : post.excerpt.slice(0, 155).replace(/\s+\S*$/, '');
 
   return {
     title,

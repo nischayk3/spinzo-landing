@@ -191,11 +191,11 @@ export async function generateMetadata({ params }) {
   if (!compData) return { title: 'Not Found' };
 
   const shortName = compData.name.split('/')[0].trim();
-  const rawTitle = `Spinzo vs ${shortName} | Bangalore Laundry`;
-  const title = rawTitle.length > 58 ? rawTitle.substring(0, 58) : rawTitle;
+  const title = `Spinzo vs ${shortName} | Bangalore Laundry`;
 
-  const rawDesc = `Spinzo vs ${shortName}: 30-min pickup, 6-hr delivery, ₹85/kg flat vs ${compData.name}'s ${compData.delivery} delivery. Bangalore laundry comparison.`;
-  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+  const suffix = `${shortName}: 30-min pickup, 6-hr delivery, ₹85/kg — Bangalore laundry comparison.`;
+  const raw = `Spinzo vs ${suffix}`;
+  const description = raw.length <= 155 ? raw : raw.slice(0, 155).replace(/\s+\S*$/, '');
 
   return {
     title,

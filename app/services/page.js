@@ -6,7 +6,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 
 export const metadata = {
   title: 'All Laundry Services in Bangalore | Spinzo',
-  description: 'Spinzo offers laundry, ironing, dry cleaning and more across South Bangalore: Wash & Fold ₹85/kg, Steam Ironing ₹18/pc, Dry Cleaning from ₹79, Blanket Wash ₹299+. 30-min free pickup.',
+  description: 'Spinzo offers laundry, ironing, dry cleaning across South Bangalore: Wash & Fold ₹85/kg, Steam Ironing ₹18/pc. 30-min free pickup.',
   alternates: { canonical: 'https://spinzonow.com/services' },
   openGraph: {
     title: 'All Laundry Services in Bangalore | Spinzo',

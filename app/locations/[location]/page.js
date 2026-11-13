@@ -267,11 +267,28 @@ export async function generateMetadata({ params }) {
   const abbr = areaAbbrs[loc.slug] || `${(loc.nearby || [''])[0]}`;
   const pickup = loc.pickupTime || '30-min';
 
-  const titleStr = `${locationName} Laundry: ${pickup} Pickup, ₹85/kg, ${abbr}`;
-  const title = titleStr.length > 63 ? titleStr.substring(0, 60).replace(/,\s*[^,]*$/, '') : titleStr;
+  // Titles are truncated around 57 characters in the SERP, so anything longer
+  // loses its tail. Build up to that budget and never cut mid-word: prefer the
+  // price plus as many landmark segments as fit, and fall back to the landmark
+  // alone when it will not fit alongside the price — the landmark is what
+  // distinguishes one area page from another.
+  const base = `${locationName} Laundry: ${pickup} Pickup`;
+  const priceVariant = `${base}, ₹85/kg`;
+  const segments = abbr.split(',').map((s) => s.trim()).filter(Boolean);
+  const fits = (s) => s.length <= 57;
+
+  let title = fits(priceVariant) ? priceVariant : base;
+  for (const segment of segments) {
+    if (!fits(`${title}, ${segment}`)) break;
+    title = `${title}, ${segment}`;
+  }
+  if (title === priceVariant && segments.length) {
+    const landmarkOnly = `${base}, ${segments[0]}`;
+    if (fits(landmarkOnly)) title = landmarkOnly;
+  }
 
   const rawDesc = `Laundry in ${locationName}: ${pickup} doorstep pickup from ${abbr}. Wash & Fold ₹85/kg, Steam Ironing ₹18/pc. Free delivery.`;
-  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+  const description = rawDesc.length <= 155 ? rawDesc : rawDesc.slice(0, 155).replace(/\s+\S*$/, '');
 
   return {
     title,

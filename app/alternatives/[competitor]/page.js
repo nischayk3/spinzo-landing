@@ -18,11 +18,8 @@ export async function generateMetadata({ params }) {
   const comp = getCompetitor(competitor);
   if (!comp) return { title: 'Not Found' };
 
-  const rawTitle = `Best ${comp.name} Alternative in Bangalore | Spinzo`;
-  const title = rawTitle.length > 58 ? rawTitle.substring(0, 58) : rawTitle;
-
-  const rawDesc = `Looking for a ${comp.name} alternative in Bangalore? Spinzo offers 30-min pickup, 6-hr delivery & ₹85/kg pricing across South Bangalore. No minimums.`;
-  const description = rawDesc.length > 155 ? rawDesc.substring(0, 152) + '...' : rawDesc;
+  const title = `Best ${comp.name} Alternative in Bangalore | Spinzo`;
+  const description = `Looking for a ${comp.name} alternative in Bangalore? Spinzo offers 30-min pickup, 6-hr delivery & ₹85/kg across South Bangalore. No minimums.`;  // 143 chars, fits
 
   return {
     title,
