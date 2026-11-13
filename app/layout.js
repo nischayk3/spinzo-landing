@@ -138,7 +138,26 @@ export default function RootLayout({ children }) {
                   "reviewBody": "They picked up from right outside Silk Board metro in 15 minutes and I had everything back the same evening.",
                   "reviewRating": { "@type": "Rating", "ratingValue": "5" }
                 }
-              ]
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Laundry Services",
+                "itemListElement": [
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wash & Fold" }, "price": "85", "priceCurrency": "INR" },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wash & Iron" }, "price": "140", "priceCurrency": "INR" },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Steam Ironing" }, "price": "18", "priceCurrency": "INR" },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Cleaning" }, "price": "79", "priceCurrency": "INR" },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Blanket Wash" }, "price": "299", "priceCurrency": "INR" }
+                ]
+              },
+              "paymentAccepted": ["Cash", "Credit Card", "UPI", "Online Payment"],
+              "currenciesAccepted": "INR",
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "opens": "09:00",
+                "closes": "22:00"
+              }
             })
           }}
         />

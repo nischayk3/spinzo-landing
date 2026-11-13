@@ -113,6 +113,12 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/laundry-charges-bangalore`,
+      lastModified: siteUpdateDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     ...serviceUrls,
     ...locationUrls,
     ...intersectionUrls,

@@ -161,9 +161,9 @@ export default function Home() {
             <span className="inline-block text-[#994BFF] font-bold uppercase tracking-widest text-sm mb-3">
               Serving Across South Bangalore
             </span>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#1F0B3F] mb-6 font-display">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-[#1F0B3F] mb-6 font-display">
               Laundry Pickup &amp; Delivery Near You
-            </h1>
+            </h2>
 
             <div className="flex flex-wrap justify-center gap-2.5 mb-8">
               {SERVICES.map((s) => (
