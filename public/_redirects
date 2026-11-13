@@ -1,7 +1,5 @@
 # Clean redirects for legacy or dropped intersection pages
-/locations/jayanagar/:service  /locations/jayanagar  301!
 /locations/jp-nagar/:service   /locations/jp-nagar   301!
-/locations/bellandur/:service  /locations/bellandur  301!
 
 # Silk Board dropped intersection services
 /locations/silk-board/dry-cleaning    /services/dry-cleaning    301!

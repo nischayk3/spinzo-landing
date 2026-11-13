@@ -35,29 +35,18 @@
 
 
 # 301 redirects: dropped intersection pages → parent area page
-# These pages were generated for 6 areas × 8 services (48 pages) but we now
-# build only 4 core areas × 3 intersection services (12 pages).
 # Google had 39 of the original 48 "Discovered – not indexed" — the redirect
 # consolidates link equity and removes the content-similarity penalty.
 
-# Areas removed from CORE_SERVICE_AREAS entirely — redirect all service links
-[[redirects]]
-  from = "/locations/jayanagar/:service"
-  to = "/locations/jayanagar"
-  status = 301
-  force = true
-
+# Jayanagar now in CORE_SERVICE_AREAS → intersection pages exist, so :service is not a wildcard redirect.
+# JP Nagar is not in CORE_SERVICE_AREAS → still needs redirect for all services.
 [[redirects]]
   from = "/locations/jp-nagar/:service"
   to = "/locations/jp-nagar"
   status = 301
   force = true
 
-[[redirects]]
-  from = "/locations/bellandur/:service"
-  to = "/locations/bellandur"
-  status = 301
-  force = true
+# Bellandur now in CORE_SERVICE_AREAS → intersection pages exist.
 
 # Silk Board is new in CORE — redirect non-intersection services to /services/
 [[redirects]]
