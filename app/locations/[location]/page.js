@@ -272,7 +272,11 @@ export async function generateMetadata({ params }) {
   // price plus as many landmark segments as fit, and fall back to the landmark
   // alone when it will not fit alongside the price — the landmark is what
   // distinguishes one area page from another.
-  const base = `${locationName} Laundry: ${pickup} Pickup`;
+  // Koramangala's GSC data shows queries with "laundry service in koramangala"
+  // not matching the "Koramangala Laundry" title — use "Service" pattern there.
+  const useServicePattern = ['koramangala', 'jayanagar', 'bellandur'].includes(loc.slug);
+  const baseLabel = useServicePattern ? 'Service' : 'Laundry';
+  const base = `${locationName} ${baseLabel}: ${pickup} Pickup`;
   const priceVariant = `${base}, ₹85/kg`;
   const segments = abbr.split(',').map((s) => s.trim()).filter(Boolean);
   const fits = (s) => s.length <= 57;
@@ -287,7 +291,9 @@ export async function generateMetadata({ params }) {
     if (fits(landmarkOnly)) title = landmarkOnly;
   }
 
-  const rawDesc = `Laundry in ${locationName}: ${pickup} doorstep pickup from ${abbr}. Wash & Fold ₹85/kg, Steam Ironing ₹18/pc. Free delivery.`;
+  const rawDesc = useServicePattern
+    ? `${baseLabel} in ${locationName}: ${pickup} doorstep pickup from ${abbr}. Wash & Fold ₹85/kg, Steam Ironing ₹18/pc. Free delivery.`
+    : `Laundry in ${locationName}: ${pickup} doorstep pickup from ${abbr}. Wash & Fold ₹85/kg, Steam Ironing ₹18/pc. Free delivery.`;
   const description = rawDesc.length <= 155 ? rawDesc : rawDesc.slice(0, 155).replace(/\s+\S*$/, '');
 
   return {

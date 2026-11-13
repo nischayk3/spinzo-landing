@@ -7,7 +7,7 @@ import { getCompetitor } from "@/lib/competitors";
 
 // Only these competitors get alternative pages — the ones with the most
 // review complaints and switch-intent search volume.
-const ALTERNATIVE_SLUGS = ['bumbledry', 'tumbledry', 'laundrokart'];
+const ALTERNATIVE_SLUGS = ['bumbledry', 'tumbledry', 'laundrokart', 'washho', 'laundrymate', 'uclean'];
 
 export async function generateStaticParams() {
   return ALTERNATIVE_SLUGS.map((competitor) => ({ competitor }));
@@ -92,6 +92,45 @@ function renderAlternativeContent(comp, slug) {
       { '@type': 'Question', name: 'Does Spinzo serve Silk Board?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Spinzo has a dark store at Silk Board serving Central Silk Board Colony, BTM 2nd Stage, Madiwala, and the entire junction area. Pickup time is 18 minutes.' } },
     );
     content.whySpinzoBetter = 'Spinzo is 8–16× faster than LaundroKart (6–12h vs 4–5 days), cheaper at ₹85/kg vs their ₹23/piece, and has no minimum order. We also offer same-day express at ₹149/kg — something LaundroKart doesn\'t have at all.';
+  } else if (slug === 'washho') {
+    content.header = 'Washho Too Slow? Try Same-Day Laundry';
+    content.intro = 'Washho offers laundry service across Bangalore, Delhi, Hyderabad, and other cities with a 72-hour turnaround and ₹89/kg pricing. While their pricing is close to Spinzo\'s, their 3-day delivery means you\'re waiting 3x longer than Spinzo\'s 6-hour turnaround.';
+    content.commonComplaints = [
+      { text: '72-hour standard delivery', source: 'Washho website', detail: 'Washho\'s standard turnaround is 72 hours. Spinzo delivers in 6–12 hours — 6–12× faster.' },
+      { text: 'No same-day or express option', source: 'Washho website', detail: 'Washho doesn\'t offer same-day delivery. Spinzo\'s Express service delivers in 6 hours.' },
+      { text: 'Limited Bangalore area coverage', source: 'User reports', detail: 'Washho focuses on specific zip codes; not all South Bangalore neighborhoods are covered.' },
+    ];
+    faqLd.mainEntity.push(
+      { '@type': 'Question', name: 'Is Washho cheaper than Spinzo?', acceptedAnswer: { '@type': 'Answer', text: 'Washho charges ₹89/kg vs Spinzo\'s ₹85/kg — Spinzo is ₹4/kg cheaper. But the real difference is speed: 6 hours vs 72 hours.' } },
+      { '@type': 'Question', name: 'Does Washho offer same-day delivery?', acceptedAnswer: { '@type': 'Answer', text: 'No. Washho\'s standard turnaround is 72 hours. Spinzo offers Express Same-Day delivery in 6 hours at ₹149/kg.' } },
+    );
+    content.whySpinzoBetter = 'Spinzo is 6–12× faster (6–12 hours vs 72 hours), ₹4/kg cheaper (₹85/kg vs ₹89/kg), and offers same-day express that Washho doesn\'t have at all.';
+  } else if (slug === 'laundrymate') {
+    content.header = 'LaundryMate Taking Too Long?';
+    content.intro = `LaundryMate is Bangalore's best-funded laundry startup (₹50Cr+ raised). They offer a 50,000 sq ft facility and a "Sprint" 4-hour express service. But their standard wash & fold is ₹140+/kg — 65% more expensive than Spinzo — and customer complaints on Reddit suggest inconsistent quality.`;
+    content.commonComplaints = [
+      { text: '₹140/kg vs Spinzo\'s ₹85/kg', source: 'LaundryMate website', detail: 'LaundryMate charges ₹140+/kg for standard wash & fold. Spinzo is ₹85/kg — 39% cheaper.' },
+      { text: 'Slow website, 94% bounce rate', source: 'Traffic data', detail: 'LaundryMate\'s website has 32K monthly visits but a 94% bounce rate — visitors don\'t convert.' },
+      { text: 'Negative Reddit threads', source: 'Reddit r/bangalore', detail: 'Multiple Reddit threads about quality issues and delays. Conquest opportunity for Spinzo.' },
+    ];
+    faqLd.mainEntity.push(
+      { '@type': 'Question', name: 'Is LaundryMate or Spinzo cheaper?', acceptedAnswer: { '@type': 'Answer', text: 'Spinzo is significantly cheaper. Standard Wash & Fold is ₹85/kg at Spinzo vs ₹140+/kg at LaundryMate. For a typical 5kg weekly load: ₹425 vs ₹700+' } },
+      { '@type': 'Question', name: 'Does LaundryMate offer free pickup?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, LaundryMate offers free pickup like Spinzo. But their pricing is 65% higher for the same service.' } },
+    );
+    content.whySpinzoBetter = 'Spinzo is ₹85/kg vs LaundryMate\'s ₹140/kg — 39% cheaper for the same service. Both offer free pickup, but Spinzo delivers in 6–12 hours vs LaundryMate\'s 24 hours.';
+  } else if (slug === 'uclean') {
+    content.header = 'UClean Not Cutting It? Switch to Spinzo';
+    content.intro = 'UClean is a franchise-based laundry chain with 450+ stores across India. Their franchise model means quality varies by location, and their JavaScript-heavy website has almost no crawlable content — making it hard for customers to find pricing or availability online.';
+    content.commonComplaints = [
+      { text: 'Franchise quality inconsistency', source: 'User reports', detail: 'As a franchise chain, UClean quality depends on the individual franchise owner. Spinzo operates in-house with consistent quality control.' },
+      { text: 'No crawlable pricing online', source: 'UClean website', detail: 'UClean\'s site is 9KB and JS-rendered — no pricing, no service descriptions visible in search.' },
+      { text: 'Not Bangalore-specific', source: 'UClean website', detail: 'UClean is a national chain. Their Bangalore content is generic. Spinzo is hyper-local with 20 neighborhoods.' },
+    ];
+    faqLd.mainEntity.push(
+      { '@type': 'Question', name: 'Does UClean serve all of Bangalore?', acceptedAnswer: { '@type': 'Answer', text: 'UClean has select franchise stores in Bangalore but doesn\'t offer the hyper-local coverage Spinzo does across 20 South Bangalore neighborhoods.' } },
+      { '@type': 'Question', name: 'Is UClean cheaper than Spinzo?', acceptedAnswer: { '@type': 'Answer', text: 'UClean\'s franchise pricing varies by location. Spinzo offers transparent ₹85/kg pricing with no hidden fees across all 20 service areas.' } },
+    );
+    content.whySpinzoBetter = 'Spinzo offers consistent quality (in-house operations, not franchises), transparent ₹85/kg pricing, hyper-local coverage across 20 Bangalore neighborhoods, and real-time app tracking. UClean can\'t match the local focus.';
   }
 
   return { content, faqLd };

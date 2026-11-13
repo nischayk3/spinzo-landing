@@ -43,7 +43,7 @@ export default function sitemap() {
     }
   }
 
-  const alternativeSlugs = ['bumbledry', 'tumbledry', 'laundrokart'];
+  const alternativeSlugs = COMPETITOR_SLUGS.filter(s => !['iztri', 'local-dhobi'].includes(s));
   const alternativeUrls = alternativeSlugs.map((comp) => ({
     url: `${baseUrl}/alternatives/${comp}`,
     lastModified: siteUpdateDate,
