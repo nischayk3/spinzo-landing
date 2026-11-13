@@ -275,7 +275,7 @@ export async function generateMetadata({ params }) {
   // Koramangala's GSC data shows queries with "laundry service in koramangala"
   // not matching the "Koramangala Laundry" title — use "Service" pattern there.
   const useServicePattern = ['koramangala', 'jayanagar', 'bellandur'].includes(loc.slug);
-  const baseLabel = useServicePattern ? 'Service' : 'Laundry';
+  const baseLabel = useServicePattern ? 'Laundry Service' : 'Laundry';
   const base = `${locationName} ${baseLabel}: ${pickup} Pickup`;
   const priceVariant = `${base}, ₹85/kg`;
   const segments = abbr.split(',').map((s) => s.trim()).filter(Boolean);
